@@ -1,5 +1,11 @@
 @extends('web.layout.app')
 @section('content')
+<section class="about js-about">
+  <div>
+    <p>marceli.to<br>Marcel Stadelmann<br>Schulstrasse 12<br>8400 Winterthur</p>
+    <p>T: 078 749 74 09<br>M: m@marceli.to</p>
+  </div>
+</section>
 <section class="post">
   <a href="https://day.ch" target="_blank" rel="noreferrer" title="Visit day.ch" class="card js-card">
     <figure>

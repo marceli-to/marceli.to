@@ -5,6 +5,7 @@
  */
 
 .brand {
+  background-image: none;
   border: 1px solid #721121;
   border-radius: 50%;
   display: block;
@@ -15,6 +16,20 @@
   top: $space-4x;
   width: 48px;
   animation: brand 20s infinite;
+  transition: background-image .06s ease-in;
+
+  &:hover,
+  &.has-about {
+    @include background-default();
+    background-image: url($url-icons + 'marcelito.svg');
+    background-position: center center;
+    background-size: 64px auto;
+    transition: background-image .06s ease-in;
+
+    svg {
+      display: none;
+    }
+  }
 
   svg {
     @extend %is-responsive;

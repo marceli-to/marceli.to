@@ -1,11 +1,11 @@
-var Menu = (function() {
+var about = (function() {
 	
 	// selectors
 	var selectors = {
     html:     'html',
     body:     'body',
-    menu:     '.js-menu',
-    menuBtn:  '.js-menu-btn',
+    about:     '.js-about',
+    aboutBtn:  '.js-about-btn',
 	};
 
   // css classes
@@ -14,7 +14,7 @@ var Menu = (function() {
     visible:  'is-visible',
     hidden:   'is-hidden',
     open:     'is-open',
-    hasMenu:  'has-menu',
+    hasAbout:  'has-about',
   };
 
   // Init
@@ -24,14 +24,14 @@ var Menu = (function() {
 
   // Bind events
   var _bind = function() {
-    $(selectors.body).on('click', selectors.menuBtn, function(){
+    $(selectors.body).on('click', selectors.aboutBtn, function(){
       _toggle($(this));
     });
   };
 
   var _toggle = function() {
-    $(selectors.menu).toggleClass(classes.visible);
-    $(selectors.menuBtn).toggleClass(classes.active);
+    $(selectors.about).toggleClass(classes.visible);
+    $(selectors.aboutBtn).toggleClass(classes.hasAbout);
   };
 
   /* --------------------------------------------------------------
@@ -46,6 +46,6 @@ var Menu = (function() {
 
 // Initialize
 $(function() {
-  Menu.init();
+  about.init();
 });
 
