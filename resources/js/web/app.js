@@ -7,6 +7,5 @@ require('./bootstrap');
 
 // Modules
 require('./modules/menu.js');
-require('./modules/cards.js');
+// require('./modules/cards.js');
 // require('./modules/swiper.js');
-

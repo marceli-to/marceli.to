@@ -26,11 +26,7 @@ strong, b {
 }
 
 p {
-	margin: 0 0 $space-6x 0;
-
-	@include bp-md() {
-		margin-bottom: $space-7x;
-	}
+	margin: 0 0 $space-4x 0;
 	
 	&:last-child {
 		margin-bottom: 0 !important;
