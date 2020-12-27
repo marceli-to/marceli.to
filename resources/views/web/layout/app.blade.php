@@ -22,7 +22,6 @@
 </head>
 <body>
 @include('web.partials.header')
-@include('web.partials.menu')
 <main role="main" class="site">
   @yield('content')
 </main>
