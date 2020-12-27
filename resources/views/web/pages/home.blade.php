@@ -2,7 +2,7 @@
 @section('seo_title', 'Home')
 @section('content')
 <section class="post">
-  <div class="card">
+  <a href="https://day.ch" target="_blank" class="card js-card">
     <figure>
       <img src="/assets/img/day.jpg" height="1000" width="1000" class="is-responsive">
     </figure>
@@ -17,12 +17,38 @@
       </div>
     </footer>
     <div class="card__content">
-      <span>Visit day.ch</span>
+      <div>
+        <p>Corporate website for the shoe manufacturer Day in Zurich. Online store is coming soon.</p>
+        <p><span>Visit day.ch</span></p>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
 <section class="post">
-  <div class="card">
+  <a href="https://sajo.ch" target="_blank" class="card js-card">
+    <figure>
+      <img src="/assets/img/sajo.jpg" height="1000" width="1000" class="is-responsive">
+    </figure>
+    <footer class="card__footer">
+      <div>
+        <label>Client</label>
+        <div>Samuel Jordi, Winterthur</div>
+      </div>
+      <div>
+        <label>Concept & Design</label>
+        <div>Samuel Jordi, Winterthur</div>
+      </div>
+    </footer>
+    <div class="card__content">
+      <div>
+        <p>Online shop and portfolio of the Winterthurer artist Samuel Jordi.</p>
+        <p><span>Visit sajo.ch</span></p>
+      </div>
+    </div>
+  </a>
+</section>
+<section class="post">
+  <a href="https://hausermeier.ch" target="_blank" class="card js-card">
     <figure>
       <img src="/assets/img/hame.jpg" height="1000" width="1000" class="is-responsive">
     </figure>
@@ -37,12 +63,15 @@
       </div>
     </footer>
     <div class="card__content">
-      <span>Visit hausermeier.ch</span>
+      <div>
+        <p>Portfolio website for the architect duo Martina Hauser and Sabine Meier.</p>
+        <p><span>Visit hausermeier.ch</span></p>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
 <section class="post">
-  <div class="card">
+  <a href="https://intercable-schweiz.ch" target="_blank" class="card js-card">
     <figure>
       <img src="/assets/img/intercable.jpg" height="1000" width="1000" class="is-responsive">
     </figure>
@@ -57,12 +86,15 @@
       </div>
     </footer>
     <div class="card__content">
-      <span>Visit intercable-schweiz.ch</span>
+      <div>
+        <p>How to correctly use tools from Intercable.</p>
+        <p><span>Visit intercable-schweiz.ch</span></p>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
 <section class="post">
-  <div class="card">
+  <a href="https://oxid-architektur.ch" target="_blank" class="card js-card">
     <figure>
       <img src="/assets/img/oxid.jpg" height="1000" width="1000" class="is-responsive">
     </figure>
@@ -77,8 +109,11 @@
       </div>
     </footer>
     <div class="card__content">
-      <span>Visit oxid-architektur.ch</span>
+      <div>
+        <p>Portfolio website for the swiss architects Oxid Architekten.</p>
+        <p><span>Visit oxid-architektur.ch</span></p>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
 @endsection
