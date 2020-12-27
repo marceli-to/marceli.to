@@ -76,9 +76,9 @@
   </a>
 </section>
 <section class="post">
-  <a href="https://intercable-schweiz.ch" target="_blank" rel="noreferrer" title="intercable-schweiz.ch" class="card js-card">
+  <a href="https://mobilecharge.ch" target="_blank" rel="noreferrer" title="mobilecharge.ch" class="card js-card">
     <figure>
-      <img src="/assets/img/intercable.jpg" height="1000" width="1000" title="Webseite Intercable Schweiz" class="is-responsive">
+      <img src="/assets/img/mobilecharge.jpg" height="1000" width="1000" title="Webseite Mobilecharge" class="is-responsive">
     </figure>
     <footer class="card__footer">
       <div>
@@ -87,12 +87,12 @@
       </div>
       <div>
         <label>Konzept & Design</label>
-        <div>marceli.to, Winterthur</div>
+        <div>Jam'on digital AG, Zürich</div>
       </div>
       <div class="card__content">
         <div>
-          <p>How to correctly use tools from Intercable.</p>
-          <p><span>intercable-schweiz.ch</span></p>
+          <p>Konfigurieren Sie ihre eMobility Ladestation.</p>
+          <p><span>mobilecharge.ch</span></p>
         </div>
       </div>
     </footer>
@@ -116,6 +116,29 @@
         <div>
           <p>Portfolio Webseite für das Zürcher Architekturbüro Oxid.</p>
           <p><span>oxid-architektur.ch</span></p>
+        </div>
+      </div>
+    </footer>
+  </a>
+</section>
+<section class="post">
+  <a href="https://intercable-schweiz.ch" target="_blank" rel="noreferrer" title="intercable-schweiz.ch" class="card js-card">
+    <figure>
+      <img src="/assets/img/intercable.jpg" height="1000" width="1000" title="Webseite Intercable Schweiz" class="is-responsive">
+    </figure>
+    <footer class="card__footer">
+      <div>
+        <label>Kunde</label>
+        <div>Ferratec AG, Rudolfstetten</div>
+      </div>
+      <div>
+        <label>Konzept & Design</label>
+        <div>marceli.to, Winterthur</div>
+      </div>
+      <div class="card__content">
+        <div>
+          <p>How to correctly use tools from Intercable.</p>
+          <p><span>intercable-schweiz.ch</span></p>
         </div>
       </div>
     </footer>
