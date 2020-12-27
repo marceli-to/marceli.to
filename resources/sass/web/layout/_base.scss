@@ -14,7 +14,7 @@ body {
 	background-color: $color-white;
 	color: $color-primary;
 	@include font-smoothing();
-	@include font-xbold();
+	@include font-regular();
 	@include font-size($fs-md);
 	position: relative;
 }

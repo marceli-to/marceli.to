@@ -16,6 +16,9 @@
         <div>WBG AG – Visuelle Kommunikation, Zürich</div>
       </div>
     </footer>
+    <div class="card__content">
+      <span>Visit day.ch</span>
+    </div>
   </div>
 </section>
 <section class="post">
@@ -33,6 +36,9 @@
         <div>Bivgrafik GmbH, Zürich</div>
       </div>
     </footer>
+    <div class="card__content">
+      <span>Visit hausermeier.ch</span>
+    </div>
   </div>
 </section>
 <section class="post">
@@ -50,6 +56,9 @@
         <div>marceli.to, Winterthur</div>
       </div>
     </footer>
+    <div class="card__content">
+      <span>Visit intercable-schweiz.ch</span>
+    </div>
   </div>
 </section>
 <section class="post">
@@ -67,6 +76,9 @@
         <div>Bivgrafik GmbH, Zürich</div>
       </div>
     </footer>
+    <div class="card__content">
+      <span>Visit oxid-architektur.ch</span>
+    </div>
   </div>
 </section>
 @endsection
