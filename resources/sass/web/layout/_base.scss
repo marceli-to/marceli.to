@@ -15,7 +15,7 @@ body {
 	color: $color-primary;
 	@include font-smoothing();
 	@include font-regular();
-	@include font-size($fs-sm);
+	@include font-size($fs-md);
 	letter-spacing: 0.06em;
 	position: relative;
 	text-transform: uppercase;
