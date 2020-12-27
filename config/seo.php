@@ -11,7 +11,7 @@ return [
   |
   */
 
-  'title' => 'marceli.to - Webdev.Winterthur',
+  'title' => 'marceli.to, Winterthur',
 
   /*
   |--------------------------------------------------------------------------
@@ -22,6 +22,6 @@ return [
   |
   */
 
-  'description' => '',   
+  'description' => 'Webdevelopment with passion from Winterthur, Switzerland',   
 
 ];

@@ -1,10 +1,9 @@
 @extends('web.layout.app')
-@section('seo_title', 'Home')
 @section('content')
 <section class="post">
-  <a href="https://day.ch" target="_blank" class="card js-card">
+  <a href="https://day.ch" target="_blank" title="Visit day.ch" class="card js-card">
     <figure>
-      <img src="/assets/img/day.jpg" height="1000" width="1000" class="is-responsive">
+      <img src="/assets/img/day.jpg" height="1000" width="1000" title="Website Day" class="is-responsive">
     </figure>
     <footer class="card__footer">
       <div>
@@ -25,9 +24,9 @@
   </a>
 </section>
 <section class="post">
-  <a href="https://sajo.ch" target="_blank" class="card js-card">
+  <a href="https://sajo.ch" target="_blank" title="Visit sajo.ch" class="card js-card">
     <figure>
-      <img src="/assets/img/sajo.jpg" height="1000" width="1000" class="is-responsive">
+      <img src="/assets/img/sajo.jpg" height="1000" width="1000" title="Website & Shop Samuel Jordi" class="is-responsive">
     </figure>
     <footer class="card__footer">
       <div>
@@ -48,9 +47,9 @@
   </a>
 </section>
 <section class="post">
-  <a href="https://hausermeier.ch" target="_blank" class="card js-card">
+  <a href="https://hausermeier.ch" target="_blank" title="Visit hausermeier.ch" class="card js-card">
     <figure>
-      <img src="/assets/img/hame.jpg" height="1000" width="1000" class="is-responsive">
+      <img src="/assets/img/hame.jpg" height="1000" width="1000" title="Website Hauser Meier Architektinnen" class="is-responsive">
     </figure>
     <footer class="card__footer">
       <div>
@@ -71,9 +70,9 @@
   </a>
 </section>
 <section class="post">
-  <a href="https://intercable-schweiz.ch" target="_blank" class="card js-card">
+  <a href="https://intercable-schweiz.ch" target="_blank" title="Visit intercable-schweiz.ch" class="card js-card">
     <figure>
-      <img src="/assets/img/intercable.jpg" height="1000" width="1000" class="is-responsive">
+      <img src="/assets/img/intercable.jpg" height="1000" width="1000" title="Webseite Intercable Schweiz" class="is-responsive">
     </figure>
     <footer class="card__footer">
       <div>
@@ -94,9 +93,9 @@
   </a>
 </section>
 <section class="post">
-  <a href="https://oxid-architektur.ch" target="_blank" class="card js-card">
+  <a href="https://oxid-architektur.ch" target="_blank" title="Visit oxid-architektur.ch" class="card js-card">
     <figure>
-      <img src="/assets/img/oxid.jpg" height="1000" width="1000" class="is-responsive">
+      <img src="/assets/img/oxid.jpg" height="1000" width="1000" class="is-responsive" alt="Website Oxid Architekten">
     </figure>
     <footer class="card__footer">
       <div>
