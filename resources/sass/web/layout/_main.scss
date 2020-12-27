@@ -1,0 +1,18 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/main
+ * -----------------------------------------------------------------------------
+ */
+
+main.site {
+  padding: $header-height $space-2x $space-2x $space-2x;
+  position: relative;
+
+  @include bp-md() {
+    padding: $header-height-md $space-4x $space-4x $space-4x;
+  }
+
+  &.is-home {
+    padding: 0 !important;
+  }
+}

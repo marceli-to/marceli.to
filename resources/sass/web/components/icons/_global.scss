@@ -1,0 +1,107 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/global
+ * -----------------------------------------------------------------------------
+ */
+
+// Main class
+%icons,
+.icons {
+    display: block;
+    width: 100%;
+}
+
+
+// Center the wrapper
+%icons-center,
+.icons-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Spread evenly (needs flexbox)
+%icons-spread,
+.icons-spread {
+    text-align: center;
+    [class*="icon"]:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+// Spread with flexbox support
+@supports (display: flex) {
+    %icons-spread,
+    .icons-spread {
+        display: flex;
+        justify-content: space-between;
+        .icon {
+            margin-right: 0 !important;
+        }        
+    }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Generic icon classes
+ * -----------------------------------------------------------------------------
+ */
+
+%icon,
+.icon {
+    display: block;
+}
+
+// Inline block
+%icon-ib,
+.icon-ib {
+    display: inline-block;
+}
+
+// Background image
+%icon-bg,
+.icon-bg {
+    @include background-default();
+    background-size: 100%;
+}
+
+// Rounded icon
+%icon-round,
+.icon-round {
+    border-radius: 50%;
+}
+
+// Overlay
+%icon-over,
+.icon-over {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+// Inline image
+%icon-img,
+.icon-img {
+    img, svg {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+}
+
+// Rotate on hover
+%icon-rotate,
+.icon-rotate {
+	transition: transform .16s ease-out;
+	&:hover {
+		@include rotate(20deg);
+	} 
+}
+
+%icon-fade,
+.icon-fade {
+    opacity: 1;
+	transition: opacity .12s ease-out;
+	&:hover {
+		opacity: 0.6;
+	} 
+}

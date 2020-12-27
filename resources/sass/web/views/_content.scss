@@ -1,0 +1,43 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: views/product
+ * -----------------------------------------------------------------------------
+ */
+
+.content {
+
+  > div {
+    @extend %inner-block;
+  }
+
+  img {
+    @extend %is-responsive;
+  }
+
+  .content__text {
+    margin-bottom: $space-8x;
+    margin-top: $space-6x;
+
+    @include bp-md() {
+      margin-bottom: $space-11x;
+      margin-top: $space-8x;
+    }
+
+    h2 {
+      margin-bottom: $space-6x;
+      @include bp-md() {
+        margin-bottom: 0;
+      }
+
+      svg {
+        display: block;
+        height: 20px;
+        width: auto;
+
+        @include bp-md() {
+          height: 32px;
+        }
+      }
+    }
+  }
+}

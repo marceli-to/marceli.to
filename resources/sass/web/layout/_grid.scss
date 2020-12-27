@@ -1,0 +1,35 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/grid
+ * -----------------------------------------------------------------------------
+ *
+ */
+
+%grid,
+.grid {
+  display: grid;
+  grid-gap: $space-1x;
+  margin-bottom: $space-1x;
+
+  @include bp-md() {
+    grid-gap: $space-4x;
+    margin-bottom: $space-4x;
+  }
+}
+
+%grid-2x1,
+.grid-2x1 {
+  @extend %grid;
+  @include bp-sm() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.span {
+  &.is-stack figure:first-of-type {
+    margin-bottom: $space-1x;
+    @include bp-md() {
+      margin-bottom: $space-4x;
+    }
+  }
+}

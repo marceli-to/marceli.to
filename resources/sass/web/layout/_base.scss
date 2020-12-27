@@ -1,0 +1,24 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/base
+ * -----------------------------------------------------------------------------
+ */
+
+@include scrollbar(6px, #f9f9f9);
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	background-color: $color-white;
+	color: $color-primary;
+	@include font-smoothing();
+	@include font-bold();
+	@include font-size($fs-md);
+	position: relative;
+
+	&.is-home {
+		overflow: hidden;
+	}
+}

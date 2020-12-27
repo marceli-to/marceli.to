@@ -1,0 +1,63 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: vendor/swiper/swiper-custom
+ * -----------------------------------------------------------------------------
+ */
+
+.swiper-container {
+  height: inherit;
+  width: 100%;
+}
+
+.swiper-slide {
+  img {
+    @extend %is-responsive;
+    object-fit: cover;
+    position: relative;
+    height: 100vh;
+    height: -webkit-fill-available;
+    width: 100%;
+
+    &.is-mobile {
+      display: block;
+      @include bp-md() {
+        display: none;
+      }
+    }
+
+    &.is-desktop {
+      display: none;
+      @include bp-md() {
+        display: block;
+      }
+    }
+  }
+}
+
+.swiper-btn-prev,
+.swiper-btn-next {
+  display: none;
+  position: fixed;
+  width: 50%;
+  z-index: 90;
+
+  @include bp-sm() {
+    cursor: pointer;
+    display: block;
+    height: calc(100% - #{$header-height});
+    top: $header-height;
+  }
+
+  @include bp-md() {
+    height: calc(100% - #{$header-height-md});
+    top: $header-height-md;
+  }
+}
+
+.swiper-btn-prev {
+  left: 0;
+}
+
+.swiper-btn-next {
+  right: 0;
+}

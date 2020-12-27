@@ -1,0 +1,3 @@
+<header class="site-header">
+  <div></div>
+</header>

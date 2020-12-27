@@ -1,0 +1,53 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: form/forms
+ * -----------------------------------------------------------------------------
+ */
+
+form.events {
+
+  .form-group {
+    display: flex;
+    max-width: 480px;
+    
+    label {
+      flex: 0 0 105px;
+  
+      @include bp-md() {
+        flex: 0 0 155px;
+      }
+    }
+  }
+
+  header {
+  }
+}
+
+// Auth - login
+form.auth {
+  max-width: 480px;
+}
+
+// Auth - recover password
+form.auth--recover {
+  max-width: 480px;
+  .form-group {
+    label {
+      @include bp-xl() {
+        flex: 0 0 125px;
+      }
+    }
+  }
+}
+
+// Auth - reset password form
+form.auth--reset {
+  max-width: 480px;
+  .form-group {
+    label {
+      @include bp-xl() {
+        flex: 0 0 215px;
+      }
+    }
+  }
+}

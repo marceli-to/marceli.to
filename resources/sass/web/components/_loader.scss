@@ -1,0 +1,38 @@
+.loading-indicator {
+  align-items: center;
+  background-color: rgba(255,255,255,.4);
+  display: none;
+  justify-content: center;
+  height: 100%;
+  min-height: 100px;
+  left: 0;
+  opacity: 1;
+  pointer-events: all;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 301;
+
+  svg {
+    animation: rotation 2s infinite linear;
+    color: $color-black;
+    display: block;
+    height: 36px;
+    width: 36px;
+  }
+
+  &.is-visible {
+    display: flex;
+  }
+}
+
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

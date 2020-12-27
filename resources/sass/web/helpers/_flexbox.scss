@@ -1,0 +1,51 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: component/flexbox
+ * -----------------------------------------------------------------------------
+ *
+ * Alignment using flexbox
+ *
+ */
+
+%v-center,
+.v-center {
+  display: flex !important;
+  align-items: center;
+}
+
+%h-center,
+.h-center {
+  display: flex !important;
+  justify-content: center;
+}
+
+%h-start,
+.h-start {
+  display: flex !important;
+  justify-content: flex-start;
+}
+
+%h-end,
+.h-end {
+  display: flex !important;
+  justify-content: flex-end;
+}
+
+%flex,
+.flex {
+  display: flex;
+}
+
+%flex-end,
+.flex-end {
+  display: flex !important;
+  justify-content: flex-end;
+}
+
+%flex-space-between,
+.flex-sb,
+.flex-space-between {
+  align-items: center;
+  display: flex !important;
+  justify-content: space-between;
+}

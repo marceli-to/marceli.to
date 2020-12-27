@@ -1,0 +1,23 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: form/validation
+ * -----------------------------------------------------------------------------
+ */
+
+.is-required {
+
+}
+
+.has-error {
+  color: $color-danger;
+  
+  label {
+    color: $color-danger;
+  }
+}
+
+.error-message {
+  color: $color-danger;
+  @include font-size($fs-md);
+  margin: 0;
+}

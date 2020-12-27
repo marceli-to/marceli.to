@@ -1,0 +1,18 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: component/headings/h1
+ * -----------------------------------------------------------------------------
+ */
+
+h1 {
+  @include font-bold();
+  display: none;
+
+  @include bp-md() {
+    display: block;
+    position: absolute;
+    text-align: center;
+    left: 10%;
+    width: 80%;
+  }
+}
