@@ -4,38 +4,45 @@
  * -----------------------------------------------------------------------------
  */
 
-.logo {
+.brand {
+  border: 1px solid #721121;
+  border-radius: 50%;
   display: block;
-  height: 20px;
-  width: 40px;
-
-  @include bp-md() {
-    height: 30px;
-    width: 60px;
-  }
+  height: 48px;
+  left: $space-4x;
+  padding: 2px;
+  position: fixed;
+  top: $space-4x;
+  width: 48px;
+  animation: brand 20s infinite;
 
   svg {
     @extend %is-responsive;
+    position: relative;
   }
 }
 
-.logo-home {
-  display: block;
-  height: 72px;
-  left: $space-3x;
-  position: absolute;
-  top: $space-7x;
-  width: 83px;
-  z-index: 201;
+$color-burgundy: #721121;
+$color-blush: #EA638C;
+$color-midnight-blue: #190E4F;
+$color-oxford-blue: #03012C;
+$color-dark-green: #002A22;
 
-  @include bp-md() {
-    height: 153px;
-    left: $space-14x;
-    top: $space-14x;
-    width: 176px;
+@keyframes brand {
+  0% { 
+    border-color: $color-burgundy;
   }
+  25% {
+    border-color: $color-blush;
+  }
+  50% {
+    border-color: $color-midnight-blue;
 
-  svg {
-    @extend %is-responsive;
+  }
+  75% {
+    border-color: $color-dark-green;
+  }
+  100% { 
+    border-color: $color-burgundy;
   }
 }

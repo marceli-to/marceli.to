@@ -5,5 +5,42 @@
  */
 
 .card {
+  background-color: $color-white;
+  box-shadow: 0 0 2px 0 rgba(100,100,100,0.2);
+  max-width: 480px;
+  margin: $space-4x 0;
+  padding: $space-2x;
+  transition: box-shadow .12s ease-in;
+  
+  &:hover {
+    box-shadow: 0 0 16px 0 rgba(100,100,100,0.1);
+  }
 
+  @include bp-md() {
+    padding: $space-4x;
+  }
+
+  .card__footer {
+    padding: $space-2x 0 0 0;
+
+    @include bp-md() {
+      padding: $space-4x 0 0 0;
+    }
+
+    > div {
+      margin-bottom: $space-4x;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    label {
+      color: $color-grey;
+      @include font-regular();
+      @include font-size($fs-sm);
+      display: block;
+      margin-bottom: 2px;
+    }
+  }
 }

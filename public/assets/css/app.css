@@ -853,6 +853,12 @@ p {
   /* IE9 Compat Modes */
   src: url("fonts/JetBrainsMono-Medium.eot?#iefix") format("embedded-opentype"), url("fonts/JetBrainsMono-Medium.woff2") format("woff2"), url("fonts/JetBrainsMono-Medium.woff") format("woff"), url("fonts/JetBrainsMono-Medium.ttf") format("truetype");
 }
+@font-face {
+  font-family: "JetBrainsMono-ExtraBold";
+  src: url("fonts/JetBrainsMono-ExtraBold.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/JetBrainsMono-ExtraBold.eot?#iefix") format("embedded-opentype"), url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2"), url("fonts/JetBrainsMono-ExtraBold.woff") format("woff"), url("fonts/JetBrainsMono-ExtraBold.ttf") format("truetype");
+}
 /**
  * -----------------------------------------------------------------------------
  * File: components/typo/mixins
@@ -871,6 +877,11 @@ p {
  */
 /**
  * Font: bold
+ * -----------------------------------------------------------------------------
+ * 
+ */
+/**
+ * Font: xbold
  * -----------------------------------------------------------------------------
  * 
  */
@@ -938,7 +949,7 @@ strong, b {
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 p {
@@ -959,7 +970,6 @@ p:last-child {
  * -----------------------------------------------------------------------------
  *
  */
-.content > div,
 .inner-block {
   margin-left: auto;
   margin-right: auto;
@@ -1077,6 +1087,67 @@ p:last-child {
  * File: components/cards
  * -----------------------------------------------------------------------------
  */
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 0 2px 0 rgba(100, 100, 100, 0.2);
+  max-width: 480px;
+  margin: 16px 0;
+  padding: 8px;
+  transition: box-shadow 0.12s ease-in;
+}
+.card:hover {
+  box-shadow: 0 0 16px 0 rgba(100, 100, 100, 0.1);
+}
+@media only screen and (min-width: 1024px) {
+  .card {
+    padding: 16px;
+  }
+}
+.card .card__footer {
+  padding: 8px 0 0 0;
+}
+@media only screen and (min-width: 1024px) {
+  .card .card__footer {
+    padding: 16px 0 0 0;
+  }
+}
+.card .card__footer > div {
+  margin-bottom: 16px;
+}
+.card .card__footer > div:last-of-type {
+  margin-bottom: 0;
+}
+.card .card__footer label {
+  color: #bbbbbb;
+  font-family: "JetBrainsMono-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
+  font-display: auto;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 1.4;
+  display: block;
+  margin-bottom: 2px;
+}
+@media screen and (min-width: 768px) {
+  .card .card__footer label {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .card .card__footer label {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .card .card__footer label {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
 /**
  * -----------------------------------------------------------------------------
  * File: components/icons/global
@@ -1175,21 +1246,12 @@ h1, h2, h3 {
  * -----------------------------------------------------------------------------
  */
 h1 {
+  color: #bbbbbb;
   font-family: "JetBrainsMono-Medium", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
-  display: none;
-}
-@media only screen and (min-width: 1024px) {
-  h1 {
-    display: block;
-    position: absolute;
-    text-align: center;
-    left: 10%;
-    width: 80%;
-  }
+  font-weight: normal;
 }
 
 /**
@@ -1290,32 +1352,56 @@ h2 {
  * File: components/logo
  * -----------------------------------------------------------------------------
  */
-.logo {
+.brand {
+  border: 1px solid #721121;
+  border-radius: 50%;
   display: block;
-  height: 20px;
-  width: 40px;
+  height: 48px;
+  left: 16px;
+  padding: 2px;
+  position: fixed;
+  top: 16px;
+  width: 48px;
+  -webkit-animation: brand 20s infinite;
+          animation: brand 20s infinite;
 }
-@media only screen and (min-width: 1024px) {
-  .logo {
-    height: 30px;
-    width: 60px;
+.brand svg {
+  position: relative;
+}
+
+@-webkit-keyframes brand {
+  0% {
+    border-color: #721121;
+  }
+  25% {
+    border-color: #EA638C;
+  }
+  50% {
+    border-color: #190E4F;
+  }
+  75% {
+    border-color: #002A22;
+  }
+  100% {
+    border-color: #721121;
   }
 }
-.logo-home {
-  display: block;
-  height: 72px;
-  left: 12px;
-  position: absolute;
-  top: 28px;
-  width: 83px;
-  z-index: 201;
-}
-@media only screen and (min-width: 1024px) {
-  .logo-home {
-    height: 153px;
-    left: 56px;
-    top: 56px;
-    width: 176px;
+
+@keyframes brand {
+  0% {
+    border-color: #721121;
+  }
+  25% {
+    border-color: #EA638C;
+  }
+  50% {
+    border-color: #190E4F;
+  }
+  75% {
+    border-color: #002A22;
+  }
+  100% {
+    border-color: #721121;
   }
 }
 /**
@@ -1325,12 +1411,11 @@ h2 {
  *
  * Various classes for image elements
  */
-.swiper-slide img, .content img, .responsive-image, .btn-menu svg, .logo svg, .logo-home svg,
+.swiper-slide img, .responsive-image, .btn-menu svg, .brand svg,
 .is-responsive {
   display: block;
   height: auto;
-  max-width: 100%;
-  width: auto;
+  width: 100%;
 }
 
 /**
@@ -1363,7 +1448,7 @@ button {
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 12px;
   line-height: 1.4;
   padding: 4px;
@@ -1398,7 +1483,7 @@ input[type=time],
 textarea,
 select,
 button {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
@@ -1412,7 +1497,7 @@ input[type=time],
 textarea,
 select,
 button {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
@@ -1527,7 +1612,7 @@ label {
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
+  font-weight: normal;
 }
 @media screen and (min-width: 768px) {
   label {
@@ -1537,13 +1622,13 @@ label {
 }
 @media screen and (min-width: 1024px) {
   label {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
 @media screen and (min-width: 1280px) {
   label {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
@@ -1666,13 +1751,13 @@ label {
 }
 @media screen and (min-width: 1024px) {
   .form-helper {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
 @media screen and (min-width: 1280px) {
   .form-helper {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
@@ -1746,13 +1831,13 @@ input[type=text]:-moz-placeholder {
 }
 @media screen and (min-width: 1024px) {
   .select-wrapper select {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
 @media screen and (min-width: 1280px) {
   .select-wrapper select {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
@@ -1786,13 +1871,13 @@ input[type=text]:-moz-placeholder {
 }
 @media screen and (min-width: 1024px) {
   .error-message {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
 @media screen and (min-width: 1280px) {
   .error-message {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
@@ -1829,11 +1914,11 @@ body {
   color: #222222;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "JetBrainsMono-Medium", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
+  font-family: "JetBrainsMono-ExtraBold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 12px;
   line-height: 1.4;
   position: relative;
@@ -1846,18 +1931,15 @@ body {
 }
 @media screen and (min-width: 1024px) {
   body {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
 @media screen and (min-width: 1280px) {
   body {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
-}
-body.is-home {
-  overflow: hidden;
 }
 
 /**
@@ -1871,7 +1953,7 @@ body.is-home {
  * -----------------------------------------------------------------------------
  */
 header.site-header {
-  background-color: #ffffff;
+  background-color: transparent;
   height: 45px;
   left: 0;
   position: fixed;
@@ -1926,16 +2008,9 @@ header.site-header {
  * -----------------------------------------------------------------------------
  */
 main.site {
-  padding: 45px 8px 8px 8px;
+  padding: 0 16px;
   position: relative;
-}
-@media only screen and (min-width: 1024px) {
-  main.site {
-    padding: 80px 16px 16px 16px;
-  }
-}
-main.site.is-home {
-  padding: 0 !important;
+  max-height: 100vh;
 }
 
 /**
@@ -1966,33 +2041,12 @@ nav.site-menu {
  * File: views/product
  * -----------------------------------------------------------------------------
  */
-.content .content__text {
-  margin-bottom: 32px;
-  margin-top: 24px;
-}
-@media only screen and (min-width: 1024px) {
-  .content .content__text {
-    margin-bottom: 44px;
-    margin-top: 32px;
-  }
-}
-.content .content__text h2 {
-  margin-bottom: 24px;
-}
-@media only screen and (min-width: 1024px) {
-  .content .content__text h2 {
-    margin-bottom: 0;
-  }
-}
-.content .content__text h2 svg {
-  display: block;
-  height: 20px;
-  width: auto;
-}
-@media only screen and (min-width: 1024px) {
-  .content .content__text h2 svg {
-    height: 32px;
-  }
+.post {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  width: 100%;
 }
 
 /**
@@ -2008,7 +2062,7 @@ nav.site-menu {
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 12px;
   line-height: 1.4;
   margin-bottom: 16px;
@@ -2021,13 +2075,13 @@ nav.site-menu {
 }
 @media screen and (min-width: 1024px) {
   .site-error h2 {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }
 @media screen and (min-width: 1280px) {
   .site-error h2 {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }

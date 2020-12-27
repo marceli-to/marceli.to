@@ -5,14 +5,9 @@
  */
 
 main.site {
-  padding: $header-height $space-2x $space-2x $space-2x;
+  padding: 0 $space-4x;
   position: relative;
+  // scroll-snap-type: y mandatory;
+  max-height: 100vh;
 
-  @include bp-md() {
-    padding: $header-height-md $space-4x $space-4x $space-4x;
-  }
-
-  &.is-home {
-    padding: 0 !important;
-  }
 }

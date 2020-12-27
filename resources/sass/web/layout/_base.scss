@@ -14,11 +14,7 @@ body {
 	background-color: $color-white;
 	color: $color-primary;
 	@include font-smoothing();
-	@include font-bold();
+	@include font-xbold();
 	@include font-size($fs-md);
 	position: relative;
-
-	&.is-home {
-		overflow: hidden;
-	}
 }

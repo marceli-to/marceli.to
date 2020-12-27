@@ -5,14 +5,6 @@
  */
 
 h1 {
+  color: $color-grey;
   @include font-bold();
-  display: none;
-
-  @include bp-md() {
-    display: block;
-    position: absolute;
-    text-align: center;
-    left: 10%;
-    width: 80%;
-  }
 }

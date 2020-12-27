@@ -1,8 +1,13 @@
 /**
  * -----------------------------------------------------------------------------
- * File: layout/section
+ * File: views/product
  * -----------------------------------------------------------------------------
  */
-section {
 
+.post {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  width: 100%;
 }

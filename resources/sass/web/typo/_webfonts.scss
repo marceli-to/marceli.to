@@ -24,3 +24,12 @@
        url('fonts/JetBrainsMono-Medium.woff') format('woff'), /* Pretty Modern Browsers */
        url('fonts/JetBrainsMono-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
+
+@font-face {
+  font-family: 'JetBrainsMono-ExtraBold';
+  src: url('fonts/JetBrainsMono-ExtraBold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/JetBrainsMono-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/JetBrainsMono-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/JetBrainsMono-ExtraBold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/JetBrainsMono-ExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
