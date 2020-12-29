@@ -1,0 +1,39 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/buttons/scroll
+ * -----------------------------------------------------------------------------
+ */
+
+.scroll-indicator {
+  animation: 'scroll-arrow' 1.2s 4;
+  bottom: $space-2x;
+  display: block;
+  height: 24px;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  width: 24px;
+  z-index: 201;
+
+  @include bp-sm() {
+    bottom: $space-4x;
+    height: 36px;
+    width: 36px;
+  }
+
+  svg {
+    @extend %is-responsive;
+  }
+}
+
+@keyframes scroll-arrow {
+  0% { 
+    transform: translate(-50%,0);
+  }
+  50% { 
+    transform: translate(-50%,-8px);
+  }
+  100% { 
+    transform: translate(-50%,0);
+  }
+}

@@ -25,4 +25,5 @@
 <main role="main" class="site js-main">
   @yield('content')
 </main>
+@include('web.partials.arrow')
 @include('web.partials.footer')

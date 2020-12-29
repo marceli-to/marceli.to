@@ -1,3 +1,5 @@
+import debounce from '../vendor/debounce';
+
 var Cards = (function() {
 	
 	// selectors
@@ -19,7 +21,14 @@ var Cards = (function() {
     $('.card').on('touchend', function(e) {
       $(this).removeClass('touched');
     });
+    $(window).scroll(function() {
+      _hideScrollIndicator();
+    });
   };
+
+  var _hideScrollIndicator = debounce(function() {
+    $('.scroll-indicator').hide();
+  }, 50);
 
   return {
     init: _initialize,

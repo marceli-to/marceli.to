@@ -65,8 +65,12 @@
         color: $color-grey;
         display: block;
         @include font-regular();
-        @include font-size($fs-sm);
+        @include font-size($fs-xs);
         margin-bottom: $space-1x;
+
+        @include bp-sm() {
+          margin-bottom: 2px;
+        }
       }
     }
   }
