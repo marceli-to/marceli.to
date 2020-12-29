@@ -6,52 +6,60 @@ class Card extends Component
 {
 
   /**
-   * Id
-   *
-   * @var integer
-   */
-  public $id;
-
-  /**
-   * Type
+   * Uri
    *
    * @var string
    */
-  public $type;
+  public $uri;
+
+  /**
+   * Website
+   *
+   * @var string
+   */
+  public $website;
+
+  /**
+   * Description
+   *
+   * @var string
+   */
+  public $description;
 
   /**
    * Image
    *
-   * @var object
+   * @var string
    */
   public $image;
 
   /**
-   * Title
+   * Client
    *
    * @var string
    */
-  public $title;
+  public $client;
 
   /**
-   * Subtitle
+   * Design
    *
    * @var string
    */
-  public $subtitle;
+  public $design;
 
   /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct($id = NULL, $type = NULL, $image = NULL, $title = NULL, $subtitle = NULL)
+  public function __construct($uri = NULL, $website = NULL, $description = NULL, $image = NULL, $client = NULL, $design = NULL)
   {
-    $this->id       = $id;
-    $this->type     = $type;
-    $this->image    = $image;
-    $this->title    = $title;
-    $this->subtitle = $subtitle;
+    $this->uri          = $uri;
+    $this->website      = $website;
+    $this->description  = $description;
+    $this->image        = $image;
+    $this->client       = $client;
+    $this->design       = $design;
   }
 
   /**

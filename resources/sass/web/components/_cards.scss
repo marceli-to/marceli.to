@@ -8,7 +8,7 @@
   background-color: $color-white;
   box-shadow: 0 0 2px 0 rgba(100,100,100,0.2);
   color: $color-primary;
-  max-width: 480px;
+  max-width: 640px;
   margin: $space-4x 0;
   padding: $space-3x;
   position: relative;
@@ -19,43 +19,52 @@
   }
 
   @include bp-md() {
-    padding: $space-4x;
-  }
-
-  .card__footer {
-    padding: $space-2x 0;
-
-    @include bp-sm() {
-      padding: $space-2x 0 0 0;
-    }
-
-    @include bp-md() {
-      padding: $space-4x 0 0 0;
-    }
-
-    > div {
-      margin-bottom: $space-4x;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-
-      &:nth-last-child(2) {
-        margin-bottom: 0;
-      }
-    }
-
-    label {
-      color: $color-grey;
-      display: block;
-      @include font-regular();
-      @include font-size($fs-sm);
-      margin-bottom: 2px;
-    }
+    padding: $space-6x;
   }
 
   .card__content {
-    margin-top: $space-4x;
+    padding: $space-3x 0 0 0;
+
+    @include bp-md() {
+      padding: $space-6x 0 0 0;
+    }
+
+    .card__info {
+      @include font-size($fs-sm);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      > div {
+        border-top: 1px solid #eee;
+        padding-top: $space-3x;
+
+        &:first-of-type {
+          border-right: 1px solid #eee;
+          padding-right: $space-3x;
+        }
+
+        &:last-of-type {
+          padding-left: $space-3x;
+        }
+
+        @include bp-sm() {
+          // border-top: none;
+          // padding-top: 0;
+        }
+      }
+
+      label {
+        color: $color-grey;
+        display: block;
+        @include font-regular();
+        @include font-size($fs-sm);
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  .card__description {
+    margin-bottom: $space-6x;
 
     @include bp-sm() {
       background-color: rgba(255, 255, 255, .88);
@@ -96,7 +105,7 @@
 
   &:hover {
     
-    .card__content {
+    .card__description {
       opacity: 1;
       transition: opacity .12s ease-in;
       z-index: 101;

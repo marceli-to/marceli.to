@@ -9,22 +9,31 @@
   border: 1px solid #721121;
   border-radius: 50%;
   display: block;
-  height: 48px;
+  height: 32px;
   left: $space-4x;
   padding: 2px;
   position: fixed;
   top: $space-4x;
-  width: 48px;
+  width: 32px;
   animation: brand 20s infinite;
   transition: background-image .06s ease-in;
+
+  @include bp-sm() {
+    height: 48px;
+    width: 48px;
+  }
 
   &:hover,
   &.has-about {
     @include background-default();
     background-image: url($url-icons + 'marcelito.svg');
     background-position: center center;
-    background-size: 64px auto;
+    background-size: 48px auto;
     transition: background-image .06s ease-in;
+
+    @include bp-sm() {
+      background-size: 64px auto;
+    }
 
     svg {
       display: none;

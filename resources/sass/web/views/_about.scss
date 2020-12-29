@@ -20,11 +20,21 @@
 
   > div {
     padding-left: $space-4x;
-    padding-top: $space-20x;
+    padding-top: $space-14x;
+
+    @include bp-sm() {
+      padding-top: $space-20x;
+    }
   }
 
   &.is-visible {
     opacity: 1;
     z-index: 50;
+  }
+
+  a {
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
   }
 }
