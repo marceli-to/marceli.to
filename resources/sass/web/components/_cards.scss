@@ -96,6 +96,10 @@
       > div {
         padding: $space-4x;
         max-width: 280px;
+
+        @include bp-md() {
+          max-width: 320px;
+        }
       }
     }
 
@@ -114,5 +118,4 @@
       display: inline-block;
     }
   }
-
 }

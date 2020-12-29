@@ -22,6 +22,6 @@ return [
   |
   */
 
-  'description' => 'Webdevelopment with passion from Winterthur, Switzerland',   
+  'description' => 'Developing stuff for the internet.',   
 
 ];
