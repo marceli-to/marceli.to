@@ -14,8 +14,21 @@
   position: relative;
   transition: box-shadow .02s ease-in;
   
+  &.touched,
   &:hover {
     box-shadow: 0 0 16px 0 rgba(100,100,100,0.1);
+
+    .card__description {
+      opacity: 1;
+      transition: opacity .12s ease-in;
+      z-index: 101;
+
+      p {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all .12s .24s ease-in;
+      }
+    }
   }
 
   @include bp-md() {
@@ -23,7 +36,7 @@
   }
 
   .card__content {
-    padding: $space-3x 0 0 0;
+    padding: $space-4x 0 0 0;
 
     @include bp-md() {
       padding: $space-6x 0 0 0;
@@ -46,11 +59,6 @@
         &:last-of-type {
           padding-left: $space-3x;
         }
-
-        @include bp-sm() {
-          // border-top: none;
-          // padding-top: 0;
-        }
       }
 
       label {
@@ -58,7 +66,7 @@
         display: block;
         @include font-regular();
         @include font-size($fs-sm);
-        margin-bottom: 2px;
+        margin-bottom: $space-1x;
       }
     }
   }
@@ -103,18 +111,4 @@
     }
   }
 
-  &:hover {
-    
-    .card__description {
-      opacity: 1;
-      transition: opacity .12s ease-in;
-      z-index: 101;
-
-      p {
-        opacity: 1;
-        transform: translateY(0);
-        transition: all .12s .24s ease-in;
-      }
-    }
-  }
 }

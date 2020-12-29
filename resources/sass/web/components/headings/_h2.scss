@@ -5,12 +5,5 @@
  */
 
 h2 {
-  @include font-size($fs-lg);
-  line-height: 1 !important;
 
-  &.about {
-    @include bp-md() {
-      margin-top: -2px;
-    }
-  }
 }

@@ -7,9 +7,13 @@
 footer.site-footer {
   color: $color-grey;
   @include font-regular();
-  @include font-size($fs-sm);
+  @include font-size($fs-xs);
   letter-spacing: 0.06em;
-  padding: $space-4x 0;
+  padding: $space-4x 0 $space-6x 0;
   text-align: center;
   text-transform: uppercase;
+
+  @include bp-sm() {
+    padding: $space-4x 0;
+  }
 }

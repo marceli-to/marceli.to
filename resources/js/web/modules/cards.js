@@ -13,11 +13,11 @@ var Cards = (function() {
 
   // Bind events
   var _bind = function() {
-    $('.js-card').on('touchstart', function(e) {
-      $(this).addClass('is-touched');
+    $('.card').on('touchstart', function(e) {
+      $(this).addClass('touched');
     });
-    $('.js-card').on('touchend', function(e) {
-      $(this).removeClass('is-touched');
+    $('.card').on('touchend', function(e) {
+      $(this).removeClass('touched');
     });
   };
 

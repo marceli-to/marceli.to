@@ -1,7 +1,7 @@
 <section class="post">
-  <a href="{{$uri}}" target="_blank" rel="noreferrer" title="{{$website}}" class="card js-card">
+  <a href="{{$uri}}" target="_blank" rel="noreferrer" title="{{$website}}" class="card">
     <figure>
-      <img src="/assets/img/{{$image}}" height="1000" width="1000" title="{{$client}}" class="is-responsive">
+      <img data-src="/assets/img/{{$image}}" height="1000" width="1000" title="{{$client}}" class="is-responsive lazyload">
     </figure>
     <div class="card__content">
       <div class="card__description">
