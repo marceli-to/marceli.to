@@ -48,11 +48,18 @@ class Card extends Component
   public $design;
 
   /**
+   * Year
+   *
+   * @var string
+   */
+  public $year;
+
+  /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct($uri = NULL, $website = NULL, $description = NULL, $image = NULL, $client = NULL, $design = NULL)
+  public function __construct($uri = NULL, $website = NULL, $description = NULL, $image = NULL, $client = NULL, $design = NULL, $year = NULL)
   {
     $this->uri          = $uri;
     $this->website      = $website;
@@ -60,6 +67,7 @@ class Card extends Component
     $this->image        = $image;
     $this->client       = $client;
     $this->design       = $design;
+    $this->year         = $year;
   }
 
   /**

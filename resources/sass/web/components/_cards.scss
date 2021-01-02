@@ -44,20 +44,33 @@
 
     .card__info {
       @include font-size($fs-sm);
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      @include bp-sm() {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       > div {
         border-top: 1px solid #eee;
+        padding-bottom: $space-3x;
         padding-top: $space-3x;
 
-        &:first-of-type {
-          border-right: 1px solid #eee;
-          padding-right: $space-3x;
-        }
-
         &:last-of-type {
-          padding-left: $space-3x;
+          padding-bottom: 0;
+        } 
+
+        @include bp-sm() {
+          border-right: 1px solid #eee;
+          padding: $space-3x $space-3x 0 $space-3x;
+
+          &:first-of-type {
+            padding-left: 0;
+          }
+  
+          &:last-of-type {
+            border-right: none;
+            padding-right: 0;
+          } 
         }
       }
 
@@ -66,7 +79,7 @@
         display: block;
         @include font-regular();
         @include font-size($fs-xs);
-        margin-bottom: $space-1x;
+        margin-bottom: 2px;
 
         @include bp-sm() {
           margin-bottom: 2px;
@@ -116,6 +129,21 @@
     span {
       border-bottom: 1px solid $color-primary;
       display: inline-block;
+      position: relative;
+
+      &:after {
+        @include background-default();
+        background-image: url($url-icons + 'arrow-up-right.svg');
+        background-size: 14px auto;
+        background-position: center right;
+        content: '';
+        display: block;
+        height: 20px;
+        position: absolute;
+        right: - $space-5x;
+        top: 0;
+        width: 16px;
+      }
     }
   }
 }
