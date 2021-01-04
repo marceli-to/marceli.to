@@ -10,5 +10,7 @@
 <x-card uri="https://mobilecharge.ch" website="mobilecharge.ch" description="Konfigurator für eMobility Ladestationen." image="mobilecharge" client="Ferratec AG, Rudolfstetten" design="Jam'on digital AG, Zürich" year="2020" />
 <x-card uri="https://wbg.ch" website="wbg.ch" description="Portfolio Webseite für WBG, Zürich." image="wbg" client="WBG AG – Visuelle Kommunikation, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2020" />
 <x-card uri="https://intercable-schweiz.ch" website="intercable-schweiz.ch" description="How to correctly use tools from Intercable." image="intercable-schweiz" client="Ferratec AG, Rudolfstetten" design="marceli.to, Winterthur" year="2020" />
+<x-card uri="https://rebwein.ch" website="rebwein.ch" description="Webseite und Shop für REB Wein AG, Zürich." image="rebwein" client="Rebwein AG, Zürich" design="Jam'on digital AG, Zürich" year="2019" />
 <x-card uri="https://strut.ch" website="strut.ch" description="Portfolio Webseite für das Winterthurer Architekturbüro Strut Architekten." image="strut" client="Strut Architekten AG, Winterthur" design="Bivgrafik GmbH, Zürich" year="2019" />
+<x-card uri="https://studioammeer.ch" website="studioammeer.ch" description="Gesamtauftritte. Gedrucktes. Digitales. Studio am Meer, Winterthur" image="studio-am-meer" client="Studio am Meer, Winterthur" design="Studio am Meer, Winterthur" year="2018" />
 @endsection
