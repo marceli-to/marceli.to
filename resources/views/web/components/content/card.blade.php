@@ -1,21 +1,11 @@
 <section class="post">
   <a href="{{$uri}}" target="_blank" rel="noreferrer" title="{{$website}} besuchen" class="card">
-    
-    {{-- <figure>
-      <img data-src="/assets/img/projects/{{$image}}" height="1000" width="1000" title="{{$client}}" class="is-responsive lazyload">
-    </figure> --}}
-
-    
     <picture>
-      <source media="(min-width: 1200px)" srcset="/assets/img/projects/{{$image}}.jpg">
-      <source media="(min-width: 768px)" srcset="/assets/img/projects/{{$image}}-md.jpg">
-      <source srcset="/assets/img/projects/{{$image}}-sm.jpg">
+      <source media="(min-width: 1200px)" srcset="/assets/img/projects/{{$image}}-lg.jpg" class="lazyload">
+      <source media="(min-width: 768px)" srcset="/assets/img/projects/{{$image}}-md.jpg" class="lazyload">
+      <source srcset="/assets/img/projects/{{$image}}-sm.jpg" class="lazyload">
       <img src="/assets/img/projects/{{$image}}-sm.jpg" alt="{{$client}}" title="{{$client}}" class="is-responsive lazyload">
     </picture>
-
-
-
-
     <div class="card__content">
       <div class="card__description">
         <div>

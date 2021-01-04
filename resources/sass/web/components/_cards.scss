@@ -35,6 +35,10 @@
     padding: $space-6x;
   }
 
+  @include bp-lg() {
+    max-width: 800px;
+  }
+
   .card__content {
     padding: $space-4x 0 0 0;
 
