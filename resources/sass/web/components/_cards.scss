@@ -45,6 +45,9 @@
     .card__info {
       @include font-size($fs-sm);
 
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
       @include bp-sm() {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -52,12 +55,19 @@
 
       > div {
         border-top: 1px solid #eee;
-        padding-bottom: $space-3x;
+        border-right: 1px solid #eee;
         padding-top: $space-3x;
+        padding-right: $space-3x;
 
-        &:last-of-type {
-          padding-bottom: 0;
-        } 
+        &:nth-of-type(2) {
+          border-right: 0;
+          padding-left: $space-3x;
+          padding-right: 0;
+        }
+
+        &:nth-of-type(3) {
+          display: none;
+        }
 
         @include bp-sm() {
           border-right: 1px solid #eee;
@@ -69,8 +79,13 @@
   
           &:last-of-type {
             border-right: none;
+            display: block;
             padding-right: 0;
-          } 
+          }
+
+          &:nth-of-type(2) {
+            border-right: 1px solid #eee;
+          }
         }
       }
 
