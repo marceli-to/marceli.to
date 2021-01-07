@@ -27,7 +27,7 @@
         </div>
         <div>
           <label>Jahr</label>
-          <div>{{$year}}</div>
+          <div>{!! $year !!}</div>
         </div>
       </div>
     </div>
