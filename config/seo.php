@@ -11,7 +11,7 @@ return [
   |
   */
 
-  'title' => 'marceli.to',
+  'title' => 'marceli.to – Web development with passion and a sense for design.',
 
   /*
   |--------------------------------------------------------------------------
@@ -22,6 +22,6 @@ return [
   |
   */
 
-  'description' => 'Developing stuff for the internet.',   
+  'description' => 'Web development with passion and a sense for design.',   
 
 ];
