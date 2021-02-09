@@ -19,7 +19,7 @@
       <div class="card__info">
         <div>
           <label>Kunde</label>
-          <div>{{$client}}</div>
+          <div>{!! $client !!}</div>
         </div>
         <div>
           <label>Konzept & Design</label>

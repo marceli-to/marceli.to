@@ -1,6 +1,7 @@
 @extends('web.layout.app')
 @section('content')
 @include('web.partials.about')
+<x-card uri="https://www.riccardacavelti.ch/" website="riccardacavelti.ch" description="Corporate Webseite für die Immobilienexpertin Riccarda Cavelti." image="riccardacavelti" client="Riccarda Cavelti GmbH,<br>Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2021" />
 <x-card uri="https://hausermeier.ch" website="hausermeier.ch" description="Portfolio Webseite für das Architektinnen-Duo Martina Hauser und Sabine Meier." image="hausermeier" client="Hauser Meier Architektinnen, Zürich" design="Bivgrafik GmbH, Zürich" year="2020" />
 <x-card uri="https://day.ch" website="day.ch" description="Corporate website for the shoe manufacturer Day in Zurich. Online store is coming soon." image="day" client="Day AG, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2020" />
 <x-card uri="https://sipt.ch" website="sipt.ch" description="Webseite und Kursverwaltung für Studenten und Dozenten im Auftrag des Schweizer Instituts für Psychotraumatologie in Winterthur." image="sipt" client="Schweizer Institut für Psychotraumatologie, Winterthur" design="Alexandra Noth, Winterthur" year="2020" />
