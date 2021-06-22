@@ -2,6 +2,7 @@
 @section('content')
 @include('web.partials.about')
 <x-card uri="https://gutebauten.stadt-zuerich.ch/" website="gutebauten.stadt-zuerich.ch" description="Publikums-Votingseite zur Auszeichnung für gute Bauten der Stadt Zürich 2021." image="gute-bauten-stadt-zuerich" client="Stadt Zürich Hochbaudepartement" design="Bivgrafik GmbH, Zürich" year="2021" />
+<x-card uri="https://mobilecharge.ch/" website="mobilecharge.ch" description="Landingpage für mobilecharge.ch" image="mobilecharge.ch" client="Ferratec AG, Rudolfstetten" design="Vadim" year="2021" />
 <x-card uri="https://www.lifework.ch/" website="lifework.ch" description="Corporate Webseite für lifework tk ag in Winterthur" image="lifework.ch" client="lifework tk ag<br>Winterthur" design="Alexandra Noth, Winterthur" year="2021" />
 <x-card uri="https://www.riccardacavelti.ch/" website="riccardacavelti.ch" description="Corporate Webseite für die Immobilienexpertin Riccarda Cavelti." image="riccardacavelti" client="Riccarda Cavelti GmbH,<br>Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2021" />
 <x-card uri="https://hausermeier.ch" website="hausermeier.ch" description="Portfolio Webseite für das Architektinnen-Duo Martina Hauser und Sabine Meier." image="hausermeier" client="Hauser Meier Architektinnen, Zürich" design="Bivgrafik GmbH, Zürich" year="2020" />
