@@ -1,6 +1,7 @@
 @extends('web.layout.app')
 @section('content')
 @include('web.partials.about')
+<x-card uri="https://danielh.ch" website="danielh.ch" description="Der Klassiker vom Chreis Cheib. Das Lokal lädt alle ein, die den Mix aus Feinschmecker- und Szenenkultur lieben, die gerne parlieren, dinieren und sich amüsieren." image="danielh.ch" client="Daniel H., Zürich" design="Jam'on digital" year="2021" />
 <x-card uri="https://gutebauten.stadt-zuerich.ch/" website="gutebauten.stadt-zuerich.ch" description="Publikums-Votingseite zur Auszeichnung für gute Bauten der Stadt Zürich 2021." image="gute-bauten-stadt-zuerich" client="Stadt Zürich Hochbaudepartement" design="Bivgrafik GmbH, Zürich" year="2021" />
 <x-card uri="https://mobilecharge.ch/" website="mobilecharge.ch" description="Landingpage für mobilecharge.ch" image="mobilecharge.ch" client="Ferratec AG, Rudolfstetten" design="Vadim Zvyagintsev " year="2021" />
 <x-card uri="https://www.lifework.ch/" website="lifework.ch" description="Corporate Webseite für lifework tk ag in Winterthur" image="lifework.ch" client="lifework tk ag<br>Winterthur" design="Alexandra Noth, Winterthur" year="2021" />
