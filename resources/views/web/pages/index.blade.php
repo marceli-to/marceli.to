@@ -1,6 +1,7 @@
 @extends('web.layout.app')
 @section('content')
 @include('web.partials.about')
+<x-card uri="https://itavolidelvagabondo.ch/" website="itavolidelvagabondo.ch" description="Webseite und Buchungstool für Simon Schneeberg a.k.a. I tavoli del vagabondo. Buon appetito." image="itavolidelvagabondo.ch" client="Associazione I tavoli del Vagabondo, Winterthur" design="Pool Practice, Berlin" year="2022" />
 <x-card uri="https://20years.quality1.ch/" website="20years.quality1.ch" description="Landingpage für das 20 Jahre Jubiläum der Quality1 AG." image="20years.quality1.ch" client="Quality1 AG, Bubikon" design="Stefanie Wolf" year="2022" />
 <x-card uri="https://herkulesdesign.com/" website="herkulesdesign.com" description="Portfolio für die Winterthurer Grafikerin Alexandra Noth." image="herkulesdesign.com" client="Herkules Design GmbH, Winterthur" design="Herkules Design GmbH, Winterthur" year="2021" />
 <x-card uri="https://danielh.ch" website="danielh.ch" description="Der Klassiker vom Chreis Cheib. Das Lokal lädt alle ein, die den Mix aus Feinschmecker- und Szenenkultur lieben, die gerne parlieren, dinieren und sich amüsieren." image="danielh.ch" client="Daniel H., Zürich" design="Jam'on digital" year="2021" />
@@ -18,7 +19,7 @@
 <x-card uri="https://intercable-schweiz.ch" website="intercable-schweiz.ch" description="How to correctly use tools from Intercable." image="intercable-schweiz" client="Ferratec AG, Rudolfstetten" design="marceli.to, Winterthur" year="2020" />
 <x-card uri="https://nightnurse.ch" website="nightnurse.ch" description="Visualisierungen. 3D-Animationen. VR-Erlebnisse. Und vieles mehr.. Nightnurse Images AG, Zürich" image="nightnurse" client="Nightnurse Images AG, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2016 &ndash; 2020" />
 <x-card uri="https://rebwein.ch" website="rebwein.ch" description="Webseite und Shop für REB Wein AG, Zürich." image="rebwein" client="Rebwein AG, Zürich" design="Jam'on digital AG, Zürich" year="2019" />
-<x-card uri="https://wbg.ch" website="wbg.ch" description="Portfolio Webseite für WBG, Zürich." image="wbg" client="WBG AG – Visuelle Kommunikation, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2019" />
+<x-card uri="https://wbg.ch" website="wbg.ch" description="Portfolio Webseite für WBG, Zürich." image="wbg" client="WBG AG – Visuelle Kommunikation, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2019" />
 <x-card uri="https://strut.ch" website="strut.ch" description="Portfolio Webseite für das Winterthurer Architekturbüro Strut Architekten." image="strut" client="Strut Architekten AG, Winterthur" design="Bivgrafik GmbH, Zürich" year="2019" />
 <x-card uri="https://studioammeer.ch" website="studioammeer.ch" description="Gesamtauftritte. Gedrucktes. Digitales. Studio am Meer, Winterthur" image="studio-am-meer" client="Studio am Meer, Winterthur" design="Studio am Meer, Winterthur" year="2018" />
 @endsection
