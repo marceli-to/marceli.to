@@ -22,6 +22,6 @@ return [
   |
   */
 
-  'description' => 'Web development with passion and a sense for design.',   
+  'description' => '💙💛',   
 
 ];
