@@ -35,13 +35,13 @@
     
     .card__description {
       opacity: 1;
-      transition: opacity .06s ease-in;
+      transition: opacity .12s ease-in;
       z-index: 101;
 
       p {
         opacity: 1;
         transform: translateY(0);
-        transition: all .12s .36s ease-in;
+        transition: all .12s .18s ease-in;
       }
     }
   }
