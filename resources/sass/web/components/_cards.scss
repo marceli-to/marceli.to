@@ -170,19 +170,19 @@
       display: inline-block;
       position: relative;
 
-      &:after {
-        @include background-default();
-        background-image: url($url-icons + 'arrow-up-right.svg');
-        background-size: 16px auto;
-        background-position: center right;
-        content: '';
-        display: block;
-        height: 20px;
-        position: absolute;
-        right: - $space-5x;
-        top: 1px;
-        width: 16px;
-      }
+      // &:after {
+      //   @include background-default();
+      //   background-image: url($url-icons + 'arrow-up-right.svg');
+      //   background-size: 16px auto;
+      //   background-position: center right;
+      //   content: '';
+      //   display: block;
+      //   height: 20px;
+      //   position: absolute;
+      //   right: - $space-5x;
+      //   top: 1px;
+      //   width: 16px;
+      // }
     }
   }
 }
