@@ -162,7 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -233,7 +232,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'AppHelper' => App\Helpers\AppHelper::class,
         'UrlHelper' => App\Helpers\UrlHelper::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
