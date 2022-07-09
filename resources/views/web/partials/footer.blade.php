@@ -1,4 +1,4 @@
-<footer class="site-footer">made with&nbsp;&#10084;️&nbsp;by marceli.to</footer>
+<footer class="site-footer">made with&nbsp;&#10084;&nbsp;by marceli.to</footer>
 <script src="{{ asset('assets/js/app.js') }}" type="text/javascript"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHC31BJ7B7"></script>
 <script>
@@ -10,3 +10,5 @@
 </body>
 <!-- made with ❤ by marceli.to -->
 </html>
+
+

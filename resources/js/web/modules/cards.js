@@ -28,6 +28,7 @@ var Cards = (function() {
 
   var _hideScrollIndicator = debounce(function() {
     $('.scroll-indicator').hide();
+    //$('.js-about').hide();
   }, 50);
 
   return {

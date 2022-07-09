@@ -5,62 +5,21 @@
  */
 
 .brand {
-  background-image: none;
-  border: 1px solid #721121;
-  border-radius: 50%;
   display: block;
-  height: 32px;
+  height: auto;
   left: $space-4x;
-  padding: 2px;
   position: fixed;
   top: $space-4x;
-  width: 32px;
-  animation: brand 20s infinite;
-  transition: background-image .06s ease-in;
+  width: 160px;
 
   @include bp-sm() {
-    height: 48px;
-    width: 48px;
-  }
-
-  &:hover,
-  &.has-about {
-    @include background-default();
-    background-image: url($url-icons + 'marcelito.svg');
-    background-position: center center;
-    background-size: 48px auto;
-    transition: background-image .06s ease-in;
-
-    @include bp-sm() {
-      background-size: 64px auto;
-    }
-
-    svg {
-      display: none;
-    }
+    left: $space-6x;
+    top: $space-6x;
+    width: 200px;
   }
 
   svg {
     @extend %is-responsive;
     position: relative;
-  }
-}
-
-@keyframes brand {
-  0% { 
-    border-color: $color-burgundy;
-  }
-  25% {
-    border-color: $color-blush;
-  }
-  50% {
-    border-color: $color-midnight-blue;
-
-  }
-  75% {
-    border-color: $color-dark-green;
-  }
-  100% { 
-    border-color: $color-burgundy;
   }
 }

@@ -21,11 +21,10 @@
   margin: $space-4x 0;
   padding: $space-3x;
   position: relative;
-  transition: box-shadow .12s ease-in;
+  transition: box-shadow .06s ease-in;
   
   &.touched,
   &:hover {
-    //box-shadow: 0 0 16px 0 rgba(100,100,100,0.1);
     box-shadow:
     0 0.8px 2.2px rgba(0, 0, 0, 0.011),
     0 1.9px 5.3px rgba(0, 0, 0, 0.016),
@@ -36,13 +35,13 @@
     
     .card__description {
       opacity: 1;
-      transition: opacity .12s ease-in;
+      transition: opacity .06s ease-in;
       z-index: 101;
 
       p {
         opacity: 1;
         transform: translateY(0);
-        transition: all .12s .24s ease-in;
+        transition: all .12s .36s ease-in;
       }
     }
   }
@@ -63,8 +62,6 @@
     }
 
     .card__info {
-      @include font-size($fs-sm);
-
       display: grid;
       grid-template-columns: repeat(2, 1fr);
 
@@ -109,12 +106,17 @@
         }
       }
 
+      > div > div {
+        @include font-size($fs-md);
+      }
+
       label {
-        color: $color-grey;
         display: block;
-        @include font-regular();
+        @include font-mono();
         @include font-size($fs-xs);
+        letter-spacing: 0.06em;
         margin-bottom: 2px;
+        text-transform: uppercase;
 
         @include bp-sm() {
           margin-bottom: 2px;
@@ -163,21 +165,22 @@
     }
 
     span {
-      border-bottom: 1px solid $color-primary;
+      //border-bottom: 1px solid $color-pink;
+      color: $color-pink;
       display: inline-block;
       position: relative;
 
       &:after {
         @include background-default();
         background-image: url($url-icons + 'arrow-up-right.svg');
-        background-size: 14px auto;
+        background-size: 16px auto;
         background-position: center right;
         content: '';
         display: block;
         height: 20px;
         position: absolute;
         right: - $space-5x;
-        top: 0;
+        top: 1px;
         width: 16px;
       }
     }

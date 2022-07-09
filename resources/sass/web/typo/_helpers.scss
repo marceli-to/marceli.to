@@ -22,7 +22,7 @@
  */
 
 strong, b {
-	@include font-bold();
+	@include font-mono-bold();
 }
 
 p {

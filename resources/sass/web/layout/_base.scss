@@ -12,16 +12,17 @@ html {
 
 body {
 	background-color: $color-light;
+  background-color: $color-white;
 	color: $color-primary;
 	@include font-smoothing();
-	@include font-regular();
+  @include font-regular();
 	@include font-size($fs-md);
-	letter-spacing: 0.06em;
+	//letter-spacing: 0.06em;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 375px;
+	max-width: 480px;
 	position: relative;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 
 	@include bp-sm() {
 		max-width: none;

@@ -7,5 +7,5 @@
 label {
   display: block;
 	@include font-size($fs-md);
-  @include font-bold();
+  @include font-mono-bold();
 }
