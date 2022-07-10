@@ -36,7 +36,7 @@
     display: flex;
     flex: 1;
     justify-content: space-between;
-    padding: $space-2x $space-4x;
+    padding: $space-3x $space-5x;
     
 
     @include bp-sm() {
@@ -53,16 +53,26 @@
 
   p {
     align-self: flex-end;
-    //color: $color-grey;
     @include font-mono();
     @include font-size($fs-sm);
     letter-spacing: 0.03em;
     margin-bottom: 0;
+    @include bp-sm() {
+      margin-bottom: $space-3x;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
   }
 
   a {
     color: $color-pink;
     display: inline-block;
-    text-decoration: none;
+    padding: 2px 0;
+    position: relative;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: $color-pink;
+    width: auto;
   }
 }

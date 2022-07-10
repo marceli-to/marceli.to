@@ -12,8 +12,10 @@
     <div class="card__content">
       <div class="card__description">
         <div>
-          <p>{{$description}}</p>
-          <p><span>{{$website}}</span></p>
+          <p>
+            {{$description}}<br>
+            <span>{{$website}}</span>
+          </p>
         </div>
       </div>
       <div class="card__info">

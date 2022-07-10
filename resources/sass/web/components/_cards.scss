@@ -149,7 +149,7 @@
         max-width: 280px;
 
         @include bp-md() {
-          max-width: 320px;
+          max-width: 360px;
         }
       }
     }
@@ -166,9 +166,16 @@
 
     span {
       //border-bottom: 1px solid $color-pink;
+      //background-color: $color-pink;
+      //border-radius: 4px;
       color: $color-pink;
       display: inline-block;
+      padding: $space-1x 0;
       position: relative;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: $color-pink;
+      width: auto;
 
       // &:after {
       //   @include background-default();

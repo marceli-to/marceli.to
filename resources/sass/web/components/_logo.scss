@@ -7,9 +7,9 @@
 .brand {
   display: block;
   height: auto;
-  left: $space-4x;
+  left: $space-5x;
   position: fixed;
-  top: $space-4x;
+  top: $space-5x;
   width: 160px;
 
   @include bp-sm() {
