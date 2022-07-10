@@ -23,6 +23,8 @@
   0 12.1px 33.4px -10px rgba(0, 0, 0, 0.058),
   0 29px 80px -10px rgba(0, 0, 0, 0.08);
 
+  transition: opacity .1s ease-in;
+
   @include bp-sm() {
     background-color: transparent;
     box-shadow: none;
@@ -50,6 +52,12 @@
     opacity: 1;
     z-index: 50;
   }
+
+  &.is-hidden {
+    opacity: 0;
+    z-index: 50;
+  }
+
 
   p {
     align-self: flex-end;

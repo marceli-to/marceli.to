@@ -23,12 +23,33 @@ var Cards = (function() {
     });
     $(window).scroll(function() {
       _hideScrollIndicator();
+      _scroll();
     });
   };
 
+  var _scroll = debounce(function(){
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", function(){  
+      var st = window.pageYOffset || document.documentElement.scrollTop;  
+      if (st > lastScrollTop){
+        document.querySelector('.js-about').classList.remove('is-visible');
+        document.querySelector('.js-about').classList.add('is-hidden');
+        document.querySelector('.js-header').classList.remove('is-visible');
+        document.querySelector('.js-header').classList.add('is-hidden');
+      } 
+      else {
+        document.querySelector('.js-about').classList.remove('is-hidden');
+        document.querySelector('.js-about').classList.add('is-visible');
+        document.querySelector('.js-header').classList.remove('is-hidden');
+        document.querySelector('.js-header').classList.add('is-visible');
+      }
+      lastScrollTop = st;
+    }, false);
+  }, 100);
+
+
   var _hideScrollIndicator = debounce(function() {
     $('.scroll-indicator').hide();
-    //$('.js-about').hide();
   }, 50);
 
   return {
