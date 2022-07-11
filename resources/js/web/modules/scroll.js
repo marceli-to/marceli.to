@@ -64,15 +64,25 @@
     return scrollDown;
   };
 
+  const isScrollingUp = () => {
+    let scrollUp = false;
+    let scrollPosition = window.pageYOffset;
+    if (scrollPosition <= previousScrollPosition) {
+      scrollUp = true;
+    }
+    previousScrollPosition = scrollPosition;
+    return scrollUp;
+  };
+
   const handleScroll = () => {
     if (isScrollingDown()) {
-      body.classList.add("is-dark");
+      //body.classList.add("is-dark");
       about.classList.add("is-hidden");
       header.classList.add("is-hidden");
       indicator.style.display = 'none';
     } 
-    else {
-      body.classList.remove("is-dark");
+    else if (isScrollingUp()) {
+      //body.classList.remove("is-dark");
       about.classList.remove("is-hidden");
       header.classList.remove("is-hidden");
     }
