@@ -1,4 +1,6 @@
 <footer class="site-footer">made with&nbsp;&#10084;&nbsp;by marceli.to</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 <script src="{{ mix('assets/js/app.js') }}" type="text/javascript"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHC31BJ7B7"></script>
 <script>
