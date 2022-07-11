@@ -2,10 +2,8 @@
 require('./bootstrap');
 
 // Vendor
-require('./vendor/lazysizes.js');
-// require('./vendor/swiper.js');
+//require('./vendor/lazyload.js');
 
 // Modules
-// require('./modules/menu.js');
+require('./modules/scroll.js');
 require('./modules/cards.js');
-// require('./modules/swiper.js');

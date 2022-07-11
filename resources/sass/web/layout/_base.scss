@@ -17,12 +17,14 @@ body {
 	@include font-smoothing();
   @include font-regular();
 	@include font-size($fs-md);
-	//letter-spacing: 0.06em;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 480px;
 	position: relative;
-	// text-transform: uppercase;
+  transition: background-color .12s ease-in;
+  &.is-dark {
+    background-color: #111;
+  }
 
 	@include bp-sm() {
 		max-width: none;

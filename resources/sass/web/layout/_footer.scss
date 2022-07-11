@@ -19,3 +19,9 @@ footer.site-footer {
     padding: $space-4x 0;
   }
 }
+
+.is-dark {
+  footer.site-footer {
+    color: $color-white;
+  }
+}
