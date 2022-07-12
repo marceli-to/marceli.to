@@ -1,4 +1,4 @@
-<section class="about is-visible js-about">
+<section class="about js-about">
   <div>
     <p>Marcel Stadelmann<br>Letzigraben 149<br>8047 Zürich</p>
     <p>

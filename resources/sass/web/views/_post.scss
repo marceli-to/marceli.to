@@ -7,7 +7,7 @@
 .post {
   align-items: center;
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 75px);
   justify-content: center;
   width: 100%;
 }

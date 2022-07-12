@@ -15,7 +15,7 @@
   }).progress(1);
 
   const body = gsap.from('body', { 
-    backgroundColor: '#111',
+    backgroundColor: '#d9d9d9',
     paused: true,
     delay: 1.4,
     duration: .2,
