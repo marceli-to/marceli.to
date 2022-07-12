@@ -1,39 +1,32 @@
 import LazyLoad from '../vendor/lazyload';
 
-var Cards = (function() {
-	
-	// selectors
-	var selectors = {
-    html: 'html',
-    body: 'body',
-	};
+(function () {
 
-
-  // Init
-  var _initialize = function() {
-    _bind();
+  const classes = {
+    touched: 'is-touched',
   };
 
-  // Bind events
-  var _bind = function() {
-    $('.card').on('touchstart', function(e) {
-      $(this).addClass('touched');
-    });
-    $('.card').on('touchend', function(e) {
-      $(this).removeClass('touched');
-    });
+  const selectors = {
+    card: '.js-card',
   };
 
-  var lazyLoadInstance = new LazyLoad();
+  const init = () => {
+    const card = document.querySelector(selectors.card);
+    
+    card.addEventListener("touchstart", function(event) {
+      this.classList.add(classes.touched);
+    }, false);
 
-  return {
-    init: _initialize,
+    card.addEventListener("touchend", function(event) {
+      this.classList.remove(classes.touched);
+    }, false);
+
+    const lazyLoadInstance = new LazyLoad();
   };
-	
+
+
+  window.onload = init;
+  
 })();
 
-// Initialize
-$(function() {
-  Cards.init();
-});
 

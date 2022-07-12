@@ -23,7 +23,7 @@
   position: relative;
   transition: box-shadow .06s ease-in;
   
-  &.touched,
+  &.is-touched,
   &:hover {
     box-shadow:
     0 0.8px 2.2px rgba(0, 0, 0, 0.011),

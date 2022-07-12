@@ -12,12 +12,10 @@ header.site-header {
   top: 0;
   width: 100%;
   z-index: 201;
-  // transition: opacity .1s ease-in;
   transition: transform .12s ease-in;
   transform: translate(0,0);
 
   &.is-hidden {
     transform: translate(0,-105%);
   }
-
 }

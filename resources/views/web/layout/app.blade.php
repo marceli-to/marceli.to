@@ -23,8 +23,7 @@
 </head>
 <body>
 @include('web.partials.header')
-<main role="main" class="site js-main">
+<main role="main" class="site">
   @yield('content')
 </main>
-{{-- @include('web.partials.arrow') --}}
 @include('web.partials.footer')

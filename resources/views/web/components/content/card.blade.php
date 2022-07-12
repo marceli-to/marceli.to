@@ -1,5 +1,5 @@
 <section class="post">
-  <a href="{{$uri}}" target="_blank" rel="noreferrer" title="{{$website}} besuchen" class="card">
+  <a href="{{$uri}}" target="_blank" rel="noreferrer" title="{{$website}} besuchen" class="card js-card">
     <picture>
       <source media="(min-width: 1200px)" data-srcset="/assets/img/projects/{{$image}}-lg.webp" type="image/webp">
       <source media="(min-width: 1200px)" data-srcset="/assets/img/projects/{{$image}}-lg.jpg">        
