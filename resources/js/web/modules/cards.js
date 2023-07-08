@@ -1,4 +1,3 @@
-import LazyLoad from '../vendor/lazyload';
 
 (function () {
 
@@ -21,7 +20,6 @@ import LazyLoad from '../vendor/lazyload';
       this.classList.remove(classes.touched);
     }, false);
 
-    const lazyLoadInstance = new LazyLoad();
   };
 
 

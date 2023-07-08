@@ -1,5 +1,16 @@
 @extends('web.layout.app')
 @section('content')
+
+
+<x-card uri="https://pisten-verlaengerung.ch" website="pisten-verlaengerung.ch" description="Webseite für das Komitee 'Ja zur Pistenverlängerung'" image="pisten-verlaengerung.ch" client="Komitee Pro Flughafen, Zürich" design="furrerhugi, Zürich" year="2023" />
+<x-card uri="https://berghoferin.it/" website="berghoferin.it" description="Webseite für das 5-Sterne-Hotel Berghoferin in Italien" image="berghoferin.it" client="Berghoferin – Fine Hotel & Hideaway, Aldein" design="WBG AG – Visuelle Kommunikation, Zürich" year="2023" />
+<x-card uri="https://spiserstrasse.ch" website="spiserstrasse.ch" description="Verkaufwebseite für Eigentumswohnungen, Townhouses und Ateliers an der Spiserstrasse in Zürich" image="spiserstrasse.ch" client="Allreal Generalunternehmung AG, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2023" />
+<x-card uri="https://visualisierungs-akademie.ch/" website="visualisierungs-akademie.ch" description="Webseite und Buchungsplattform für die Visualisierungs Akademie in Zürich." image="visualisierungs-akademie.ch" client="
+Visualisierungs-Akademie Schweiz GmbH, Zürich" design="WBG AG – Visuelle Kommunikation, Zürich" year="2023" />
+<x-card uri="https://drive-academy.ch/" website="drive-academy.ch" description="Webseite für die PS Drive Academy" image="drive-academy.ch" client="PS Drive Academy, Hinwil" design="stoz Werbeagentur" year="2023" />
+<x-card uri="https://ruem.ch/" website="ruem.ch" description="Webseite für die Innenarchitektin Jenny Schäubli" image="ruem.ch" client="Jenny Schäubli, Zürich" design="Emma Leuthold" year="2023" />
+<x-card uri="https://gmuerarch.ch/" website="gmuerarch.ch" description="Webseite für Silvia Gmür Reto Gmür Architekten in Basel" image="gmuerarch.ch" client="ilvia Gmür Reto Gmür Architekten, Basel" design="Hans Grüeninger" year="2023" />
+<x-card uri="https://zuerigaertner.ch/" website="zuerigaertner.ch" description="Webseite für ZÜRIGÄRTNER GmbH" image="zuerigaertner.ch" client="ZÜRIGÄRTNER GmbH" design="stoz Werbeagentur" year="2023" />
 <x-card uri="https://steckdosen-kombination.ch/" website="steckdosen-kombination.ch" description="Konfigurator für Wand-Stromverteiler" image="steckdosen-kombination" client="Ferratec AG, Rudolfstetten" design="Vadim Zvyagintsev" year="2022" />
 <x-card uri="https://forum-architektur.ch/" website="forum-architektur.ch" description="Webseite für das Forum Architektur Winterthur" image="forum-architektur-winterthur" client="Forum Architektur, Winterthur" design="Bivgrafik GmbH, Zürich" year="2022" />
 <x-card uri="https://itavolidelvagabondo.ch/" website="itavolidelvagabondo.ch" description="Webseite für Simon Schneeberger a.k.a. I tavoli del vagabondo. Buon appetito." image="itavolidelvagabondo.ch" client="Associazione I tavoli del Vagabondo, Winterthur" design="Pool Practice, Berlin" year="2022" />
