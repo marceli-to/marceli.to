@@ -19,10 +19,10 @@ tabs:
               display: Description
               localizable: false
           -
-            handle: url
+            handle: link
             field:
               type: link
-              display: Url
+              display: Link
               localizable: false
           -
             handle: image

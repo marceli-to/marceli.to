@@ -16,6 +16,14 @@ export default {
 
     extend: {
 
+      boxShadow: {
+        'card': '0 .8px 2.2px -10px rgba(0, 0, 0, .022), 0 1.9px 5.3px -10px rgba(0, 0, 0, .032), 0 3.6px 10px -10px rgba(0, 0, 0, .04), 0 6.5px 17.9px -10px rgba(0, 0, 0, .048), 0 12.1px 33.4px -10px rgba(0, 0, 0, .058), 0 29px 80px -10px rgba(0, 0, 0, .08)'
+      },
+
+      backgroundImage: {
+        'grid': "url('img/grid.svg')",
+      },
+
       screens: {
         'xs': '480px',
       },
@@ -34,6 +42,8 @@ export default {
         'xs': '0.75rem', // 12px
         'sm': '0.875rem', // 14px
         'md': '1rem', // 16px
+        'lg': '1.125rem', // 18px
+        'xl': '1.25rem', // 20px
       },
     
     },
