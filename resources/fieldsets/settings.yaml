@@ -1,0 +1,20 @@
+title: Settings
+fields:
+  -
+    handle: debug
+    field:
+      type: toggle
+      display: Debug
+      localizable: false
+  -
+    handle: template
+    field:
+      type: template
+      display: Template
+      localizable: false
+  -
+    handle: layout
+    field:
+      type: template
+      display: Layout
+      localizable: false

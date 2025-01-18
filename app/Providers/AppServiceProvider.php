@@ -1,28 +1,28 @@
 <?php
+
 namespace App\Providers;
-use Illuminate\Support\Facades\Schema;
+
 use Illuminate\Support\ServiceProvider;
+use Statamic\Statamic;
 
 class AppServiceProvider extends ServiceProvider
 {
-  /**
-   * Register any application services.
-   *
-   * @return void
-   */
-  public function register()
-  {
-    //
-  }
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
 
-  /**
-   * Bootstrap any application services.
-   *
-   * @return void
-   */
-  public function boot()
-  {
-    // setLocale(LC_ALL, 'de_CH.UTF-8');
-    Schema::defaultStringLength(191);
-  }
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        // Statamic::vite('app', [
+        //     'resources/js/cp.js',
+        //     'resources/css/cp.css',
+        // ]);
+    }
 }

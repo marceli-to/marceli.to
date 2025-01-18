@@ -1,0 +1,83 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              localizable: false
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+              localizable: false
+          -
+            handle: url
+            field:
+              type: link
+              display: Url
+              localizable: false
+          -
+            handle: image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Image
+              localizable: false
+              folder: projects
+          -
+            handle: year
+            field:
+              input_type: number
+              type: text
+              display: Year
+              localizable: false
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - projects
+              max_items: 1
+              listable: false
+              localizable: true
+          -
+            handle: client
+            field:
+              taxonomies:
+                - clients
+              type: terms
+              display: Client
+              localizable: false
+              max_items: 1
+              mode: select
+          -
+            handle: agency
+            field:
+              taxonomies:
+                - clients
+              type: terms
+              display: Agency
+              localizable: false
+              max_items: 1
+              mode: select
+title: Project

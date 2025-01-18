@@ -1,0 +1,21 @@
+<footer class="bg-white w-full sticky bottom-0 left-0 font-sans text-sm flex flex-col gap-y-12">
+  <div>
+    {{ contact_information:name }}<br>
+    {{ contact_information:address | nl2br }}
+  </div>
+  <div>
+    <a 
+      href="tel:{{ contact_information:phone }}"
+      class="block text-raspberry no-underline hover:underline underline-offset-4 decoration-1">
+      {{ contact_information:phone }}
+    </a>
+    <a 
+      href="mailto:{{ contact_information:email }}"
+      class="block text-raspberry no-underline hover:underline underline-offset-4 decoration-1">
+      {{ contact_information:email }}
+    </a>
+  </div>
+</footer>
+{{ vite src="resources/js/app.js" }}
+</body>
+</html>

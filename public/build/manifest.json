@@ -1,0 +1,20 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-78906344.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/fonts/JetBrainsMono-Regular.woff": {
+    "file": "assets/JetBrainsMono-Regular-f697d1ab.woff",
+    "src": "resources/css/fonts/JetBrainsMono-Regular.woff"
+  },
+  "resources/css/fonts/JetBrainsMono-Regular.woff2": {
+    "file": "assets/JetBrainsMono-Regular-1850f322.woff2",
+    "src": "resources/css/fonts/JetBrainsMono-Regular.woff2"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-350ff511.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
