@@ -1,26 +1,25 @@
-<section class="flex flex-col max-w-3xl mx-auto relative z-20 p-15 sm:p-20">
-  {{ collection:projects as="projects" sort="year:desc" }}
+<section class="flex flex-col gap-y-40 md:gap-y-80 max-w-4xl mx-auto relative z-20 p-15 sm:p-20">
+  {{ collection:projects as="projects" sort="year:desc|order:asc" }}
     {{ if projects }}
       {{ projects }}
         <article class="min-h-screen flex flex-col justify-center">
-          <div class="p-20 rounded-md bg-white shadow-card  relative group">
+          <div class="p-20 rounded-md bg-white shadow-card relative group">
             {{ if image }}
               {{ partial:media/image 
                 class="block w-full h-auto"
-                preset="focal-16-10"
                 :sizes="['lg', 'xl', '2xl']"
                 :image="image" }}
             {{ /if }}
             <div class="sm:grid sm:grid-cols-12 sm:gap-x-16 text-sm leading-[1.25] mt-20 border-t border-gray-200">
-              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pb-4">
+              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
                 <label class="font-mono text-xxs sm:text-xs block mb-4">Kunde</label>
                 {{ client:title }}
               </div>
-              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Konzept, Design</label>
+              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
+                <label class="font-mono text-xxs sm:text-xs block mb-4">Konzept/Design</label>
                 {{ agency:title }}
               </div>
-              <div class="sm:col-span-2 pt-12 pb-4">
+              <div class="sm:col-span-2 pt-12 pr-4 pb-4">
                 <label class="font-mono text-xxs sm:text-xs block mb-4">Jahr</label>
                 {{ year }}
               </div>
@@ -30,7 +29,7 @@
               title="Webseite {{ title }} anzeigen"
               target="_blank"
               class="absolute inset-0 h-full w-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="max-w-md mx-auto text-center text-lg sm:text-xl text-raspberry">
+              <span class="max-w-md mx-auto text-center font-medium text-lg sm:text-xl text-raspberry text-pretty">
                 {{ description | nl2br }}
                 <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline">
                   {{ link | trim_protocol }}
@@ -38,7 +37,6 @@
               </span>
             </a>
           </div>
-
         </article>
       {{ /projects }}
     {{ /if }}

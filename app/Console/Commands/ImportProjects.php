@@ -309,18 +309,17 @@ class ImportProjects extends Command
           ->save();
       }
 
-      dd($client->slug, $agency);
-
       Entry::make()
         ->collection('projects')
         ->data([
           'title' => $project['website'],
+          'slug' => \Str::slug($project['website']),
           'description' => $project['description'],
           'link' => $project['uri'],
           'year' => $project['year'],
-          'image' => "projects/" . $project['image'],
-          'client' => $client->slug,
-          'agency' => $agency->slug,
+          'image' => "projects/" . $project['image'] . '.jpg',
+          'client' => $client->slug ?? null,
+          'agency' => $agency->slug ?? null,
         ])
         ->save();
 
