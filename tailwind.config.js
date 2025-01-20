@@ -26,6 +26,11 @@ export default {
 
       screens: {
         'xs': '480px',
+        '3xl': '1920px',
+      },
+
+      maxW: {
+        '5xl': '64rem',
       },
 
       fontFamily: {
