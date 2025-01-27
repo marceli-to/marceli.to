@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-74ea3d19.css",
+    "file": "assets/app-46f5d1c1.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -11,10 +11,6 @@
   "resources/css/fonts/JetBrainsMono-Regular.woff2": {
     "file": "assets/JetBrainsMono-Regular-1850f322.woff2",
     "src": "resources/css/fonts/JetBrainsMono-Regular.woff2"
-  },
-  "resources/img/grid.svg": {
-    "file": "assets/grid-594733ac.svg",
-    "src": "resources/img/grid.svg"
   },
   "resources/js/app.js": {
     "file": "assets/app-350ff511.js",
