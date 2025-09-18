@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "416f1561bd0970d3fce05bc1bfbe79ad",
+    "content-hash": "09ab2fabc89194d5e0d020f240b65c2b",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -2596,6 +2596,63 @@
                 }
             ],
             "time": "2024-10-10T12:33:01+00:00"
+        },
+        {
+            "name": "marceli-to/wiretap",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marceli-to/wiretap-package.git",
+                "reference": "3d2bae1e8231b6021f2a3975e40a202ca97fb9de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marceli-to/wiretap-package/zipball/3d2bae1e8231b6021f2a3975e40a202ca97fb9de",
+                "reference": "3d2bae1e8231b6021f2a3975e40a202ca97fb9de",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "illuminate/http": "^9.0|^10.0|^11.0",
+                "illuminate/support": "^9.0|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.0|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Wiretap": "MarceliTo\\Wiretap\\Facades\\Wiretap"
+                    },
+                    "providers": [
+                        "MarceliTo\\Wiretap\\Providers\\WiretapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarceliTo\\Wiretap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Stadelmann",
+                    "email": "m@marceli.to"
+                }
+            ],
+            "description": "A simplified logging package for Laravel with webhook capabilities",
+            "support": {
+                "issues": "https://github.com/marceli-to/wiretap-package/issues",
+                "source": "https://github.com/marceli-to/wiretap-package/tree/v1.0.0"
+            },
+            "time": "2025-09-18T06:42:31+00:00"
         },
         {
             "name": "michelf/php-smartypants",
@@ -10156,12 +10213,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
