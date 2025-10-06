@@ -40,6 +40,7 @@ export default {
 
       colors: {
         'raspberry': '#E94364',
+        'snow': '#f9f9f9'
       },      
 
       fontSize: {

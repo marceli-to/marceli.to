@@ -1,4 +1,4 @@
-<section class="flex flex-col gap-y-40 md:gap-y-80 max-w-[90vw] md:max-w-[70vw] xl:max-w-[60vw] mx-auto relative z-20 p-15 sm:p-20">
+<section class="flex flex-col gap-y-40 md:gap-y-80 max-w-[90vw] md:max-w-[70vw] xl:max-w-[60vw] mx-auto relative z-20 sm:p-20">
   {{ collection:projects as="projects" sort="year:desc|order:asc" }}
     {{ if projects }}
       {{ projects }}
@@ -29,9 +29,9 @@
               title="Webseite {{ title }} anzeigen"
               target="_blank"
               class="absolute inset-0 h-full w-full bg-white/95 rounded-[12px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="max-w-md xl:max-w-xl mx-auto text-center px-20 font-medium text-md md:text-xl leading-[1.35] text-raspberry text-pretty">
+              <span class="max-w-lg xl:max-w-xl mx-auto text-center px-20 font-medium text-sm md:text-md leading-[1.45] text-balance">
                 {{ description | nl2br }}
-                <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline cursor-pointer">
+                <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline !cursor-pointer">
                   {{ link | trim_protocol }}
                 </span>
               </span>
