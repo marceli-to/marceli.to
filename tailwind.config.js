@@ -35,7 +35,8 @@ export default {
 
       fontFamily: {
         'monospace': ['JetBrainsMono-Regular', ...defaultTheme.fontFamily.sans],
-        'sans': ['Poppins', ...defaultTheme.fontFamily.sans]
+        'sans': ['Poppins', ...defaultTheme.fontFamily.sans],
+        'space-grotesk': ['Space Grotesk', ...defaultTheme.fontFamily.sans]
       },
 
       colors: {

@@ -12,15 +12,15 @@
             {{ /if }}
             <div class="sm:grid sm:grid-cols-12 sm:gap-x-16 text-sm leading-[1.25] mt-20 border-t border-gray-200">
               <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Kunde</label>
+                <label class="font-medium text-xxs sm:text-xs block mb-4">Kunde</label>
                 {{ client:title }}
               </div>
               <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Konzept/Design</label>
+                <label class="font-medium text-xxs sm:text-xs block mb-4">Konzept/Design</label>
                 {{ agency:title }}
               </div>
               <div class="sm:col-span-2 pt-12 pr-4 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Jahr</label>
+                <label class="font-medium text-xxs sm:text-xs block mb-4">Jahr</label>
                 {{ year }}
               </div>
             </div>
@@ -28,10 +28,10 @@
               href="{{ link }}" 
               title="Webseite {{ title }} anzeigen"
               target="_blank"
-              class="absolute inset-0 h-full w-full bg-white rounded-[12px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="max-w-lg xl:max-w-xl mx-auto text-center px-20 font-medium text-sm md:text-md leading-[1.45] text-balance">
+              class="absolute inset-0 h-full w-full bg-white/95 !blur-none rounded-[12px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="max-w-lg xl:max-w-xl mx-auto text-center px-20 font-medium text-md md:text-xl leading-[1.45] text-balance">
                 {{ description | nl2br }}
-                <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline !cursor-pointer">
+                <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline !cursor-pointer hover:text-raspberry transition-colors">
                   {{ link | trim_protocol }}
                 </span>
               </span>
@@ -42,48 +42,3 @@
     {{ /if }}
   {{ /collection:projects }}
 </section>
-
-{{# <section class="flex flex-col gap-y-80 lg:grid lg:grid-cols-12 lg:gap-80 lg:gap-y-80 lg:px-80 lg:py-120 max-w-2xl lg:max-w-[90vw] mx-auto relative z-20 p-15 sm:p-20">
-  {{ collection:projects as="projects" sort="year:desc|order:asc" }}
-    {{ if projects }}
-      {{ projects }}
-        <article class=" flex flex-col justify-center lg:col-span-6 3xl:col-span-4">
-          <div class="p-20 rounded-md bg-white shadow-card relative group">
-            {{ if image }}
-              {{ partial:media/image 
-                class="block w-full h-auto"
-                :sizes="['lg', 'xl', '2xl']"
-                :image="image" }}
-            {{ /if }}
-            <div class="sm:grid sm:grid-cols-12 sm:gap-x-16 text-sm leading-[1.25] mt-20 border-t border-gray-200">
-              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Kunde</label>
-                {{ client:title }}
-              </div>
-              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Konzept/Design</label>
-                {{ agency:title }}
-              </div>
-              <div class="sm:col-span-2 pt-12 pr-4 pb-4">
-                <label class="font-mono text-xxs sm:text-xs block mb-4">Jahr</label>
-                {{ year }}
-              </div>
-            </div>
-            <a 
-              href="{{ link }}" 
-              title="Webseite {{ title }} anzeigen"
-              target="_blank"
-              class="absolute inset-0 h-full w-full bg-white/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="max-w-md mx-auto text-center font-medium text-lg sm:text-xl leading-[1.35] text-raspberry text-pretty">
-                {{ description | nl2br }}
-                <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline cursor-pointer">
-                  {{ link | trim_protocol }}
-                </span>
-              </span>
-            </a>
-          </div>
-        </article>
-      {{ /projects }}
-    {{ /if }}
-  {{ /collection:projects }}
-</section> #}}
