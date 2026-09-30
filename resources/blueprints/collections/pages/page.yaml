@@ -31,7 +31,7 @@ tabs:
                       display: Projects
                       instructions: 'Add projects'
                       icon: layout-table-row-insert
-                      fields: {  }
+                      fields: {}
   seo:
     display: SEO
     sections:
@@ -59,12 +59,3 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
-          -
-            handle: parent
-            field:
-              type: entries
-              collections:
-                - pages
-              max_items: 1
-              listable: false
-              localizable: true

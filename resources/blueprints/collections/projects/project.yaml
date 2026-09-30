@@ -52,15 +52,6 @@ tabs:
               localizable: true
               validate: 'max:200'
           -
-            handle: parent
-            field:
-              type: entries
-              collections:
-                - projects
-              max_items: 1
-              listable: false
-              localizable: true
-          -
             handle: client
             field:
               taxonomies:
