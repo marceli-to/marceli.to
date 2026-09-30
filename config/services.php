@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'mcp' => [
+        'token_hash' => env('MCP_TOKEN_HASH'),
+        'user_email' => env('MCP_USER_EMAIL'),
+    ],
+
 ];
