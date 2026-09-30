@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Statamic\Facades\Entry;
+use Statamic\Facades\Collection;
 use Statamic\Facades\User;
 use Tests\TestCase;
 
@@ -22,7 +22,7 @@ class ControlPanelTest extends TestCase
 
     public function test_super_user_can_open_a_project_for_editing(): void
     {
-        $project = Entry::query()->where('collection', 'projects')->first();
+        $project = Collection::find('projects')->queryEntries()->first();
 
         $this->actingAs($this->superUser())
             ->get($project->editUrl())
