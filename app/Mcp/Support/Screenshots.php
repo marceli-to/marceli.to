@@ -160,7 +160,7 @@ class Screenshots
         return new ImageManager($driver);
     }
 
-    protected static function assertSize(int $bytes, string $field): void
+    public static function assertSize(int $bytes, string $field): void
     {
         if ($bytes > static::MAX_BYTES) {
             $mb = round($bytes / 1024 / 1024, 1);

@@ -74,7 +74,7 @@ class HttpEndpointTest extends McpTestCase
     {
         $tools = collect($this->rpc('tools/list')->assertOk()->json('result.tools'))->pluck('name')->sort()->values()->all();
 
-        $this->assertSame(['create_project', 'get_project', 'list_projects', 'publish_project', 'update_project', 'upload_screenshot'], $tools);
+        $this->assertSame(['create_project', 'get_project', 'get_screenshot_upload_url', 'list_projects', 'publish_project', 'update_project', 'upload_screenshot'], $tools);
     }
 
     public function test_an_authenticated_client_can_call_a_tool_and_the_write_is_attributed(): void

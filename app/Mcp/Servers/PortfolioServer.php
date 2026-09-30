@@ -4,6 +4,7 @@ namespace App\Mcp\Servers;
 
 use App\Mcp\Tools\CreateProject;
 use App\Mcp\Tools\GetProject;
+use App\Mcp\Tools\GetScreenshotUploadUrl;
 use App\Mcp\Tools\ListProjects;
 use App\Mcp\Tools\PublishProject;
 use App\Mcp\Tools\UpdateProject;
@@ -18,7 +19,7 @@ use Laravel\Mcp\Server\Attributes\Version;
 #[Instructions(<<<'TEXT'
 Manage the portfolio projects shown on marceli.to (Marcel Stadelmann's web development portfolio). Each project is one website he built: a screenshot, the website URL, client, optional concept/design agency, year and a short German description.
 
-Typical flow: the user drops in a screenshot -> upload_screenshot -> ask for any missing details -> confirm all values -> create_project (saved as a draft) -> publish_project only when the user asks.
+Typical flow: the user drops in a screenshot -> get_screenshot_upload_url + curl for a local file (upload_screenshot for base64 or a public URL) -> ask for any missing details -> confirm all values -> create_project (saved as a draft) -> publish_project only when the user asks.
 Always confirm values with the user before writing. Never invent clients, agencies, years or descriptions. Deleting projects is not possible here; that is done in the Statamic Control Panel.
 TEXT)]
 class PortfolioServer extends Server
@@ -29,6 +30,7 @@ class PortfolioServer extends Server
         CreateProject::class,
         UpdateProject::class,
         UploadScreenshot::class,
+        GetScreenshotUploadUrl::class,
         PublishProject::class,
     ];
 

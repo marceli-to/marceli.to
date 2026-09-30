@@ -16,7 +16,8 @@ use Laravel\Mcp\Server\Tool;
 #[Description(<<<'TEXT'
 Store a website screenshot for a portfolio project and return its asset path, to pass as "image" to create_project or update_project. Uploading alone does not change any project.
 
-Send the image either as base64 "data" (preferred; e.g. read a local file the user dropped in) together with its "mime_type" and "filename", or as "image_url" to download it from a public URL (fallback).
+For a local file (e.g. one the user dropped in), prefer get_screenshot_upload_url: it avoids sending large base64 strings.
+Otherwise send the image either as base64 "data" together with its "mime_type" and "filename", or as "image_url" to download it from a public URL (fallback).
 Always pass "website_url" (the project's live website): the file is named after its domain, e.g. "projects/example.ch.png".
 
 Accepted: JPEG, PNG or WebP, max 10 MB, at least 1200px wide. The image is cropped to 3:2 (keeping the top of full-page screenshots) and scaled down to at most 2400px wide, like the existing screenshots. PNG stays PNG; JPEG and WebP are saved as JPEG.

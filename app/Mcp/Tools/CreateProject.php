@@ -18,7 +18,7 @@ Create a new portfolio project on marceli.to. It is ALWAYS saved as an unpublish
 Required: url (the live website), client, year, description. Optional: agency (the concept/design agency), title (defaults to the domain, e.g. "example.ch", which is how most projects are named), image (asset path from upload_screenshot).
 
 How to use this tool:
-1. If the user gives you a screenshot, call upload_screenshot first and pass the returned path as image.
+1. If the user gives you a screenshot, upload it first (get_screenshot_upload_url for a local file, otherwise upload_screenshot) and pass the returned path as image.
 2. Ask the user for every required value you do not know. Never guess or invent a client, agency, year or description.
 3. Descriptions are one or two sentences in German, in the style of the existing projects (e.g. "Webseite und Buchungsplattform für die Visualisierungs Akademie in Zürich."). Offer a draft, but let the user decide.
 4. For client and agency, reuse the exact spelling of an existing name from list_projects when it is the same company. Unknown names are created as new clients.
