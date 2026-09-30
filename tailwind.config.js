@@ -16,26 +16,7 @@ export default {
 
     extend: {
 
-      boxShadow: {
-        'card': '0 .8px 2.2px -10px rgba(0, 0, 0, .022), 0 1.9px 5.3px -10px rgba(0, 0, 0, .032), 0 3.6px 10px -10px rgba(0, 0, 0, .04), 0 6.5px 17.9px -10px rgba(0, 0, 0, .048), 0 12.1px 33.4px -10px rgba(0, 0, 0, .058), 0 29px 80px -10px rgba(0, 0, 0, .08)'
-      },
-
-      backgroundImage: {
-        'grid': "url('img/grid.svg')",
-      },
-
-      screens: {
-        'xs': '480px',
-        '3xl': '1920px',
-      },
-
-      maxW: {
-        '5xl': '64rem',
-      },
-
       fontFamily: {
-        'monospace': ['JetBrainsMono-Regular', ...defaultTheme.fontFamily.sans],
-        'sans': ['Poppins', ...defaultTheme.fontFamily.sans],
         'space-grotesk': ['Space Grotesk', ...defaultTheme.fontFamily.sans]
       },
 
