@@ -92,7 +92,7 @@ const en: Strings = {
   title: 'marceli.to – Marcel Stadelmann, web development in Zürich',
   description:
     'Marcel Stadelmann builds websites for architecture, art and design, mostly together with design studios and agencies. Self-employed in Zürich since 2016.',
-  ogImageAlt: 'Hoi, I’m Marcel and I build websites for architecture, art and design.',
+  ogImageAlt: 'Hi, I’m Marcel and I build websites for architecture, art and design.',
   llmsTitle: 'Summary for language models (llms.txt)',
   person: {
     jobTitle: 'Web developer',
@@ -111,7 +111,7 @@ const en: Strings = {
   },
   lights: { label: 'Turn the lights on and off', title: 'Lights on/off' },
   hero: {
-    hi: 'Hoi, I’m',
+    hi: 'Hi, I’m',
     build: 'and I build websites for',
     architecture: 'architecture',
     art: 'art',
