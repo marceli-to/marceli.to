@@ -13,3 +13,9 @@ export const contact = {
   phone: '078 749 74 09',
   email: 'm@marceli.to',
 };
+
+// Marcel's own app studio, linked in About, llms.txt and the JSON-LD
+export const kimiyu = {
+  name: 'Kimiyu',
+  url: 'https://kimiyu.ch',
+};

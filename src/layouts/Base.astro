@@ -1,7 +1,7 @@
 ---
 import { Font, getImage } from 'astro:assets';
 import '../styles/global.css';
-import { contact, site } from '../data/site';
+import { contact, kimiyu, site } from '../data/site';
 import { alternates, getLang, useStrings } from '../data/i18n';
 import marcel from '../assets/marcel.jpg';
 
@@ -51,6 +51,13 @@ const jsonLd = {
         addressCountry: contact.country,
       },
       knowsAbout: [...t.person.knowsAbout, 'Laravel', 'Statamic', 'Vue.js', 'Tailwind CSS', 'Astro'],
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${kimiyu.url}/#organization`,
+      name: kimiyu.name,
+      url: `${kimiyu.url}/`,
+      founder: { '@id': `${site.url}/#person` },
     },
     {
       '@type': 'ProfilePage',
