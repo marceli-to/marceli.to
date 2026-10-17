@@ -74,7 +74,6 @@ git -c credential.helper= -c http.extraHeader="Authorization: Basic $(printf 'x-
 ## Open items
 
 1. **English version** at `/en/` (Astro i18n routing, German stays at `/`). Texts are in `src/data/i18n.ts`, project texts in `descriptionEn`. Still German only: `og.png` (the image text), `site.webmanifest`. The German descriptions of Day and Intercable are actually English.
-2. **About copy:** the first paragraph still says "als technischer Leiter und Berater", while Rolle starts with "Entwicklung". Marcel may want "als Entwickler, technischer Leiter und Berater".
-3. **Gute Bauten 2021** is offline. If Marcel has an archive of it, link it like 2025.
-4. **Redirects worth checking:** Win a Gärtner now goes to spross.com/garten, mobilecharge.ch went offline, sipt.ch goes to psychotraumatologie-sipt.ch.
-5. Update TypeScript to 7 once `@astrojs/check` supports it.
+2. **Gute Bauten 2021** is offline. If Marcel has an archive of it, link it like 2025.
+3. **Redirects worth checking:** Win a Gärtner now goes to spross.com/garten, mobilecharge.ch went offline, sipt.ch goes to psychotraumatologie-sipt.ch.
+4. Update TypeScript to 7 once `@astrojs/check` supports it.

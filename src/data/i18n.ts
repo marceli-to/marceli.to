@@ -51,7 +51,7 @@ const de = {
     // The underlined part sits between before and after
     headline: { before: 'Ich übersetze Gestaltung in Code, ', underlined: 'so sorgfältig', after: ', wie sie entworfen wurde.' },
     text: [
-      'Seit 2016 bin ich selbständig in Zürich, als technischer Leiter und Berater an der Schnittstelle von Gestaltung, Auftraggebern und IT. Ich arbeite mit Designstudios und Agenturen, aber auch direkt mit Kulturinstitutionen und KMU: bei Websites ebenso wie bei der Digitalisierung von Abläufen.',
+      'Seit 2016 bin ich selbständig in Zürich, als Entwickler, technischer Leiter und Berater an der Schnittstelle von Gestaltung, Auftraggebern und IT. Ich arbeite mit Designstudios und Agenturen, aber auch direkt mit Kulturinstitutionen und KMU: bei Websites ebenso wie bei der Digitalisierung von Abläufen.',
       'Am liebsten arbeite ich für Architektur, Kunst und Kultur, für Leute, denen Details genauso wichtig sind wie mir.',
     ],
     role: 'Rolle',
@@ -130,7 +130,7 @@ const en: Strings = {
   about: {
     headline: { before: 'I translate design into code, ', underlined: 'as carefully', after: ' as it was designed.' },
     text: [
-      'I’ve been self-employed in Zürich since 2016, working as a technical lead and consultant where design, clients and IT meet. I work with design studios and agencies, and directly with cultural institutions and small businesses: on websites as well as on digitising workflows.',
+      'I’ve been self-employed in Zürich since 2016, working as a developer, technical lead and consultant where design, clients and IT meet. I work with design studios and agencies, and directly with cultural institutions and small businesses: on websites as well as on digitising workflows.',
       'I most like working for architecture, art and culture, for people who care about details as much as I do.',
     ],
     role: 'Role',
