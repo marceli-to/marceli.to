@@ -45,11 +45,15 @@ const de = {
   lights: { label: 'Licht an- und ausschalten', title: 'Licht an/aus' },
   hero: {
     hi: 'Hoi, ich bin',
-    build: 'und baue Websites für',
-    architecture: 'Architektur',
-    art: 'Kunst',
+    // "Ich entwickle Websites und digitale Abläufe, die halten, was sie versprechen."
+    build: 'Ich entwickle',
+    websites: 'Websites',
     and: 'und',
-    design: 'Design',
+    workflows: 'digitale Abläufe',
+    that: ', die',
+    keep: 'halten',
+    pause: ',',
+    promise: 'was sie versprechen',
     toProjects: 'Zu den Arbeiten',
   },
   projects: {
@@ -62,14 +66,14 @@ const de = {
   },
   about: {
     // The underlined part sits between before and after
-    headline: { before: 'Ich übersetze Gestaltung in Code, ', underlined: 'so sorgfältig', after: ', wie sie entworfen wurde.' },
+    headline: { before: 'Zwischen Idee und Umsetzung sorge ich dafür, dass ', underlined: 'nichts verloren geht', after: '.' },
     text: [
-      'Seit 2016 bin ich selbständig in Zürich, als Entwickler, technischer Leiter und Berater an der Schnittstelle von Gestaltung, Auftraggebern und IT. Ich arbeite mit Designstudios und Agenturen, aber auch direkt mit Kulturinstitutionen und KMU: bei Websites ebenso wie bei der Digitalisierung von Abläufen.',
-      'Dazu kommt KI: Ich arbeite täglich damit und baue sie in Projekte ein, als Assistenten, für automatisierte Abläufe oder damit KI-Agenten eine Website lesen und bedienen können. Das eröffnet vieles, was über klassische Webentwicklung hinausgeht.',
-      'Am liebsten arbeite ich für Architektur, Kunst und Kultur, für Leute, denen Details genauso wichtig sind wie mir.',
+      'Seit 2016 bin ich selbständig in Zürich, als technischer Leiter, Berater und Entwickler. Ich arbeite dort, wo Gestaltung, Auftraggeber und IT aufeinandertreffen, und sorge dafür, dass alle dasselbe meinen. Meine Kunden sind Designstudios und Agenturen, aber auch Kulturinstitutionen, KMU und Verwaltungen: bei Websites ebenso wie bei der Digitalisierung von Abläufen.',
+      'Immer öfter geht es dabei um mehr als Websites. Ich baue KI dort ein, wo sie tatsächlich Arbeit abnimmt: als Assistenten, für automatisierte Abläufe oder damit KI-Agenten eine Website lesen und bedienen können.',
+      'Am liebsten arbeite ich mit Leuten, denen Details genauso wichtig sind wie mir, egal ob Architekturbüro, Museum oder KMU.',
     ],
     role: 'Rolle',
-    roleText: 'Entwicklung, KI-Integration, technische Leitung, Beratung',
+    roleText: 'Technische Leitung, Beratung, Umsetzung, Automatisierung\u00a0&\u00a0KI',
     tools: 'Werkzeuge',
     also: 'Daneben',
     // Kimiyu is linked between before and after
@@ -130,11 +134,14 @@ const en: Strings = {
   lights: { label: 'Turn the lights on and off', title: 'Lights on/off' },
   hero: {
     hi: 'Hi, I’m',
-    build: 'and I build websites for',
-    architecture: 'architecture',
-    art: 'art',
+    build: 'I build',
+    websites: 'websites',
     and: 'and',
-    design: 'design',
+    workflows: 'digital workflows',
+    that: ' that',
+    keep: 'deliver',
+    pause: '',
+    promise: 'what they promise',
     toProjects: 'To the work',
   },
   projects: {
@@ -146,14 +153,14 @@ const en: Strings = {
     screenshot: (name: string) => `Screenshot of the website ${name}`,
   },
   about: {
-    headline: { before: 'I translate design \ninto code, ', underlined: 'as carefully', after: ' \nas it was designed.' },
+    headline: { before: 'Between idea and execution, I make sure that ', underlined: 'nothing gets lost', after: '.' },
     text: [
-      'I’ve been self-employed in Zürich since 2016, working as a developer, technical lead and consultant where design, clients and IT meet. I work with design studios and agencies, and directly with cultural institutions and small businesses: on websites as well as on digitising workflows.',
-      'And then there’s AI: I work with it every day and build it into projects, as assistants, for automated workflows, or so that AI agents can read and use a website. It opens up a lot that goes beyond classic web development.',
-      'I most like working for architecture, art and culture, for people who care about details as much as I do.',
+      'I’ve been self-employed in Zürich since 2016, as a technical lead, consultant and developer. I work where design, clients and IT meet, and make sure everyone means the same thing. My clients are design studios and agencies, but also cultural institutions, small businesses and public administrations: on websites as well as on digitising workflows.',
+      'More and more, it’s about more than websites. I build in AI where it actually takes work off people’s hands: as assistants, for automated workflows, or so that AI agents can read and use a website.',
+      'I most like working with people who care about details as much as I do, whether it’s an architecture practice, a museum or a small business.',
     ],
     role: 'Role',
-    roleText: 'Development, AI integration, technical lead, consulting',
+    roleText: 'Technical lead, consulting, implementation, automation\u00a0&\u00a0AI',
     tools: 'Tools',
     also: 'Also',
     founder: { before: 'Founder of ', after: ', a studio for small, calm apps' },
