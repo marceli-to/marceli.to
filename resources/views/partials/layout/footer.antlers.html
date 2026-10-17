@@ -1,20 +1,22 @@
-<footer class="bg-snow/50 lg:bg-transparent w-full fixed bottom-0 left-0 z-40 px-15 sm:px-20 py-10 text-xs md:text-sm leading-[1.35] flex sm:gap-y-16 items-end justify-between">
-  <div>
-    {{ contact_information:name }}<br>
-    {{ contact_information:address | nl2br }}
-  </div>
-  <div>
-    <a 
-      href="tel:{{ contact_information:phone }}"
-      class="block text-raspberry no-underline hover:underline underline-offset-4 decoration-1">
-      {{ contact_information:phone }}
-    </a>
-    <a 
-      href="mailto:{{ contact_information:email }}"
-      class="block text-raspberry no-underline hover:underline underline-offset-4 decoration-1">
-      {{ contact_information:email }}
-    </a>
+<footer id="kontakt" class="w-full border-t border-line mt-96 md:mt-160">
+  <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96 pb-40">
+    <h2 class="text-4xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.04] text-balance max-w-[16ch]">
+      Ein Projekt im Kopf? <a href="mailto:{{ contact_information:email }}" class="underline [text-decoration-skip-ink:none] decoration-leaf night:decoration-[#7fae6a] decoration-[0.1em] underline-offset-[0.14em] hover:text-leaf night:hover:text-[#7fae6a] transition-colors">Schreib mir</a>.
+    </h2>
+    <div class="mt-80 md:mt-120 pt-32 border-t border-line flex flex-col sm:flex-row sm:items-start justify-between gap-32 text-sm leading-[1.6]">
+      <address class="not-italic text-muted flex flex-col items-start gap-y-2">
+        <span>{{ contact_information:name }}</span>
+        <span>{{ contact_information:address | nl2br | replace('<br />', '</span><span>') }}</span>
+        <a href="tel:{{ contact_information:phone | replace(' ', '') }}" class="hover:text-ink underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color] hover:decoration-lamp">{{ contact_information:phone }}</a>
+        <a href="mailto:{{ contact_information:email }}" class="hover:text-ink underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color] hover:decoration-lamp">{{ contact_information:email }}</a>
+      </address>
+      <nav class="flex flex-col items-start sm:items-end gap-y-10 font-medium">
+        <a href="#arbeiten" class="underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color] hover:decoration-accent">Arbeiten</a>
+        <a href="#about" class="underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color] hover:decoration-lamp">Über mich</a>
+        <a href="#kontakt" class="underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color] hover:decoration-leaf night:hover:decoration-[#7fae6a]">Kontakt</a>
+        <span class="font-mono text-xs text-muted"><span class="text-ink">DE</span> / <span title="Kommt bald">EN</span></span>
+      </nav>
+    </div>
+    <p class="mt-56 md:mt-72 text-center font-mono text-xs text-muted">© {{ now format="Y" }} – Gebaut mit <svg viewBox="0 0 256 256" class="inline-block size-14 align-[-2px] fill-accent" role="img" aria-label="Liebe"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"/></svg> in Zürich</p>
   </div>
 </footer>
-</body>
-</html>

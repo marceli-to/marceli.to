@@ -1,3 +1,11 @@
+{{ if is_homepage }}
+  {{ partial:home/hero }}
+{{ /if }}
+
 {{ page_elements }}
   {{ partial:blocks }}
 {{ /page_elements }}
+
+{{ if is_homepage }}
+  {{ partial:home/about }}
+{{ /if }}

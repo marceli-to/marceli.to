@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Modifiers\ShortName;
 use Statamic\Facades\Collection;
 use Tests\TestCase;
 
@@ -21,7 +22,7 @@ class SmokeTest extends TestCase
         $html = $this->get('/')->assertOk()->getContent();
 
         $this->assertGreaterThan(1, $published);
-        $this->assertSame($published, substr_count($html, '<article'));
+        $this->assertSame($published, substr_count($html, '<li data-project'));
     }
 
     public function test_project_card_shows_its_details(): void
@@ -37,8 +38,8 @@ class SmokeTest extends TestCase
         $this->get('/')
             ->assertOk()
             ->assertSee($project->get('link'), false)
-            ->assertSee($project->augmentedValue('client')->value()->title(), false)
-            ->assertSee($project->augmentedValue('agency')->value()->title(), false)
+            ->assertSee(explode(',', $project->augmentedValue('client')->value()->title())[0], false)
+            ->assertSee(ShortName::shorten($project->augmentedValue('agency')->value()->title()), false)
             ->assertSee($project->get('year'), false);
     }
 }

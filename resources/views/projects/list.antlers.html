@@ -1,44 +1,69 @@
-<section class="flex flex-col gap-y-40 md:gap-y-80 max-w-[90vw] md:max-w-[70vw] xl:max-w-[60vw] mx-auto relative z-20 sm:p-20">
-  {{ collection:projects as="projects" sort="year:desc|order:asc" }}
-    {{ if projects }}
-      {{ projects }}
-        <article class="min-h-screen flex flex-col justify-center">
-          <div class="p-20 bg-white rounded-[12px] shadow-[0px_8px_12px_-4px_rgba(16,12,12,0.08),0px_0px_2px_rgba(16,12,12,0.1),0px_1px_2px_rgba(16,12,12,0.1)] relative group">
+<section id="arbeiten" class="scroll-mt-96 max-w-[1200px] mx-auto px-20 md:px-32">
+  <div class="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_1fr] items-baseline gap-x-24 border-b border-line pb-16">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Arbeiten</h2>
+    <span class="hidden sm:inline font-mono text-xs text-muted">{{ collection:count in="projects" }} Projekte · 2016–{{ now format="Y" }}</span>
+    <div role="group" aria-label="Ansicht" class="justify-self-end flex items-baseline gap-x-16 text-sm md:text-md font-medium">
+      <button type="button" data-view-button="list" aria-pressed="true" class="text-muted aria-pressed:text-ink underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-transparent hover:decoration-accent aria-pressed:decoration-accent cursor-pointer">Liste</button>
+      <button type="button" data-view-button="grid" aria-pressed="false" class="text-muted aria-pressed:text-ink underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-transparent hover:decoration-accent aria-pressed:decoration-accent cursor-pointer">Raster</button>
+    </div>
+  </div>
+
+  {{# List: the screenshot follows the cursor (thumbnail on small screens) #}}
+  <div data-view="list">
+    <ul class="mt-8">
+      {{ collection:projects sort="year:desc|order:asc" }}
+        <li data-project class="border-b border-line">
+          <a
+            href="{{ link }}"
+            target="_blank"
+            rel="noopener"
+            {{ if image }}data-preview-src="{{ glide:image preset="lg-focal-16-10-webp" }}"{{ /if }}
+            class="group grid grid-cols-[64px_auto_1fr_auto] md:grid-cols-12 items-center gap-x-16 md:gap-x-24 py-16 md:py-20">
+            <span class="md:hidden block w-64 aspect-[16/10] rounded-[6px] overflow-hidden ring-1 ring-line bg-paper">
+              {{ if image }}<img src="{{ glide:image preset="md-focal-16-10-webp" }}" alt="" loading="lazy" class="size-full object-cover object-top">{{ /if }}
+            </span>
+            <span class="font-mono text-xs text-muted md:col-span-1">{{ year }}</span>
+            <span class="md:col-span-4 font-semibold group-hover:text-accent transition-colors truncate">{{ (client:title ?? title) | regex_replace(',.*$', '') }}</span>
+            <span class="hidden md:block md:col-span-4 text-sm text-muted truncate">{{ description }}</span>
+            <span class="hidden md:block md:col-span-2 font-mono text-xs text-muted truncate">{{ agency:title | short_name }}</span>
+            <span class="md:col-span-1 justify-self-end text-muted group-hover:text-accent group-hover:translate-x-2 group-hover:-translate-y-2 transition">↗</span>
+          </a>
+        </li>
+      {{ /collection:projects }}
+    </ul>
+    <div data-preview class="fixed top-0 left-0 z-50 w-[380px] pointer-events-none opacity-0 scale-90 -rotate-3 transition-[opacity,scale,rotate] duration-200 data-visible:opacity-100 data-visible:scale-100 data-visible:rotate-2" aria-hidden="true">
+      <div class="bg-paper p-6 rounded-[14px] ring-1 ring-line shadow-[0_24px_48px_-16px_rgb(31_43_71/0.4)]">
+        <img alt="" class="block w-full aspect-[16/10] object-cover object-top rounded-[9px]">
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{# Grid: two columns of postcards that straighten on hover #}}
+  <div data-view="grid" hidden>
+    <div class="mt-40 md:mt-56 grid sm:grid-cols-2 gap-x-32 lg:gap-x-56 gap-y-48 md:gap-y-72">
+      {{ collection:projects sort="year:desc|order:asc" }}
+        <a href="{{ link }}" target="_blank" rel="noopener" class="group block">
+          <div class="bg-paper p-8 rounded-[16px] ring-1 ring-line shadow-[0_16px_32px_-20px_rgb(31_43_71/0.3)] transition-[rotate,translate] duration-500 {{ if count % 2 }}-rotate-1{{ else }}rotate-1{{ /if }} group-hover:rotate-0 group-hover:-translate-y-6">
             {{ if image }}
-              {{ partial:media/image 
-                class="block w-full h-auto"
-                :sizes="['lg', 'xl', '2xl']"
+              {{ partial:media/image
+                class="block w-full h-auto aspect-[16/10] object-cover object-top rounded-[10px]"
+                preset="focal-16-10"
+                :sizes="['lg']"
                 :image="image" }}
             {{ /if }}
-            <div class="sm:grid sm:grid-cols-12 sm:gap-x-16 text-sm leading-[1.25] mt-20 border-t border-gray-200">
-              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
-                <label class="font-medium text-xxs sm:text-xs block mb-4">Kunde</label>
-                {{ client:title }}
-              </div>
-              <div class="sm:col-span-5 sm:border-r sm:border-gray-200 pt-12 pr-4 pb-4">
-                <label class="font-medium text-xxs sm:text-xs block mb-4">Konzept/Design</label>
-                {{ agency:title }}
-              </div>
-              <div class="sm:col-span-2 pt-12 pr-4 pb-4">
-                <label class="font-medium text-xxs sm:text-xs block mb-4">Jahr</label>
-                {{ year }}
-              </div>
-            </div>
-            <a 
-              href="{{ link }}" 
-              title="Webseite {{ title }} anzeigen"
-              target="_blank"
-              class="absolute inset-0 h-full w-full bg-white/95 blur-none! rounded-[12px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span class="max-w-lg xl:max-w-xl mx-auto text-center px-20 font-medium text-md md:text-xl leading-[1.45] text-balance">
-                {{ description | nl2br }}
-                <span class="block mt-16 underline underline-offset-4 decoration-1 hover:no-underline cursor-pointer! hover:text-raspberry transition-colors">
-                  {{ link | trim_protocol }}
-                </span>
-              </span>
-            </a>
           </div>
-        </article>
-      {{ /projects }}
-    {{ /if }}
-  {{ /collection:projects }}
+          <div class="mt-20 px-4">
+            <h3 class="font-semibold text-lg md:text-xl leading-tight group-hover:text-accent transition-colors">{{ (client:title ?? title) | regex_replace(',.*$', '') }}</h3>
+            <p class="mt-4 text-sm md:text-md text-muted leading-[1.45] text-pretty">{{ description }}</p>
+            <p class="mt-8 font-mono text-xs text-muted">
+              {{ if agency }}Design: {{ agency:title | short_name }} · {{ /if }}<span class="text-ink"><span class="underline decoration-line underline-offset-4 group-hover:decoration-accent">{{ link | trim_protocol }}</span>&nbsp;↗</span><span class="whitespace-nowrap">&nbsp;· {{ year }}</span>
+            </p>
+          </div>
+        </a>
+      {{ /collection:projects }}
+    </div>
+  </div>
 </section>

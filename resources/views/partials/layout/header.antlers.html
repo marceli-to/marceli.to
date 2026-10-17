@@ -1,3 +1,14 @@
-<header class="w-full bg-transparent fixed top-0 left-0 z-40 px-15 sm:px-20 py-0 sm:py-10 leading-none">
-  {{ partial:icons/logo class="w-full max-w-[145px] md:max-w-200" }}
+<header data-header class="sticky top-0 z-40 w-full transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-hidden:opacity-0 data-hidden:-translate-y-8 data-hidden:pointer-events-none">
+  <div class="max-w-[1200px] mx-auto px-20 md:px-32 h-64 md:h-80 flex items-center justify-between gap-x-24">
+    <a href="/" class="text-ink hover:text-accent transition-colors" title="Startseite">
+      {{ partial:icons/logo class="block w-[132px] md:w-[168px] h-auto" }}
+    </a>
+    <nav class="flex items-center gap-x-20 md:gap-x-28 text-sm md:text-md font-medium">
+      <a href="#arbeiten" data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-accent aria-[current=true]:decoration-accent transition-[text-decoration-color]">Arbeiten</a>
+      <a href="#about" data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-lamp aria-[current=true]:decoration-lamp transition-[text-decoration-color]">Über mich</a>
+      <a href="#kontakt" data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-leaf aria-[current=true]:decoration-leaf night:hover:decoration-[#7fae6a] night:aria-[current=true]:decoration-[#7fae6a] transition-[text-decoration-color]">Kontakt</a>
+      <span class="font-mono text-xs text-muted"><span class="text-ink">DE</span> / <span title="Kommt bald">EN</span></span>
+      {{ partial:layout/lights }}
+    </nav>
+  </div>
 </header>

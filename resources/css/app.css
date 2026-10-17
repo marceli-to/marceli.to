@@ -1,19 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 @import "tailwindcss" source(none);
 
 @source "../views";
+@source "../js";
 
-/* Keep v3 behaviour: hover styles also apply on touch devices (tap to reveal). */
-@custom-variant hover (&:hover);
+@custom-variant night (&:where(.night, .night *));
 
 @theme {
   /* 1 spacing unit = 1px (the v3 config listed 0–250 as n/16 rem) */
   --spacing: 0.0625rem;
 
-  --font-space-grotesk: "Space Grotesk", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-raspberry: #e94364;
-  --color-snow: #f9f9f9;
+  /* Fixed palette, taken from the portrait illustration */
+  --color-lamp: #f4b942;
+  --color-leaf: #4f7a3f;
+  --color-navy: #1f2b47;
+  --color-cream: #f5eedf;
 
   /* Font sizes without a paired line-height, as in the v3 config */
   --text-*: initial;
@@ -23,4 +27,79 @@
   --text-md: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.75rem;
+  --text-6xl: 5rem;
+}
+
+/* Surface colours switch with the lights (see resources/js/app.js) */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --bg: #f5eedf;
+  --paper: #fbf8f1;
+  --ink: #1f2b47;
+  --muted: #6b7183;
+  --line: #e3d9c4;
+  --accent: #d9563f;
+}
+
+.night {
+  --bg: #141b2e;
+  --paper: #1c2540;
+  --ink: #f3ead6;
+  --muted: #9aa1b5;
+  --line: #2c3654;
+  --accent: #f4b942;
+}
+
+/* Day/night switch: the whole page crossfades in one go (see resources/js/app.js) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+}
+
+/* Portrait: dim the scene and switch on its lamps at night */
+.portrait-night {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.night .portrait-night {
+  opacity: 1;
+}
+.portrait-glow {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgb(255 214 120 / 0.95) 0%, rgb(244 185 66 / 0.45) 35%, transparent 70%);
+  mix-blend-mode: screen;
+  translate: -50% -50%;
+}
+.portrait-window {
+  position: absolute;
+  background: rgb(255 200 100 / 0.55);
+  filter: blur(6px);
+  mix-blend-mode: screen;
+}
+
+@keyframes wobble {
+  0%, 100% { rotate: 0deg; }
+  25% { rotate: -6deg; }
+  75% { rotate: 6deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
