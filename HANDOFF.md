@@ -5,7 +5,7 @@ State as of 2026-10-17. Read this together with `README.md` (setup, adding proje
 ## Where things stand
 
 - The portfolio was redesigned and moved from Statamic/Laravel to a **static Astro site**. All content lives in this repo.
-- **Live** at https://marceli.to, deployed with `./deploy.sh`. `master` (`e8349e1`) is pushed to github.com/marceli-to/marceli.to. No other branches.
+- **Live** at https://marceli.to, deployed with `./deploy.sh`. `master` is pushed to github.com/marceli-to/marceli.to. No other branches.
 - Lighthouse (mobile and desktop): 100 in performance, accessibility, best practices, SEO and agentic browsing.
 
 ## Stack
