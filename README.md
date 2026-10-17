@@ -58,4 +58,9 @@ Screenshots: JPG, 3:2, ideally 2400 px wide. Astro crops them to 16:10 from the 
 
 ## Deployment
 
-`npm run build` writes a plain static site to `dist/`. Upload its contents to any web server; no PHP or Node is needed at runtime. Serve `404.html` for missing pages.
+```sh
+./deploy.sh --dry-run   # show what would change on the server
+./deploy.sh
+```
+
+`deploy.sh` builds the committed state into `dist/` and syncs it with rsync to `/home/pumutuxu/www/marceli.to/dist` on Hostpoint (the web root), deleting files that no longer exist. The server's `.htaccess` and `.well-known/` are left alone. No PHP or Node is needed on the server.
