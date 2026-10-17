@@ -3,8 +3,8 @@
 # Run from your Mac: ./deploy.sh  (add --dry-run to only show what would change)
 #
 # The site is built locally into dist/ and synced to the web root, which Hostpoint
-# serves from .../marceli.to/dist. The server's .htaccess (PHP version etc., set in
-# the Hostpoint panel) and .well-known/ are never overwritten or deleted.
+# serves from .../marceli.to/dist. .htaccess comes from public/; .well-known/ on the
+# server is never deleted.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -38,7 +38,6 @@ chmod -R u=rwX,go=rX "$STAGE/dist"
 echo "Uploading…"
 ssh "$HOST" "mkdir -p '$DEST'"
 rsync -rlptz --delete "${DRY_RUN[@]}" \
-  --filter 'protect /.htaccess' \
   --filter 'protect /.well-known/' \
   "$STAGE/dist/" "$HOST:$DEST/"
 

@@ -1,0 +1,3 @@
+# Deployed with the site (see deploy.sh). Text files are UTF-8: without this
+# Apache sends text/plain without a charset and browsers garble llms.txt.
+AddCharset utf-8 .txt

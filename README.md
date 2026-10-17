@@ -66,4 +66,4 @@ Screenshots: JPG, 3:2, ideally 2400 px wide. Astro crops them to 16:10 from the 
 ./deploy.sh
 ```
 
-`deploy.sh` builds the committed state into `dist/` and syncs it with rsync to `/home/pumutuxu/www/marceli.to/dist` on Hostpoint (the web root), deleting files that no longer exist. The server's `.htaccess` and `.well-known/` are left alone. No PHP or Node is needed on the server.
+`deploy.sh` builds the committed state into `dist/` and syncs it with rsync to `/home/pumutuxu/www/marceli.to/dist` on Hostpoint (the web root), deleting files that no longer exist. `.htaccess` comes from `public/`; the server's `.well-known/` is left alone. No PHP or Node is needed on the server.

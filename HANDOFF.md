@@ -42,9 +42,9 @@ State as of 2026-10-17. Read this together with `README.md` (setup, adding proje
 
 ## Deployment
 
-- `./deploy.sh --dry-run`, then `./deploy.sh`. It only deploys committed code: it builds a clean copy and rsyncs `dist/` to `pumutuxu@marceli.to:/home/pumutuxu/www/marceli.to/dist` (the Hostpoint web root), keeping `.htaccess` and `.well-known/`.
+- `./deploy.sh --dry-run`, then `./deploy.sh`. It only deploys committed code: it builds a clean copy and rsyncs `dist/` to `pumutuxu@marceli.to:/home/pumutuxu/www/marceli.to/dist` (the Hostpoint web root), keeping `.well-known/`.
 - macOS ships `openrsync` (no `--chmod`), so the script sets permissions with `chmod` before uploading.
-- The server's `.htaccess` is managed in the Hostpoint panel and never deployed. It needs `AddCharset utf-8 .txt`, otherwise Apache serves `llms.txt` without a charset and browsers show umlauts garbled.
+- `.htaccess` is deployed from `public/.htaccess` (the server had none). It sets `AddCharset utf-8 .txt`, otherwise Apache serves `llms.txt` without a charset and browsers show umlauts garbled.
 - SSH: the server does **not** accept `~/.ssh/id_rsa`; Marcel logs in himself (password). `~/.ssh/config` is owned by `root` and unreadable (fix: `sudo chown marceli.to ~/.ssh/config`). The old host `sl287.web.hostpoint.ch` reports a changed host key; it was left alone.
 - The old Statamic install on the server was deleted or replaced by Marcel.
 
