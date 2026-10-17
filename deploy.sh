@@ -32,9 +32,12 @@ git archive HEAD | tar -x -C "$STAGE"
 ln -s "$PWD/node_modules" "$STAGE/node_modules"
 (cd "$STAGE" && npm run build --silent)
 
+# Folders 755, files 644 (macOS ships openrsync, which has no --chmod)
+chmod -R u=rwX,go=rX "$STAGE/dist"
+
 echo "Uploading…"
 ssh "$HOST" "mkdir -p '$DEST'"
-rsync -rlptz --delete --chmod=D755,F644 "${DRY_RUN[@]}" \
+rsync -rlptz --delete "${DRY_RUN[@]}" \
   --filter 'protect /.htaccess' \
   --filter 'protect /.well-known/' \
   "$STAGE/dist/" "$HOST:$DEST/"
