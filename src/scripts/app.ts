@@ -101,6 +101,15 @@ document.querySelectorAll<HTMLElement>('[data-view-button]').forEach((button) =>
 
 if (localStorage.getItem('view') === 'grid') setView('grid');
 
+// Projects: older years are revealed on demand; focus moves to the first of them
+document.querySelector<HTMLButtonElement>('[data-show-older]')?.addEventListener('click', (event) => {
+  const older = [...document.querySelectorAll<HTMLElement>('[data-older]')];
+  older.forEach((item) => (item.hidden = false));
+  (event.currentTarget as HTMLElement).parentElement?.remove();
+  const first = older.find((item) => item.offsetParent !== null);
+  (first?.matches('a') ? first : first?.querySelector<HTMLElement>('a'))?.focus({ preventScroll: true });
+});
+
 // Header: fade out when scrolling down, back in when scrolling up
 const header = document.querySelector<HTMLElement>('[data-header]');
 
@@ -119,6 +128,15 @@ if (header) {
 
   addEventListener('scroll', () => (headerFrame ??= requestAnimationFrame(updateHeader)), { passive: true });
   header.addEventListener('focusin', () => delete header.dataset.hidden);
+}
+
+// Hero: the arrow to the projects fades out once the page is scrolled
+const scrollHint = document.querySelector<HTMLElement>('[data-scroll-hint]');
+
+if (scrollHint) {
+  const updateHint = () => (scrollHint.toggleAttribute('data-hidden', scrollY > 40));
+  addEventListener('scroll', updateHint, { passive: true });
+  updateHint();
 }
 
 // Navigation: underline the link of the section in view

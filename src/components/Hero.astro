@@ -14,7 +14,8 @@ const t = useStrings(getLang(Astro.currentLocale));
   <a
     href={`#${t.ids.projects}`}
     aria-label={t.hero.toProjects}
-    class="group absolute bottom-32 left-1/2 -translate-x-1/2 p-12 text-muted hover:text-ink transition-colors">
+    data-scroll-hint
+    class="group absolute bottom-32 left-1/2 -translate-x-1/2 p-12 text-muted hover:text-ink transition-[color,opacity] duration-300 data-hidden:opacity-0 data-hidden:pointer-events-none">
     <svg viewBox="0 0 24 24" class="size-24 group-hover:translate-y-4 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M12 4v16M5 13l7 7 7-7" />
     </svg>

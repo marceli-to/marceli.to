@@ -59,6 +59,7 @@ const de = {
   projects: {
     title: 'Arbeiten',
     count: (count: number) => `${count} Projekte`,
+    showAll: (count: number) => `Alle ${count} Projekte anzeigen`,
     view: 'Ansicht',
     list: 'Liste',
     grid: 'Raster',
@@ -147,6 +148,7 @@ const en: Strings = {
   projects: {
     title: 'Work',
     count: (count: number) => `${count} projects`,
+    showAll: (count: number) => `Show all ${count} projects`,
     view: 'View',
     list: 'List',
     grid: 'Grid',

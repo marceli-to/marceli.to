@@ -25,7 +25,10 @@ const items = await Promise.all(
   })),
 );
 
-const years = projects.map((project) => Number.parseInt(String(project.data.year), 10)).filter(Boolean);
+const yearOf = (project: Project) => Number.parseInt(String(project.data.year), 10) || 0;
+const years = projects.map(yearOf).filter(Boolean);
+// Only the latest year is shown, older projects sit behind a button
+const isOlder = (project: Project) => yearOf(project) < Math.max(...years);
 const linkAttributes = (project: Project) =>
   project.data.offline ? {} : { href: project.data.link, target: '_blank', rel: 'noopener' };
 ---
@@ -42,11 +45,11 @@ const linkAttributes = (project: Project) =>
 
   {/* List: the screenshot follows the cursor (thumbnail on small screens) */}
   <div data-view="list">
-    <ul class="mt-8">
+    <ul role="list">
       {items.map(({ project, name, text, agency, preview }) => {
         const Row = project.data.offline ? 'div' : 'a';
         return (
-          <li data-project class="border-b border-line">
+          <li data-project data-older={isOlder(project) || undefined} hidden={isOlder(project)} class="border-b border-line">
             <Row
               {...linkAttributes(project)}
               data-preview-src={preview}
@@ -81,7 +84,7 @@ const linkAttributes = (project: Project) =>
       {items.map(({ project, name, text, agency }, index) => {
         const Card = project.data.offline ? 'div' : 'a';
         return (
-          <Card {...linkAttributes(project)} class:list={[!project.data.offline && 'group', 'block md:grid md:grid-cols-12 md:gap-x-40 md:items-center xl:block']}>
+          <Card {...linkAttributes(project)} data-older={isOlder(project) || undefined} hidden={isOlder(project)} class:list={[!project.data.offline && 'group', 'block md:grid md:grid-cols-12 md:gap-x-40 md:items-center xl:block']}>
             <div class:list={['md:col-span-7 bg-paper p-8 rounded-[16px] ring-1 ring-line shadow-[0_16px_32px_-20px_rgb(31_43_71/0.3)] transition-[rotate,translate] duration-500 group-hover:rotate-0 group-hover:-translate-y-6', index % 2 ? 'rotate-1' : '-rotate-1']}>
               <Picture
                 src={project.data.image}
@@ -113,4 +116,12 @@ const linkAttributes = (project: Project) =>
       })}
     </div>
   </div>
+
+  {projects.some(isOlder) && (
+    <div class="mt-40 md:mt-56 text-center">
+      <button type="button" data-show-older class="text-sm md:text-md font-medium underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-line hover:decoration-brick cursor-pointer">
+        {t.projects.showAll(projects.length)} <span aria-hidden="true">↓</span>
+      </button>
+    </div>
+  )}
 </section>

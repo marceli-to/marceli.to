@@ -1,44 +1,40 @@
-// Generates the favicons and app icons in public/ from the "M_" mark of the logo.
-// Run with `npm run icons` after changing the mark or the colours.
+// Generates the favicons and app icons in public/ from the avatar (src/assets/marcel.jpg).
+// Run with `npm run icons` after changing the avatar.
 import fs from 'node:fs';
 import sharp from 'sharp';
 
-// The "M" of the wordmark (copied from src/components/icons/Logo.astro into m-path.txt), drawn at 2/3 scale,
-// followed by the logo's underscore as a cursor
-const M = fs.readFileSync(new URL('./m-path.txt', import.meta.url), 'utf8').trim();
-const mark = (ink, cursor) => `
-  <path transform="translate(9.15 15.35) scale(0.667)" fill="${ink}" d="${M}"/>
-  <rect x="40.85" y="44.15" width="14" height="4.4" rx="2.2" fill="${cursor}"/>`;
+const avatar = 'src/assets/marcel.jpg';
+const lamp = '#f4b942';
 
-const day = { bg: '#f5eedf', ink: '#1f2b47', cursor: '#d9563f' };
-const night = { bg: '#141b2e', ink: '#f3ead6', cursor: '#f4b942' };
+// Zoomed in on the face so it still reads at 16 px (the hero zooms less, its avatar is bigger)
+const { width = 1024 } = await sharp(avatar).metadata();
+const zoom = 1.5;
+const side = Math.round(width / zoom);
+const face = await sharp(avatar)
+  .extract({ left: Math.round(0.56 * (width - side)), top: Math.round(0.42 * (width - side)), width: side, height: side })
+  .toBuffer();
 
-const icon = ({ bg, ink, cursor }, radius = 14) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="${radius}" fill="${bg}"/>${mark(ink, cursor)}</svg>`;
-
-// SVG favicon follows the system colour scheme
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <style>
-    .bg { fill: ${day.bg} } .ink { fill: ${day.ink} } .cursor { fill: ${day.cursor} }
-    @media (prefers-color-scheme: dark) { .bg { fill: ${night.bg} } .ink { fill: ${night.ink} } .cursor { fill: ${night.cursor} } }
-  </style>
-  <rect class="bg" width="64" height="64" rx="14"/>
-  <path class="ink" transform="translate(9.15 15.35) scale(0.667)" d="${M}"/>
-  <rect class="cursor" x="40.85" y="44.15" width="14" height="4.4" rx="2.2"/>
-</svg>
-`;
-fs.writeFileSync('public/favicon.svg', svg);
-
-const png = (markup, size) => sharp(Buffer.from(markup), { density: 72 * (size / 64) * 4 }).resize(size, size).png().toBuffer();
+// Round avatar with the lamp-yellow ring, like in the hero, on a transparent background
+const round = async (size) => {
+  const ring = Math.max(1, Math.round(size / 16));
+  const inner = size - 2 * ring;
+  const mask = Buffer.from(`<svg width="${inner}" height="${inner}"><circle cx="${inner / 2}" cy="${inner / 2}" r="${inner / 2}"/></svg>`);
+  const photo = await sharp(face).resize(inner, inner).composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
+  const disc = Buffer.from(`<svg width="${size}" height="${size}"><circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" fill="${lamp}"/></svg>`);
+  return sharp(disc).composite([{ input: photo, left: ring, top: ring }]).png().toBuffer();
+};
 
 // Apple and maskable icons are full-bleed squares; the system rounds them
-fs.writeFileSync('public/apple-touch-icon.png', await png(icon(day, 0), 180));
-fs.writeFileSync('public/icon-192.png', await png(icon(day, 0), 192));
-fs.writeFileSync('public/icon-512.png', await png(icon(day, 0), 512));
+const square = (size) => sharp(face).resize(size, size).png().toBuffer();
+
+fs.writeFileSync('public/favicon.png', await round(96));
+fs.writeFileSync('public/apple-touch-icon.png', await square(180));
+fs.writeFileSync('public/icon-192.png', await square(192));
+fs.writeFileSync('public/icon-512.png', await square(512));
 
 // favicon.ico with 16, 32 and 48 px PNG images inside
 const sizes = [16, 32, 48];
-const images = await Promise.all(sizes.map((size) => png(icon(day), size)));
+const images = await Promise.all(sizes.map(round));
 const header = Buffer.alloc(6 + 16 * sizes.length);
 header.writeUInt16LE(0, 0);
 header.writeUInt16LE(1, 2);
