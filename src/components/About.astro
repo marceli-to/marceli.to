@@ -1,0 +1,54 @@
+---
+import Portrait from './Portrait.astro';
+
+interface Props {
+  agencies: string[];
+}
+
+const { agencies } = Astro.props;
+---
+
+<section id="about" class="scroll-mt-64 md:scroll-mt-80 w-full border-t border-line mt-96 md:mt-160">
+  <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96">
+    <h2 class="text-3xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.12] max-w-[22ch] text-balance">
+      Ich übersetze Gestaltung in Code, <span class="whitespace-nowrap underline [text-decoration-skip-ink:none] decoration-lamp decoration-[0.1em] underline-offset-[0.14em]">so sorgfältig</span>, wie sie entworfen wurde.
+    </h2>
+
+    <div class="mt-48 md:mt-72 grid md:grid-cols-12 gap-y-56 gap-x-32 items-start">
+      <div class="md:col-span-6">
+        <div class="space-y-16 text-muted text-pretty">
+          <p>Seit 2016 bin ich selbständig in Zürich, als technischer Leiter und Berater an der Schnittstelle von Gestaltung, Auftraggebern und IT. Ich arbeite mit Designstudios und Agenturen, aber auch direkt mit Kulturinstitutionen und KMU: bei Websites ebenso wie bei der Digitalisierung von Abläufen.</p>
+          <p>Am liebsten arbeite ich für Architektur, Kunst und Kultur, für Leute, denen Details genauso wichtig sind wie mir.</p>
+        </div>
+        <dl class="mt-40 grid grid-cols-[auto_1fr] gap-x-32 gap-y-12 text-md">
+          <dt class="font-mono text-xs text-muted pt-4">Rolle</dt>
+          <dd>Entwicklung, technische Leitung, Beratung</dd>
+          <dt class="font-mono text-xs text-muted pt-4">Werkzeuge</dt>
+          <dd>Laravel, Statamic, Vue.js, Tailwind CSS</dd>
+        </dl>
+      </div>
+      <div class="md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9 relative max-w-[360px] md:max-w-none w-full mx-auto">
+        <figure class="bg-paper p-12 pb-0 rounded-[20px] shadow-[0_24px_48px_-24px_rgb(31_43_71/0.35)] ring-1 ring-line rotate-2 hover:rotate-0 transition-transform duration-500">
+          <Portrait class="rounded-[12px]" />
+          <figcaption class="font-mono text-xs text-muted flex justify-between py-12 px-4">
+            <span>Marcel Stadelmann</span>
+            <span>Zürich, CH</span>
+          </figcaption>
+        </figure>
+        <span class="absolute -left-8 md:-left-32 top-24 -rotate-6 rounded-full bg-lamp text-navy font-mono text-xs px-12 py-6 shadow-sm">das bin ich ↘</span>
+      </div>
+    </div>
+
+    <div class="mt-72 md:mt-120">
+      <p class="font-mono text-xs text-muted">Zusammengearbeitet mit</p>
+      <p class="mt-16 text-xl md:text-3xl font-medium tracking-[-0.01em] leading-[1.45] text-balance">
+        {agencies.map((name, index) => (
+          <>
+            <span class="whitespace-nowrap">{name}{index < agencies.length - 1 && <>&nbsp;<span class="text-muted font-normal" aria-hidden="true">·</span></>}</span>{' '}
+          </>
+        ))}
+        <span class="text-muted">und viele mehr.</span>
+      </p>
+    </div>
+  </div>
+</section>

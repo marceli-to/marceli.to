@@ -1,40 +1,61 @@
-<p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo+Wordmark-Rad.svg" width="400" alt="Statamic Logo" /></p>
+# marceli.to
 
-## About Statamic
+Portfolio of Marcel Stadelmann, web developer in Zürich. A static site built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com); all content lives in this repository.
 
-Statamic is the flat-first, Laravel + Git powered CMS designed for building beautiful, easy to manage websites.
+## Development
 
-> **Note:** This repository contains the code for the Statamic application. To contribute to the core package, visit the [Statamic core package repository][cms-repo].
+Requires Node 24 (see `.nvmrc`; Astro needs at least 22.22).
 
+```sh
+nvm use
+npm install
+npm run dev       # starts the dev server in the background on http://127.0.0.1:4321
+npm run build     # type check, then build the static site into dist/
+npm run preview   # serve dist/ locally
+```
 
-## Learning Statamic
+The dev server keeps running in the background: `npx astro dev status`, `npx astro dev logs`, `npx astro dev stop`.
 
-Statamic has extensive [documentation][docs]. We dedicate a significant amount of time and energy every day to improving them, so if something is unclear, feel free to open issues for anything you find confusing or incomplete. We are happy to consider anything you feel will make the docs and CMS better.
+With [Herd](https://herd.laravel.com), `https://marceli.to.test` proxies to the dev server (set up once with `herd proxy marceli.to http://127.0.0.1:4321 --secure`).
 
-## Support
+## Adding a project
 
-We provide official developer support on [Statamic Pro](https://statamic.com/pricing) projects. Community-driven support is available on the [forum](https://statamic.com/forum) and in [Discord][discord].
+Each project is one Markdown file in `src/content/projects/` with its screenshot in `src/assets/projects/`. The front matter is validated against the schema in `src/content.config.ts`, so a typo fails the build.
 
+```yaml
+---
+name: SHIFT Altstetten              # optional; shown instead of the client
+client: stoz Werbeagentur AG, Pfäffikon/ZH
+agency: stoz Werbeagentur AG, Pfäffikon/ZH   # optional; concept/design studio
+year: 2026
+link: https://shift-altstetten.ch
+offline: true                       # optional; listed without a link
+description: One or two sentences in German.
+order: 1                            # position within the year, lower first
+image: ../../assets/projects/shift-altstetten-ch.jpg
+draft: true                         # optional; hidden from the site
+---
+```
 
-## Contributing
+Screenshots: JPG, 3:2, ideally 2400 px wide. Astro crops them to 16:10 from the top and generates AVIF/WebP in all needed sizes at build time.
 
-Thank you for considering contributing to Statamic! We simply ask that you review the [contribution guide][contribution] before you open issues or send pull requests.
+## Structure
 
+- `src/pages/index.astro` – the page; `llms.txt.ts` and `robots.txt.ts` generate those files
+- `src/components/` – Hero, Projects (list and grid), About, Footer, Header
+- `src/lib/projects.ts` – sorting, display names, the studio list
+- `src/scripts/app.ts` – night mode, cursor preview, list/grid switch, header, navigation
+- `src/scripts/webmcp.ts` – [WebMCP](https://github.com/webmachinelearning/webmcp) tools for AI agents in the browser
+- `src/data/site.ts` – title, description and contact details
+- `scripts/generate-icons.mjs` – favicons and app icons (`npm run icons`)
 
-## Code of Conduct
+## Search engines and agents
 
-In order to ensure that the Statamic community is welcoming to all and generally a rad place to belong, please review and abide by the [Code of Conduct](https://github.com/statamic/cms/wiki/Code-of-Conduct).
+- Title, description, canonical URL, Open Graph image (`public/og.png`), sitemap and `robots.txt`
+- JSON-LD: `WebSite`, `Person`, `ProfilePage` and an `ItemList` of all projects
+- `/llms.txt`: a Markdown summary of the site for language models
+- WebMCP tools (`list_projects`, `get_contact`, `show_projects`, `set_lights`), registered where the browser supports it (Chrome: `--enable-features=WebMCP`)
 
+## Deployment
 
-## Important Links
-
-- [Statamic Main Site](https://statamic.com)
-- [Statamic Documentation][docs]
-- [Statamic Core Package Repo][cms-repo]
-- [Statamic Migrator](https://github.com/statamic/migrator)
-- [Statamic Discord][discord]
-
-[docs]: https://statamic.dev/
-[discord]: https://statamic.com/discord
-[contribution]: https://github.com/statamic/cms/blob/master/CONTRIBUTING.md
-[cms-repo]: https://github.com/statamic/cms
+`npm run build` writes a plain static site to `dist/`. Upload its contents to any web server; no PHP or Node is needed at runtime. Serve `404.html` for missing pages.

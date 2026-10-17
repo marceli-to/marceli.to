@@ -1,21 +1,15 @@
 {
-  "name": "marceli.to",
+  "name": "marceli.to – Marcel Stadelmann",
   "short_name": "marceli.to",
+  "description": "Webentwicklung für Architektur, Kunst und Design in Zürich.",
+  "lang": "de-CH",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f5eedf",
+  "theme_color": "#f5eedf",
   "icons": [
-    {
-      "src": "/web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
 }

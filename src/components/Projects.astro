@@ -1,0 +1,112 @@
+---
+import { Image, Picture, getImage } from 'astro:assets';
+import LinkBreak from './icons/LinkBreak.astro';
+import { displayName, domain, shortName, type Project } from '../lib/projects';
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+
+// Screenshots are cropped to 16:10 from the top, like the cards
+const crop = { fit: 'cover', position: 'top' } as const;
+
+const items = await Promise.all(
+  projects.map(async (project) => ({
+    project,
+    name: displayName(project),
+    agency: project.data.agency ? shortName(project.data.agency) : undefined,
+    preview: (await getImage({ src: project.data.image, width: 760, height: 475, format: 'webp', ...crop })).src,
+  })),
+);
+
+const years = projects.map((project) => Number.parseInt(String(project.data.year), 10)).filter(Boolean);
+const linkAttributes = (project: Project) =>
+  project.data.offline ? {} : { href: project.data.link, target: '_blank', rel: 'noopener' };
+---
+
+<section id="arbeiten" class="scroll-mt-96 max-w-[1200px] mx-auto px-20 md:px-32">
+  <div class="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_1fr] items-baseline gap-x-24 border-b border-line pb-16">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Arbeiten</h2>
+    <span class="hidden sm:inline font-mono text-xs text-muted">{projects.length} Projekte · {Math.min(...years)}–{Math.max(...years)}</span>
+    <div role="group" aria-label="Ansicht" class="justify-self-end flex items-baseline gap-x-16 text-sm md:text-md font-medium">
+      <button type="button" data-view-button="list" aria-pressed="true" class="text-muted aria-pressed:text-ink underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-transparent hover:decoration-brick aria-pressed:decoration-brick cursor-pointer">Liste</button>
+      <button type="button" data-view-button="grid" aria-pressed="false" class="text-muted aria-pressed:text-ink underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-transparent hover:decoration-brick aria-pressed:decoration-brick cursor-pointer">Raster</button>
+    </div>
+  </div>
+
+  {/* List: the screenshot follows the cursor (thumbnail on small screens) */}
+  <div data-view="list">
+    <ul class="mt-8">
+      {items.map(({ project, name, agency, preview }) => {
+        const Row = project.data.offline ? 'div' : 'a';
+        return (
+          <li data-project class="border-b border-line">
+            <Row
+              {...linkAttributes(project)}
+              data-preview-src={preview}
+              class:list={[!project.data.offline && 'group', 'grid grid-cols-[64px_auto_1fr_auto] md:grid-cols-12 items-center gap-x-16 md:gap-x-24 py-16 md:py-20']}>
+              <span class="md:hidden block w-64 aspect-[16/10] rounded-[6px] overflow-hidden ring-1 ring-line bg-paper">
+                <Image src={project.data.image} alt="" width={128} height={80} {...crop} class="size-full object-cover object-top" />
+              </span>
+              <span class="font-mono text-xs text-muted md:col-span-1">{project.data.year}</span>
+              <span class="md:col-span-4 font-semibold group-hover:text-accent transition-colors truncate">{name}</span>
+              <span class="hidden md:block md:col-span-4 text-sm text-muted truncate">{project.data.description}</span>
+              <span class="hidden md:block md:col-span-2 font-mono text-xs text-muted truncate">{agency}</span>
+              {project.data.offline ? (
+                <span class="md:col-span-1 justify-self-end"><LinkBreak class="block size-16 fill-muted" /></span>
+              ) : (
+                <span class="md:col-span-1 justify-self-end text-muted group-hover:text-accent group-hover:translate-x-2 group-hover:-translate-y-2 transition" aria-hidden="true">↗</span>
+              )}
+            </Row>
+          </li>
+        );
+      })}
+    </ul>
+    <div data-preview class="fixed top-0 left-0 z-50 w-[380px] pointer-events-none opacity-0 scale-90 -rotate-3 transition-[opacity,scale,rotate] duration-200 data-visible:opacity-100 data-visible:scale-100 data-visible:rotate-2" aria-hidden="true">
+      <div class="bg-paper p-6 rounded-[14px] ring-1 ring-line shadow-[0_24px_48px_-16px_rgb(31_43_71/0.4)]">
+        <img alt="" class="block w-full aspect-[16/10] object-cover object-top rounded-[9px]" />
+      </div>
+    </div>
+  </div>
+
+  {/* Grid: postcards that straighten on hover. One per row with the text beside it on tablets and small desktops, two columns from xl */}
+  <div data-view="grid" hidden>
+    <div class="mt-40 md:mt-56 grid xl:grid-cols-2 gap-x-56 gap-y-48 md:gap-y-64 xl:gap-y-72">
+      {items.map(({ project, name, agency }, index) => {
+        const Card = project.data.offline ? 'div' : 'a';
+        return (
+          <Card {...linkAttributes(project)} class:list={[!project.data.offline && 'group', 'block md:grid md:grid-cols-12 md:gap-x-40 md:items-center xl:block']}>
+            <div class:list={['md:col-span-7 bg-paper p-8 rounded-[16px] ring-1 ring-line shadow-[0_16px_32px_-20px_rgb(31_43_71/0.3)] transition-[rotate,translate] duration-500 group-hover:rotate-0 group-hover:-translate-y-6', index % 2 ? 'rotate-1' : '-rotate-1']}>
+              <Picture
+                src={project.data.image}
+                alt={`Screenshot der Website ${name}`}
+                formats={['avif', 'webp']}
+                width={1440}
+                height={900}
+                widths={[480, 760, 1080, 1440]}
+                sizes="(min-width: 1280px) 560px, (min-width: 768px) 56vw, 100vw"
+                {...crop}
+                class="block w-full h-auto aspect-[16/10] object-cover object-top rounded-[10px]"
+              />
+            </div>
+            <div class="md:col-span-5 mt-20 md:mt-0 xl:mt-20 px-4 md:px-0 xl:px-4">
+              <h3 class="font-semibold text-lg md:text-xl leading-tight group-hover:text-accent transition-colors">{name}</h3>
+              <p class="mt-4 text-sm md:text-md text-muted leading-[1.45] text-pretty">{project.data.description}</p>
+              <p class="mt-8 font-mono text-xs text-muted">
+                {agency && <>Design: {agency} · </>}
+                {project.data.offline ? (
+                  <LinkBreak class="inline-block size-14 align-[-2px] fill-muted" />
+                ) : (
+                  <span class="text-ink whitespace-nowrap"><span class="underline decoration-line underline-offset-4 group-hover:decoration-accent">{domain(project.data.link)}</span></span>
+                )}
+                <span class="whitespace-nowrap">&nbsp;· {project.data.year}</span>
+              </p>
+            </div>
+          </Card>
+        );
+      })}
+    </div>
+  </div>
+</section>
