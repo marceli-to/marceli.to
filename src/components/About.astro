@@ -8,13 +8,14 @@ interface Props {
 
 const { agencies } = Astro.props;
 const t = useStrings(getLang(Astro.currentLocale));
-const { headline } = t.about;
+// A \n in the headline breaks the line from md
+const [before, after] = [t.about.headline.before, t.about.headline.after].map((text) => text.split('\n'));
 ---
 
 <section id={t.ids.about} class="scroll-mt-64 md:scroll-mt-80 w-full border-t border-line mt-96 md:mt-160">
   <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96">
     <h2 class="text-3xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.2] md:leading-[1.12] max-w-[22ch] text-balance">
-      {headline.before}<span class="whitespace-nowrap underline [text-decoration-skip-ink:none] decoration-lamp decoration-[0.1em] underline-offset-[0.14em]">{headline.underlined}</span>{headline.after}
+      {before.map((part, index) => <>{index > 0 && <br class="hidden md:inline" />}{part}</>)}<span class="whitespace-nowrap underline [text-decoration-skip-ink:none] decoration-lamp decoration-[0.1em] underline-offset-[0.14em]">{t.about.headline.underlined}</span>{after.map((part, index) => <>{index > 0 && <br class="hidden md:inline" />}{part}</>)}
     </h2>
 
     <div class="mt-48 md:mt-72 grid md:grid-cols-12 gap-y-56 gap-x-32 items-start">
@@ -30,7 +31,7 @@ const { headline } = t.about;
         </dl>
       </div>
       <div class="md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9 relative max-w-[360px] md:max-w-none w-full mx-auto">
-        <figure class="bg-paper p-12 pb-0 rounded-[20px] shadow-[0_24px_48px_-24px_rgb(31_43_71/0.35)] ring-1 ring-line rotate-2 hover:rotate-0 transition-transform duration-500">
+        <figure class="group/portrait bg-paper p-12 pb-0 rounded-[20px] shadow-[0_24px_48px_-24px_rgb(31_43_71/0.35)] ring-1 ring-line rotate-2 hover:rotate-0 transition-transform duration-500">
           <Portrait class="rounded-[12px]" />
           <figcaption class="font-mono text-xs text-muted flex justify-between py-12 px-4">
             <span>Marcel Stadelmann</span>

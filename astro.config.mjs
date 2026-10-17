@@ -2,6 +2,7 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { alternates } from './src/data/i18n.ts';
 
 export default defineConfig({
   site: 'https://marceli.to',
@@ -11,7 +12,16 @@ export default defineConfig({
     defaultLocale: 'de',
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [sitemap({ i18n: { defaultLocale: 'de', locales: { de: 'de-CH', en: 'en' } } })],
+  integrations: [
+    sitemap({
+      // hreflang links between the German and English version of each page (their paths differ)
+      serialize(item) {
+        const urls = alternates(new URL(item.url).pathname);
+        if (urls) item.links = [{ url: new URL(urls.de, item.url).href, lang: 'de-CH' }, { url: new URL(urls.en, item.url).href, lang: 'en' }];
+        return item;
+      },
+    }),
+  ],
   // Fixed IPv4 address and port, so Herd can proxy https://marceli.to.test to it
   server: { host: '127.0.0.1', port: 4321 },
   vite: {

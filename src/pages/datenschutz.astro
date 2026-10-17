@@ -1,0 +1,31 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { contact } from '../data/site';
+---
+
+<Legal title="Datenschutz" description="Datenschutzerklärung von marceli.to: keine Cookies, kein Tracking, keine Drittanbieter.">
+  <p>Diese Website sammelt so wenig Daten wie möglich: keine Cookies, kein Tracking, keine Analyse-Tools und keine Inhalte von Drittanbietern. Schriften und Bilder liegen auf dem eigenen Server.</p>
+
+  <h2>Verantwortlich</h2>
+  <p>
+    {contact.name}, {contact.street}, {contact.postalCode} {contact.city}, Schweiz<br />
+    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+  </p>
+
+  <h2>Hosting und Server-Logfiles</h2>
+  <p>Die Website liegt bei der Hostpoint AG in der Schweiz. Bei jedem Aufruf speichert der Server technisch notwendige Angaben in Logfiles: IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, die zuvor besuchte Seite sowie Browser und Betriebssystem. Diese Daten dienen dem sicheren Betrieb der Website, werden nicht mit anderen Daten zusammengeführt und nach begrenzter Zeit gelöscht.</p>
+
+  <h2>Einstellungen im Browser</h2>
+  <p>Ob du das Licht an- oder ausgeschaltet hast und ob die Arbeiten als Liste oder Raster erscheinen, speichert die Website im lokalen Speicher deines Browsers (localStorage). Diese Angaben bleiben auf deinem Gerät und werden nicht übertragen. Du kannst sie jederzeit in den Einstellungen deines Browsers löschen.</p>
+
+  <h2>Kontakt</h2>
+  <p>Wenn du mir schreibst oder anrufst, verwende ich deine Angaben nur, um deine Anfrage zu beantworten. Ich gebe sie nicht weiter.</p>
+
+  <h2>Links zu anderen Websites</h2>
+  <p>Die Projekte verlinken auf andere Websites. Dort gelten die Datenschutzbestimmungen der jeweiligen Betreiber.</p>
+
+  <h2>Deine Rechte</h2>
+  <p>Du kannst jederzeit Auskunft über deine bei mir gespeicherten Daten verlangen und sie berichtigen oder löschen lassen. Schreib mir dazu an <a href={`mailto:${contact.email}`}>{contact.email}</a>. Ausserdem kannst du dich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren.</p>
+
+  <p class="mt-48! font-mono text-xs">Stand: Oktober 2026</p>
+</Legal>

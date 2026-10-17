@@ -1,0 +1,31 @@
+---
+import Legal from '../../layouts/Legal.astro';
+import { contact } from '../../data/site';
+---
+
+<Legal title="Privacy policy" description="Privacy policy of marceli.to: no cookies, no tracking, no third parties.">
+  <p>This website collects as little data as possible: no cookies, no tracking, no analytics and no content from third parties. Fonts and images are served from the site’s own server.</p>
+
+  <h2>Controller</h2>
+  <p>
+    {contact.name}, {contact.street}, {contact.postalCode} {contact.city}, Switzerland<br />
+    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+  </p>
+
+  <h2>Hosting and server log files</h2>
+  <p>The website is hosted by Hostpoint AG in Switzerland. With every request, the server stores technically necessary information in log files: IP address, date and time, the page requested, the previously visited page, and the browser and operating system. This data is used to run the website securely, is not combined with other data and is deleted after a limited period.</p>
+
+  <h2>Settings in your browser</h2>
+  <p>Whether you have switched the lights on or off, and whether the work is shown as a list or a grid, is stored in your browser’s local storage (localStorage). This information stays on your device and is never transmitted. You can delete it at any time in your browser settings.</p>
+
+  <h2>Contact</h2>
+  <p>If you email or call me, I only use your details to reply to your enquiry. I don’t pass them on.</p>
+
+  <h2>Links to other websites</h2>
+  <p>The projects link to other websites. Their operators’ privacy policies apply there.</p>
+
+  <h2>Your rights</h2>
+  <p>You can ask at any time what data I hold about you, and have it corrected or deleted. Just email me at <a href={`mailto:${contact.email}`}>{contact.email}</a>. You can also lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC).</p>
+
+  <p class="mt-48! font-mono text-xs">Last updated: October 2026</p>
+</Legal>

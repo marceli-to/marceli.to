@@ -43,7 +43,8 @@ Screenshots: JPG, 3:2, ideally 2400 px wide. Astro crops them to 16:10 from the 
 ## Structure
 
 - `src/pages/index.astro` (German, `/`) and `src/pages/en/index.astro` (English, `/en/`) – both render `src/components/Home.astro`; `llms.txt.ts` (per language) and `robots.txt.ts` generate those files
-- `src/data/i18n.ts` – every text on the site in German and English
+- `src/data/i18n.ts` – every text on the site in German and English, and the URL of each page in both languages
+- `src/pages/impressum.astro`, `datenschutz.astro` and `en/imprint.astro`, `en/privacy.astro` – the legal pages (layout: `src/layouts/Legal.astro`)
 - `src/components/` – Hero, Projects (list and grid), About, Footer, Header
 - `src/lib/projects.ts` – sorting, display names, the studio list
 - `src/scripts/app.ts` – night mode, cursor preview, list/grid switch, header, navigation

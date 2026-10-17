@@ -1,0 +1,24 @@
+---
+import Legal from '../../layouts/Legal.astro';
+import { contact } from '../../data/site';
+---
+
+<Legal title="Imprint" description="Imprint of marceli.to, the website of Marcel Stadelmann, web development in Zürich.">
+  <h2>Responsible for the content</h2>
+  <p>
+    {contact.name}<br />
+    {contact.street}<br />
+    {contact.postalCode} {contact.city}<br />
+    Switzerland
+  </p>
+  <p>
+    Email: <a href={`mailto:${contact.email}`}>{contact.email}</a><br />
+    Phone: <a href={`tel:+41${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`}>+41 {contact.phone.replace(/^0/, '')}</a>
+  </p>
+
+  <h2>Liability</h2>
+  <p>I check the content of this website carefully, but I can’t guarantee that it is correct, complete and up to date. The operators of linked websites are solely responsible for their content.</p>
+
+  <h2>Copyright</h2>
+  <p>The content of this website is protected by copyright. The screenshots show websites I have developed. The rights to their design and content belong to the respective clients and design studios.</p>
+</Legal>

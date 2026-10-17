@@ -71,6 +71,11 @@ git -c credential.helper= -c http.extraHeader="Authorization: Basic $(printf 'x-
 - Lighthouse's `ai-catalog.json` (ARD) audit doesn't apply: the site offers no API or MCP server.
 - The `muted` grey was darkened to `#646a7c` for WCAG contrast (4.67:1 on cream).
 
+## Legal pages
+
+- Impressum / Datenschutz (`/impressum/`, `/datenschutz/`, `/en/imprint/`, `/en/privacy/`), linked below the © line in the footer. The privacy text says: no cookies, no tracking, no third parties, Hostpoint server logs, `localStorage` for lights and view. Keep it true if that changes.
+- Not reviewed by a lawyer. If Marcel has a UID/VAT number, add it to the Impressum.
+
 ## Open items
 
 1. **English version** at `/en/` (Astro i18n routing, German stays at `/`). Texts are in `src/data/i18n.ts`, project texts in `descriptionEn`. Still German only: `og.png` (the image text), `site.webmanifest`. The German descriptions of Day and Intercable are actually English.

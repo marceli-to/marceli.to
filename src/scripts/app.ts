@@ -122,7 +122,7 @@ if (header) {
 }
 
 // Navigation: underline the link of the section in view
-const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav]')];
+const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav]')].filter((link) => link.pathname === location.pathname);
 const navSections = navLinks.map((link) => document.querySelector(link.hash));
 let navFrame: number | null = null;
 

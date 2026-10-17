@@ -1,0 +1,24 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { contact } from '../data/site';
+---
+
+<Legal title="Impressum" description="Impressum von marceli.to, der Website von Marcel Stadelmann, Webentwicklung in Zürich.">
+  <h2>Verantwortlich für den Inhalt</h2>
+  <p>
+    {contact.name}<br />
+    {contact.street}<br />
+    {contact.postalCode} {contact.city}<br />
+    Schweiz
+  </p>
+  <p>
+    E-Mail: <a href={`mailto:${contact.email}`}>{contact.email}</a><br />
+    Telefon: <a href={`tel:+41${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`}>{contact.phone}</a>
+  </p>
+
+  <h2>Haftung</h2>
+  <p>Ich prüfe die Inhalte dieser Website sorgfältig, übernehme aber keine Gewähr für ihre Richtigkeit, Vollständigkeit und Aktualität. Für die Inhalte verlinkter Websites sind ausschliesslich deren Betreiber verantwortlich.</p>
+
+  <h2>Urheberrechte</h2>
+  <p>Die Inhalte dieser Website sind urheberrechtlich geschützt. Die Screenshots zeigen Websites, die ich entwickelt habe. Die Rechte an ihrer Gestaltung und ihren Inhalten liegen bei den jeweiligen Auftraggebern und Designstudios.</p>
+</Legal>

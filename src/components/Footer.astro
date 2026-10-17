@@ -2,9 +2,10 @@
 import { contact } from '../data/site';
 import Heart from './icons/Heart.astro';
 import LangSwitch from './LangSwitch.astro';
-import { getLang, useStrings } from '../data/i18n';
+import { getLang, pages, useStrings } from '../data/i18n';
 
-const t = useStrings(getLang(Astro.currentLocale));
+const lang = getLang(Astro.currentLocale);
+const t = useStrings(lang);
 
 const year = new Date().getFullYear();
 const link = 'underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color]';
@@ -24,12 +25,15 @@ const link = 'underline [text-decoration-skip-ink:none] decoration-transparent d
         <a href={`mailto:${contact.email}`} class:list={['hover:text-ink hover:decoration-lamp', link]}>{contact.email}</a>
       </address>
       <nav aria-label={t.nav.footerLabel} class="flex flex-col items-start sm:items-end gap-y-10 font-medium">
-        <a href={`#${t.ids.projects}`} class:list={['hover:decoration-brick', link]}>{t.nav.projects}</a>
-        <a href={`#${t.ids.about}`} class:list={['hover:decoration-lamp', link]}>{t.nav.about}</a>
-        <a href={`#${t.ids.contact}`} class:list={['hover:decoration-leaf night:hover:decoration-[#7fae6a]', link]}>{t.nav.contact}</a>
+        <a href={`${t.home}#${t.ids.projects}`} class:list={['hover:decoration-brick', link]}>{t.nav.projects}</a>
+        <a href={`${t.home}#${t.ids.about}`} class:list={['hover:decoration-lamp', link]}>{t.nav.about}</a>
+        <a href={`${t.home}#${t.ids.contact}`} class:list={['hover:decoration-leaf night:hover:decoration-[#7fae6a]', link]}>{t.nav.contact}</a>
         <LangSwitch />
       </nav>
     </div>
     <p class="mt-56 md:mt-72 text-center font-mono text-xs text-muted">© {year} – {t.footer.builtWith} <Heart label={t.footer.love} class="inline-block size-14 align-[-2px] fill-accent" /> {t.footer.in}</p>
+    <nav aria-label={t.legal.label} class="mt-12 text-center font-mono text-xs text-muted">
+      <a href={pages.imprint[lang]} class:list={['hover:text-ink hover:decoration-lamp', link]}>{t.legal.imprint}</a>{' · '}<a href={pages.privacy[lang]} class:list={['hover:text-ink hover:decoration-lamp', link]}>{t.legal.privacy}</a>
+    </nav>
   </div>
 </footer>

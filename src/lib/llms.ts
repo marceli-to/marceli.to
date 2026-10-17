@@ -1,5 +1,5 @@
 import { contact, site } from '../data/site';
-import { useStrings, type Lang } from '../data/i18n';
+import { pages, useStrings, type Lang } from '../data/i18n';
 import { description, displayName, getAgencies, getProjects, shortName } from './projects';
 
 /** A plain Markdown summary of the site for language models (https://llmstxt.org) */
@@ -40,6 +40,7 @@ ${lines.join('\n')}
 
 - [${t.llms.homeLink}](${home}): ${t.llms.homeText}
 - [${t.llms.otherLanguage}](${other}llms.txt)
+- [${t.legal.imprint}](${new URL(pages.imprint[lang], site.url).href}), [${t.legal.privacy}](${new URL(pages.privacy[lang], site.url).href})
 `;
 
   return new Response(body, { headers: { 'Content-Type': 'text/markdown; charset=utf-8' } });

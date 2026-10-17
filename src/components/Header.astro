@@ -13,9 +13,9 @@ const t = useStrings(getLang(Astro.currentLocale));
       <Logo class="block w-[132px] md:w-[168px] h-auto" />
     </a>
     <nav aria-label={t.nav.label} class="flex items-center gap-x-20 md:gap-x-28 text-sm md:text-md font-medium">
-      <a href={`#${t.ids.projects}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-brick aria-[current=true]:decoration-brick transition-[text-decoration-color]">{t.nav.projects}</a>
-      <a href={`#${t.ids.about}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-lamp aria-[current=true]:decoration-lamp transition-[text-decoration-color]">{t.nav.about}</a>
-      <a href={`#${t.ids.contact}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-leaf aria-[current=true]:decoration-leaf night:hover:decoration-[#7fae6a] night:aria-[current=true]:decoration-[#7fae6a] transition-[text-decoration-color]">{t.nav.contact}</a>
+      <a href={`${t.home}#${t.ids.projects}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-brick aria-[current=true]:decoration-brick transition-[text-decoration-color]">{t.nav.projects}</a>
+      <a href={`${t.home}#${t.ids.about}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-lamp aria-[current=true]:decoration-lamp transition-[text-decoration-color]">{t.nav.about}</a>
+      <a href={`${t.home}#${t.ids.contact}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-leaf aria-[current=true]:decoration-leaf night:hover:decoration-[#7fae6a] night:aria-[current=true]:decoration-[#7fae6a] transition-[text-decoration-color]">{t.nav.contact}</a>
       <LangSwitch />
       <Lights />
     </nav>

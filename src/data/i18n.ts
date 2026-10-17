@@ -4,6 +4,19 @@
 export const languages = ['de', 'en'] as const;
 export type Lang = (typeof languages)[number];
 
+// Every page in both languages: drives the DE / EN switch, the hreflang links and the sitemap
+export const pages = {
+  home: { de: '/', en: '/en/' },
+  imprint: { de: '/impressum/', en: '/en/imprint/' },
+  privacy: { de: '/datenschutz/', en: '/en/privacy/' },
+} satisfies Record<string, Record<Lang, string>>;
+
+/** The German and English URL of the page at this path, or undefined if it has none (404). */
+export function alternates(pathname: string): Record<Lang, string> | undefined {
+  const path = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  return Object.values(pages).find((page) => page.de === path || page.en === path);
+}
+
 const de = {
   lang: 'de-CH',
   locale: 'de_CH',
@@ -15,8 +28,8 @@ const de = {
   llmsTitle: 'Zusammenfassung für Sprachmodelle (llms.txt)',
   person: {
     jobTitle: 'Webentwickler',
-    description: 'Selbständiger Webentwickler in Zürich: Entwicklung, technische Leitung und Beratung für Architektur, Kunst und Design.',
-    knowsAbout: 'Webentwicklung',
+    description: 'Selbständiger Webentwickler in Zürich: Entwicklung, KI-Integration, technische Leitung und Beratung für Architektur, Kunst und Design.',
+    knowsAbout: ['Webentwicklung', 'Künstliche Intelligenz'],
   },
   // Section anchors
   ids: { projects: 'arbeiten', about: 'about', contact: 'kontakt' },
@@ -52,16 +65,18 @@ const de = {
     headline: { before: 'Ich übersetze Gestaltung in Code, ', underlined: 'so sorgfältig', after: ', wie sie entworfen wurde.' },
     text: [
       'Seit 2016 bin ich selbständig in Zürich, als Entwickler, technischer Leiter und Berater an der Schnittstelle von Gestaltung, Auftraggebern und IT. Ich arbeite mit Designstudios und Agenturen, aber auch direkt mit Kulturinstitutionen und KMU: bei Websites ebenso wie bei der Digitalisierung von Abläufen.',
+      'Dazu kommt KI: Ich arbeite täglich damit und baue sie in Projekte ein, als Assistenten, für automatisierte Abläufe oder damit KI-Agenten eine Website lesen und bedienen können. Das eröffnet vieles, was über klassische Webentwicklung hinausgeht.',
       'Am liebsten arbeite ich für Architektur, Kunst und Kultur, für Leute, denen Details genauso wichtig sind wie mir.',
     ],
     role: 'Rolle',
-    roleText: 'Entwicklung, technische Leitung, Beratung',
+    roleText: 'Entwicklung, KI-Integration, technische Leitung, Beratung',
     tools: 'Werkzeuge',
     portraitAlt: 'Illustration: Marcel mit Oerlikon-Mütze vor einem Café',
     sticker: 'das bin ich ↘',
     workedWith: 'Zusammengearbeitet mit',
     andMore: 'und viele mehr.',
   },
+  legal: { imprint: 'Impressum', privacy: 'Datenschutz', label: 'Rechtliches' },
   footer: {
     question: 'Ein Projekt im Kopf?',
     cta: 'Schreib mir',
@@ -71,7 +86,7 @@ const de = {
   },
   llms: {
     intro:
-      'Marcel Stadelmann ist selbständiger Webentwickler in Zürich (seit 2016): Entwicklung, technische Leitung und Beratung an der Schnittstelle von Gestaltung, Auftraggebern und IT. Er arbeitet mit Designstudios und Agenturen sowie direkt mit Kulturinstitutionen und KMU. Werkzeuge: Laravel, Statamic, Vue.js, Tailwind CSS.',
+      'Marcel Stadelmann ist selbständiger Webentwickler in Zürich (seit 2016): Entwicklung, technische Leitung und Beratung an der Schnittstelle von Gestaltung, Auftraggebern und IT. Er arbeitet mit Designstudios und Agenturen sowie direkt mit Kulturinstitutionen und KMU. Er baut KI in Projekte ein: Assistenten, automatisierte Abläufe und Websites, die KI-Agenten lesen und bedienen können. Werkzeuge: Laravel, Statamic, Vue.js, Tailwind CSS.',
     contact: 'Kontakt',
     email: 'E-Mail',
     phone: 'Telefon',
@@ -96,8 +111,8 @@ const en: Strings = {
   llmsTitle: 'Summary for language models (llms.txt)',
   person: {
     jobTitle: 'Web developer',
-    description: 'Self-employed web developer in Zürich: development, technical lead and consulting for architecture, art and design.',
-    knowsAbout: 'Web development',
+    description: 'Self-employed web developer in Zürich: development, AI integration, technical lead and consulting for architecture, art and design.',
+    knowsAbout: ['Web development', 'Artificial intelligence'],
   },
   ids: { projects: 'work', about: 'about', contact: 'contact' },
   nav: {
@@ -128,19 +143,21 @@ const en: Strings = {
     screenshot: (name: string) => `Screenshot of the website ${name}`,
   },
   about: {
-    headline: { before: 'I translate design into code, ', underlined: 'as carefully', after: ' as it was designed.' },
+    headline: { before: 'I translate design \ninto code, ', underlined: 'as carefully', after: ' \nas it was designed.' },
     text: [
       'I’ve been self-employed in Zürich since 2016, working as a developer, technical lead and consultant where design, clients and IT meet. I work with design studios and agencies, and directly with cultural institutions and small businesses: on websites as well as on digitising workflows.',
+      'And then there’s AI: I work with it every day and build it into projects, as assistants, for automated workflows, or so that AI agents can read and use a website. It opens up a lot that goes beyond classic web development.',
       'I most like working for architecture, art and culture, for people who care about details as much as I do.',
     ],
     role: 'Role',
-    roleText: 'Development, technical lead, consulting',
+    roleText: 'Development, AI integration, technical lead, consulting',
     tools: 'Tools',
     portraitAlt: 'Illustration: Marcel in an Oerlikon beanie in front of a café',
     sticker: 'that’s me ↘',
     workedWith: 'Worked with',
     andMore: 'and many more.',
   },
+  legal: { imprint: 'Imprint', privacy: 'Privacy policy', label: 'Legal' },
   footer: {
     question: 'Got a project in mind?',
     cta: 'Drop me a line',
@@ -150,7 +167,7 @@ const en: Strings = {
   },
   llms: {
     intro:
-      'Marcel Stadelmann is a self-employed web developer in Zürich (since 2016): development, technical lead and consulting where design, clients and IT meet. He works with design studios and agencies, and directly with cultural institutions and small businesses. Tools: Laravel, Statamic, Vue.js, Tailwind CSS.',
+      'Marcel Stadelmann is a self-employed web developer in Zürich (since 2016): development, technical lead and consulting where design, clients and IT meet. He works with design studios and agencies, and directly with cultural institutions and small businesses. He builds AI into projects: assistants, automated workflows and websites that AI agents can read and use. Tools: Laravel, Statamic, Vue.js, Tailwind CSS.',
     contact: 'Contact',
     email: 'Email',
     phone: 'Phone',

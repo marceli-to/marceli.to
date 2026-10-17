@@ -22,7 +22,7 @@ const t = useStrings(getLang(Astro.currentLocale));
     class="block size-full object-cover"
   />
   <div class="portrait-night absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute inset-0 bg-[#4a5a94] mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-[#4a5a94] mix-blend-multiply group-hover/portrait:opacity-50 transition-opacity duration-500"></div>
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_28%_62%,rgb(255_190_90/0.35),transparent_45%)] mix-blend-screen"></div>
     <div class="portrait-window left-[81%] top-[5%] w-[11%] h-[12%] opacity-50"></div>
     <div class="portrait-window left-[75%] top-[47%] w-[10%] h-[16%] opacity-50"></div>
