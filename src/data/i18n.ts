@@ -23,13 +23,13 @@ const de = {
   home: '/',
   title: 'marceli.to – Marcel Stadelmann, Webentwicklung in Zürich',
   description:
-    'Marcel Stadelmann entwickelt Websites für Architektur, Kunst und Design – meist zusammen mit Designstudios und Agenturen. Selbständig in Zürich seit 2016.',
-  ogImageAlt: 'Hoi, ich bin Marcel und baue Websites für Architektur, Kunst und Design.',
+    'Marcel Stadelmann entwickelt Websites und digitale Abläufe für Designstudios, Agenturen, Kulturinstitutionen, KMU und Verwaltungen. Selbständig in Zürich seit 2016.',
+  ogImageAlt: 'Hoi, ich bin Marcel. Ich entwickle Websites und digitale Abläufe, die halten, was sie versprechen.',
   llmsTitle: 'Zusammenfassung für Sprachmodelle (llms.txt)',
   person: {
     jobTitle: 'Webentwickler',
-    description: 'Selbständiger Webentwickler in Zürich: Entwicklung, KI-Integration, technische Leitung und Beratung für Architektur, Kunst und Design.',
-    knowsAbout: ['Webentwicklung', 'Künstliche Intelligenz'],
+    description: 'Selbständiger Webentwickler in Zürich: technische Leitung, Beratung, Umsetzung, Automatisierung und KI.',
+    knowsAbout: ['Webentwicklung', 'Digitalisierung von Abläufen', 'Automatisierung', 'Künstliche Intelligenz'],
   },
   // Section anchors
   ids: { projects: 'arbeiten', about: 'about', contact: 'kontakt' },
@@ -93,7 +93,7 @@ const de = {
   },
   llms: {
     intro:
-      'Marcel Stadelmann ist selbständiger Webentwickler in Zürich (seit 2016): Entwicklung, technische Leitung und Beratung an der Schnittstelle von Gestaltung, Auftraggebern und IT. Er arbeitet mit Designstudios und Agenturen sowie direkt mit Kulturinstitutionen und KMU. Er baut KI in Projekte ein: Assistenten, automatisierte Abläufe und Websites, die KI-Agenten lesen und bedienen können. Daneben hat er Kimiyu gegründet, ein Studio für kleine, ruhige Apps (https://kimiyu.ch). Werkzeuge: Laravel, Statamic, Vue.js, Tailwind CSS.',
+      'Marcel Stadelmann ist seit 2016 selbständig in Zürich, als technischer Leiter, Berater und Entwickler. Er arbeitet dort, wo Gestaltung, Auftraggeber und IT aufeinandertreffen, und sorgt dafür, dass alle dasselbe meinen. Seine Kunden sind Designstudios und Agenturen, aber auch Kulturinstitutionen, KMU und Verwaltungen, bei Websites ebenso wie bei der Digitalisierung von Abläufen. KI baut er dort ein, wo sie tatsächlich Arbeit abnimmt: als Assistenten, für automatisierte Abläufe oder damit KI-Agenten eine Website lesen und bedienen können. Daneben hat er Kimiyu gegründet, ein Studio für kleine, ruhige Apps (https://kimiyu.ch). Werkzeuge: Laravel, Statamic, Vue.js, Tailwind CSS.',
     contact: 'Kontakt',
     email: 'E-Mail',
     phone: 'Telefon',
@@ -113,13 +113,13 @@ const en: Strings = {
   home: '/en/',
   title: 'marceli.to – Marcel Stadelmann, web development in Zürich',
   description:
-    'Marcel Stadelmann builds websites for architecture, art and design, mostly together with design studios and agencies. Self-employed in Zürich since 2016.',
-  ogImageAlt: 'Hi, I’m Marcel and I build websites for architecture, art and design.',
+    'Marcel Stadelmann builds websites and digital workflows for design studios, agencies, cultural institutions, small businesses and public administrations. Self-employed in Zürich since 2016.',
+  ogImageAlt: 'Hi, I’m Marcel. I build websites and digital workflows that deliver what they promise.',
   llmsTitle: 'Summary for language models (llms.txt)',
   person: {
     jobTitle: 'Web developer',
-    description: 'Self-employed web developer in Zürich: development, AI integration, technical lead and consulting for architecture, art and design.',
-    knowsAbout: ['Web development', 'Artificial intelligence'],
+    description: 'Self-employed web developer in Zürich: technical lead, consulting, implementation, automation and AI.',
+    knowsAbout: ['Web development', 'Workflow digitisation', 'Automation', 'Artificial intelligence'],
   },
   ids: { projects: 'work', about: 'about', contact: 'contact' },
   nav: {
@@ -179,7 +179,7 @@ const en: Strings = {
   },
   llms: {
     intro:
-      'Marcel Stadelmann is a self-employed web developer in Zürich (since 2016): development, technical lead and consulting where design, clients and IT meet. He works with design studios and agencies, and directly with cultural institutions and small businesses. He builds AI into projects: assistants, automated workflows and websites that AI agents can read and use. He also founded Kimiyu, a studio for small, calm apps (https://kimiyu.ch). Tools: Laravel, Statamic, Vue.js, Tailwind CSS.',
+      'Marcel Stadelmann has been self-employed in Zürich since 2016, as a technical lead, consultant and developer. He works where design, clients and IT meet, and makes sure everyone means the same thing. His clients are design studios and agencies, but also cultural institutions, small businesses and public administrations, on websites as well as on digitising workflows. He builds in AI where it actually takes work off people’s hands: as assistants, for automated workflows, or so that AI agents can read and use a website. He also founded Kimiyu, a studio for small, calm apps (https://kimiyu.ch). Tools: Laravel, Statamic, Vue.js, Tailwind CSS.',
     contact: 'Contact',
     email: 'Email',
     phone: 'Phone',
