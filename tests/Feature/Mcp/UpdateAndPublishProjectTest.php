@@ -65,6 +65,41 @@ class UpdateAndPublishProjectTest extends McpTestCase
         $this->assertNull($entry->get('agency'));
     }
 
+    public function test_update_sets_and_removes_the_project_name(): void
+    {
+        PortfolioServer::actingAs($this->superUser())
+            ->tool(UpdateProject::class, ['slug' => 'strutch', 'name' => 'Strut Architekten'])
+            ->assertHasNoErrors();
+
+        $this->assertSame('Strut Architekten', Entry::find('05020ddc-dca8-43a9-800d-90820acf58f8')->get('name'));
+
+        PortfolioServer::actingAs($this->superUser())
+            ->tool(UpdateProject::class, ['slug' => 'strutch', 'name' => ''])
+            ->assertHasNoErrors();
+
+        $this->assertNull(Entry::find('05020ddc-dca8-43a9-800d-90820acf58f8')->get('name'));
+    }
+
+    public function test_update_marks_a_project_offline_and_back(): void
+    {
+        PortfolioServer::actingAs($this->superUser())
+            ->tool(UpdateProject::class, ['slug' => 'strutch', 'offline' => true])
+            ->assertHasNoErrors();
+
+        $this->assertTrue(Entry::find('05020ddc-dca8-43a9-800d-90820acf58f8')->get('offline'));
+
+        $this->get('/')
+            ->assertOk()
+            ->assertDontSee('href="https://strut.ch"', false)
+            ->assertSee('aria-label="Website offline"', false);
+
+        PortfolioServer::actingAs($this->superUser())
+            ->tool(UpdateProject::class, ['slug' => 'strutch', 'offline' => false])
+            ->assertHasNoErrors();
+
+        $this->assertNull(Entry::find('05020ddc-dca8-43a9-800d-90820acf58f8')->get('offline'));
+    }
+
     public function test_update_rejects_emptying_required_fields(): void
     {
         PortfolioServer::actingAs($this->superUser())

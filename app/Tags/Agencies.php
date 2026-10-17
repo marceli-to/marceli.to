@@ -10,7 +10,7 @@ class Agencies extends Tags
 {
   /**
    * The studios credited for concept/design on projects, most frequent first.
-   * Names are shortened: no location, no legal form, no tagline.
+   * Names are shortened with the short_name modifier (no location, no trailing legal form).
    *
    * Usage: {{ agencies }}{{ name }}{{ /agencies }} ({{ projects }} holds the count)
    */

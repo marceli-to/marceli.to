@@ -17,13 +17,13 @@ use Laravel\Mcp\Server\Tools\Annotations\IsIdempotent;
 #[Name('update_project')]
 #[Description(<<<'TEXT'
 Update fields of an existing portfolio project, identified by its slug (see list_projects). Only the fields you pass are changed; everything else is kept.
-Updatable: url, title, description, year, client, agency (pass an empty string to remove it), image (an asset path from upload_screenshot). The slug and the published state cannot be changed here; use publish_project to publish.
+Updatable: url, title, name (the project name shown on the site; empty string removes it), offline (true when the website is no longer online; the project then stays listed without a link), description, year, client, agency (pass an empty string to remove it), image (an asset path from upload_screenshot). The slug and the published state cannot be changed here; use publish_project to publish.
 Changes to a published project are live immediately, so show the user the old and new values and get a confirmation before calling this tool.
 TEXT)]
 #[IsIdempotent]
 class UpdateProject extends Tool
 {
-    public const FIELDS = ['url', 'title', 'description', 'year', 'client', 'agency', 'image'];
+    public const FIELDS = ['url', 'title', 'name', 'offline', 'description', 'year', 'client', 'agency', 'image'];
 
     public function handle(Request $request): Response|ResponseFactory
     {
@@ -63,6 +63,8 @@ class UpdateProject extends Tool
             'id' => $schema->string()->description('The project id. Only needed when a slug is ambiguous.'),
             'url' => $schema->string()->description('Full URL of the live website.'),
             'title' => $schema->string()->description('Project title.'),
+            'name' => $schema->string()->description('Project name shown on the site, e.g. "SHIFT Altstetten"; empty string removes it, then the client is shown.'),
+            'offline' => $schema->boolean()->description('True when the website is no longer online; the project stays listed without a link.'),
             'description' => $schema->string()->description('One or two sentences in German.'),
             'year' => $schema->string()->description('e.g. "2025" or "2016 – 2020".'),
             'client' => $schema->string()->description('Client name; reuse an existing name from list_projects when possible.'),

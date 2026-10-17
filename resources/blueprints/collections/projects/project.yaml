@@ -13,6 +13,13 @@ tabs:
               validate:
                 - required
           -
+            handle: name
+            field:
+              type: text
+              display: Name
+              instructions: 'Project name shown on the site, e.g. "SHIFT Altstetten". Leave empty to show the client.'
+              localizable: false
+          -
             handle: description
             field:
               type: textarea
@@ -23,6 +30,13 @@ tabs:
             field:
               type: link
               display: Link
+              localizable: false
+          -
+            handle: offline
+            field:
+              type: toggle
+              display: 'Website offline'
+              instructions: 'The site is no longer online. The project stays in the list, without a link.'
               localizable: false
           -
             handle: image

@@ -15,7 +15,7 @@ use Laravel\Mcp\Server\Tool;
 #[Description(<<<'TEXT'
 Create a new portfolio project on marceli.to. It is ALWAYS saved as an unpublished draft; publishing is a separate, deliberate step (publish_project).
 
-Required: url (the live website), client, year, description. Optional: agency (the concept/design agency), title (defaults to the domain, e.g. "example.ch", which is how most projects are named), image (asset path from upload_screenshot).
+Required: url (the live website), client, year, description. Optional: agency (the concept/design agency), title (defaults to the domain, e.g. "example.ch", which is how most projects are named), name (the project name shown on the site, e.g. "SHIFT Altstetten"; without it the site shows the client), image (asset path from upload_screenshot).
 
 How to use this tool:
 1. If the user gives you a screenshot, upload it first (get_screenshot_upload_url for a local file, otherwise upload_screenshot) and pass the returned path as image.
@@ -62,6 +62,7 @@ class CreateProject extends Tool
             'description' => $schema->string()->description('One or two sentences in German describing the project.')->required(),
             'agency' => $schema->string()->description('Optional. The concept/design agency, e.g. "Bivgrafik GmbH, Zürich".'),
             'title' => $schema->string()->description('Optional. Defaults to the domain of the url, e.g. "example.ch".'),
+            'name' => $schema->string()->description('Optional. Project name shown on the site, e.g. "SHIFT Altstetten". Without it the site shows the client.'),
             'image' => $schema->string()->description('Optional. Asset path returned by upload_screenshot, e.g. "projects/example.ch.png".'),
         ];
     }

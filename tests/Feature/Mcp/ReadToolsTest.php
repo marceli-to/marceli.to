@@ -21,7 +21,7 @@ class ReadToolsTest extends McpTestCase
             ->assertStructuredContent(function ($json) use ($count) {
                 $json->where('count', $count)
                     ->has('projects', $count, fn ($project) => $project
-                        ->hasAll(['id', 'slug', 'title', 'client', 'year', 'url', 'published']))
+                        ->hasAll(['id', 'slug', 'title', 'name', 'client', 'year', 'url', 'published']))
                     ->where('known_clients_and_agencies', fn ($names) => collect($names)->contains('Bivgrafik GmbH, Zürich'));
             });
     }

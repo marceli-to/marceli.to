@@ -43,6 +43,8 @@ class Projects
         return [
             'url' => [$required, 'string', 'url:http,https', 'max:255'],
             'title' => ['sometimes', 'nullable', 'string', 'min:2', 'max:120'],
+            'name' => ['sometimes', 'nullable', 'string', 'min:2', 'max:120'],
+            'offline' => ['sometimes', 'boolean'],
             'description' => [$required, 'string', 'min:10', 'max:1000'],
             'year' => [$required, 'string', static::yearRule()],
             'client' => [$required, 'string', 'min:2', 'max:120'],
@@ -236,6 +238,14 @@ class Projects
             }
         }
 
+        if (array_key_exists('name', $input)) {
+            filled($input['name']) ? $entry->set('name', trim($input['name'])) : $entry->remove('name');
+        }
+
+        if (array_key_exists('offline', $input)) {
+            $input['offline'] ? $entry->set('offline', true) : $entry->remove('offline');
+        }
+
         if (array_key_exists('year', $input)) {
             $entry->set('year', static::normalizeYear($input['year']));
         }
@@ -307,6 +317,7 @@ class Projects
             'id' => $entry->id(),
             'slug' => static::slugOf($entry),
             'title' => $entry->get('title'),
+            'name' => $entry->get('name'),
             'client' => static::termTitle($entry->get('client')),
             'year' => filled($entry->get('year')) ? (string) $entry->get('year') : null,
             'url' => $entry->get('link'),
@@ -319,6 +330,7 @@ class Projects
         return [
             ...static::summary($entry),
             'agency' => static::termTitle($entry->get('agency')),
+            'offline' => (bool) $entry->get('offline'),
             'description' => $entry->get('description'),
             'image' => $entry->get('image'),
             'image_url' => static::imageUrl($entry->get('image')),
