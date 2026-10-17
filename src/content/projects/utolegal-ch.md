@@ -4,6 +4,7 @@ agency: WBG AG – Visuelle Kommunikation, Zürich
 year: 2023
 link: https://utolegal.ch
 description: Webseite für die Rechtsanwälte Uto Legal in Zürich.
+descriptionEn: "Website for the law firm Uto Legal in Zürich."
 order: 60
 image: ../../assets/projects/utolegal-ch.jpg
 ---

@@ -17,6 +17,8 @@ const projects = defineCollection({
       // The site is no longer online: listed with its screenshot, but without a link
       offline: z.boolean().default(false),
       description: z.string(),
+      // English description; without it the German one is shown on the English site
+      descriptionEn: z.string().optional(),
       // Position within a year (lower comes first)
       order: z.number().int().default(999),
       image: image(),

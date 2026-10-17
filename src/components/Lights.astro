@@ -1,9 +1,15 @@
+---
+import { getLang, useStrings } from '../data/i18n';
+
+const t = useStrings(getLang(Astro.currentLocale));
+---
+
 <button
   type="button"
   data-lights-toggle
   aria-pressed="false"
-  aria-label="Licht an- und ausschalten"
-  title="Licht an/aus"
+  aria-label={t.lights.label}
+  title={t.lights.title}
   class="group relative -mx-8 size-40 grid place-items-center cursor-pointer">
   <svg viewBox="0 0 24 24" class="size-24 overflow-visible" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="17" r="6" class="fill-lamp opacity-0 night:opacity-40 blur-[3px] transition-opacity duration-500" stroke="none" />

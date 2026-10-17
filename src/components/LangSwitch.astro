@@ -1,0 +1,12 @@
+---
+// "DE / EN": the current language in ink, the other one links to its version of the page
+import { getLang, useStrings } from '../data/i18n';
+
+const lang = getLang(Astro.currentLocale);
+const t = useStrings(lang);
+const link = 'hover:text-ink underline [text-decoration-skip-ink:none] decoration-transparent decoration-1 underline-offset-4 hover:decoration-current transition-[color,text-decoration-color]';
+---
+
+<span class="font-mono text-xs text-muted" role="group" aria-label={t.nav.language}>
+  {lang === 'de' ? <span class="text-ink" aria-current="true">DE</span> : <a href="/" hreflang="de" lang="de" title="Deutsch" class={link}>DE</a>}{' / '}{lang === 'en' ? <span class="text-ink" aria-current="true">EN</span> : <a href="/en/" hreflang="en" lang="en" title="English" class={link}>EN</a>}
+</span>

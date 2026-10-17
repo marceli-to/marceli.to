@@ -5,6 +5,7 @@ agency: stoz Werbeagentur AG, Pfäffikon/ZH
 year: 2025
 link: https://luppmenpark.ch
 description: Entdecken Sie idyllisches Wohnen im denkmalgeschützten Luppmenpark mit 39 barrierefreien Wohneinheiten.
+descriptionEn: "Idyllic living in the listed Luppmenpark, with 39 barrier-free homes."
 order: 14
 image: ../../assets/projects/luppmenpark-ch.jpg
 ---

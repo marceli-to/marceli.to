@@ -2,6 +2,7 @@
 import { Font, getImage } from 'astro:assets';
 import '../styles/global.css';
 import { contact, site } from '../data/site';
+import { getLang, useStrings } from '../data/i18n';
 import marcel from '../assets/marcel.jpg';
 
 interface Props {
@@ -12,7 +13,9 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title = site.title, description = site.description, graph = [], noindex = false } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+const t = useStrings(lang);
+const { title = t.title, description = t.description, graph = [], noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL('/og.png', Astro.site).href;
@@ -26,7 +29,7 @@ const jsonLd = {
       '@id': `${site.url}/#website`,
       url: `${site.url}/`,
       name: site.name,
-      inLanguage: 'de-CH',
+      inLanguage: ['de-CH', 'en'],
       publisher: { '@id': `${site.url}/#person` },
     },
     {
@@ -35,8 +38,8 @@ const jsonLd = {
       name: contact.name,
       url: `${site.url}/`,
       image: portrait,
-      jobTitle: 'Webentwickler',
-      description: 'Selbständiger Webentwickler in Zürich: Entwicklung, technische Leitung und Beratung für Architektur, Kunst und Design.',
+      jobTitle: t.person.jobTitle,
+      description: t.person.description,
       email: `mailto:${contact.email}`,
       telephone: `+41 ${contact.phone.replace(/^0/, '')}`,
       address: {
@@ -46,7 +49,7 @@ const jsonLd = {
         addressLocality: contact.city,
         addressCountry: contact.country,
       },
-      knowsAbout: ['Webentwicklung', 'Laravel', 'Statamic', 'Vue.js', 'Tailwind CSS', 'Astro'],
+      knowsAbout: [t.person.knowsAbout, 'Laravel', 'Statamic', 'Vue.js', 'Tailwind CSS', 'Astro'],
     },
     {
       '@type': 'ProfilePage',
@@ -54,7 +57,7 @@ const jsonLd = {
       url: canonical,
       name: title,
       description,
-      inLanguage: 'de-CH',
+      inLanguage: t.lang,
       isPartOf: { '@id': `${site.url}/#website` },
       mainEntity: { '@id': `${site.url}/#person` },
     },
@@ -64,27 +67,34 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="de-CH" class="scroll-smooth bg-bg">
+<html lang={t.lang} class="scroll-smooth bg-bg">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="de-CH" href={new URL('/', Astro.site).href} />
+        <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site).href} />
+        <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+      </>
+    )}
     <meta name="author" content={contact.name} />
     <meta name="theme-color" content="#f5eedf" />
     {noindex && <meta name="robots" content="noindex" />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:locale" content={site.locale} />
+    <meta property="og:locale" content={t.locale} />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Hoi, ich bin Marcel und baue Websites für Architektur, Kunst und Design." />
+    <meta property="og:image:alt" content={t.ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -92,7 +102,7 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="text/markdown" href="/llms.txt" title="Zusammenfassung für Sprachmodelle (llms.txt)" />
+    <link rel="alternate" type="text/markdown" href={`${t.home}llms.txt`} title={t.llmsTitle} />
 
     <Font cssVariable="--font-figtree" preload />
     <Font cssVariable="--font-dm-mono" />

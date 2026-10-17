@@ -72,7 +72,7 @@ git -c credential.helper= -c http.extraHeader="Authorization: Basic $(printf 'x-
 
 ## Open items
 
-1. **English version.** Only German exists. The "DE / EN" switch in the header and footer is a placeholder ("Kommt bald"). Astro i18n routing (`/` and `/en/`) is the plan. Every text, `llms.txt`, the JSON-LD and the WebMCP descriptions would need translating, plus `hreflang` links.
+1. **English version** at `/en/` (Astro i18n routing, German stays at `/`). Texts are in `src/data/i18n.ts`, project texts in `descriptionEn`. Still German only: `og.png` (the image text), `site.webmanifest`. The German descriptions of Day and Intercable are actually English.
 2. **About copy:** the first paragraph still says "als technischer Leiter und Berater", while Rolle starts with "Entwicklung". Marcel may want "als Entwickler, technischer Leiter und Berater".
 3. **Gute Bauten 2021** is offline. If Marcel has an archive of it, link it like 2025.
 4. **Redirects worth checking:** Win a Gärtner now goes to spross.com/garten, mobilecharge.ch went offline, sipt.ch goes to psychotraumatologie-sipt.ch.

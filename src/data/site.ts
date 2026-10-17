@@ -1,11 +1,7 @@
+// Texts per language are in i18n.ts
 export const site = {
   name: 'marceli.to',
   url: 'https://marceli.to',
-  title: 'marceli.to – Marcel Stadelmann, Webentwicklung in Zürich',
-  description:
-    'Marcel Stadelmann entwickelt Websites für Architektur, Kunst und Design – meist zusammen mit Designstudios und Agenturen. Selbständig in Zürich seit 2016.',
-  locale: 'de_CH',
-  lang: 'de',
 };
 
 export const contact = {

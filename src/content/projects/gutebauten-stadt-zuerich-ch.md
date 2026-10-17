@@ -6,6 +6,7 @@ year: "2021"
 link: https://gutebauten.stadt-zuerich.ch/
 offline: true
 description: Publikums-Votingseite zur Auszeichnung für gute Bauten der Stadt Zürich 2021.
+descriptionEn: "Public voting site for the City of Zürich’s Good Buildings award 2021."
 order: 38
 image: ../../assets/projects/gutebauten-stadt-zuerich-ch.jpg
 ---

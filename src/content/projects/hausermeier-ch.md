@@ -4,6 +4,7 @@ agency: Bivgrafik GmbH, Zürich
 year: "2020"
 link: https://hausermeier.ch
 description: Portfolio Webseite für das Architektinnen-Duo Martina Hauser und Sabine Meier.
+descriptionEn: "Portfolio website for the architect duo Martina Hauser and Sabine Meier."
 order: 42
 image: ../../assets/projects/hausermeier-ch.jpg
 ---

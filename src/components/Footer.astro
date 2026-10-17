@@ -1,15 +1,19 @@
 ---
 import { contact } from '../data/site';
 import Heart from './icons/Heart.astro';
+import LangSwitch from './LangSwitch.astro';
+import { getLang, useStrings } from '../data/i18n';
+
+const t = useStrings(getLang(Astro.currentLocale));
 
 const year = new Date().getFullYear();
 const link = 'underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[5px] transition-[text-decoration-color]';
 ---
 
-<footer id="kontakt" class="w-full border-t border-line mt-96 md:mt-160">
+<footer id={t.ids.contact} class="w-full border-t border-line mt-96 md:mt-160">
   <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96 pb-40">
     <h2 class="text-4xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.04] text-balance max-w-[16ch]">
-      Ein Projekt im Kopf? <a href={`mailto:${contact.email}`} class="underline [text-decoration-skip-ink:none] decoration-leaf night:decoration-[#7fae6a] decoration-[0.1em] underline-offset-[0.14em] hover:text-leaf night:hover:text-[#7fae6a] transition-colors">Schreib mir</a>.
+      {t.footer.question} <a href={`mailto:${contact.email}`} class="whitespace-nowrap underline [text-decoration-skip-ink:none] decoration-leaf night:decoration-[#7fae6a] decoration-[0.1em] underline-offset-[0.14em] hover:text-leaf night:hover:text-[#7fae6a] transition-colors">{t.footer.cta}</a>.
     </h2>
     <div class="mt-80 md:mt-120 pt-32 border-t border-line flex flex-col sm:flex-row sm:items-start justify-between gap-32 text-sm leading-[1.6]">
       <address class="not-italic text-muted flex flex-col items-start gap-y-2">
@@ -19,13 +23,13 @@ const link = 'underline [text-decoration-skip-ink:none] decoration-transparent d
         <a href={`tel:+41${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`} class:list={['hover:text-ink hover:decoration-lamp', link]}>{contact.phone}</a>
         <a href={`mailto:${contact.email}`} class:list={['hover:text-ink hover:decoration-lamp', link]}>{contact.email}</a>
       </address>
-      <nav aria-label="Fussnavigation" class="flex flex-col items-start sm:items-end gap-y-10 font-medium">
-        <a href="#arbeiten" class:list={['hover:decoration-brick', link]}>Arbeiten</a>
-        <a href="#about" class:list={['hover:decoration-lamp', link]}>Über mich</a>
-        <a href="#kontakt" class:list={['hover:decoration-leaf night:hover:decoration-[#7fae6a]', link]}>Kontakt</a>
-        <span class="font-mono text-xs text-muted"><span class="text-ink">DE</span> / <span title="Kommt bald">EN</span></span>
+      <nav aria-label={t.nav.footerLabel} class="flex flex-col items-start sm:items-end gap-y-10 font-medium">
+        <a href={`#${t.ids.projects}`} class:list={['hover:decoration-brick', link]}>{t.nav.projects}</a>
+        <a href={`#${t.ids.about}`} class:list={['hover:decoration-lamp', link]}>{t.nav.about}</a>
+        <a href={`#${t.ids.contact}`} class:list={['hover:decoration-leaf night:hover:decoration-[#7fae6a]', link]}>{t.nav.contact}</a>
+        <LangSwitch />
       </nav>
     </div>
-    <p class="mt-56 md:mt-72 text-center font-mono text-xs text-muted">© {year} – Gebaut mit <Heart class="inline-block size-14 align-[-2px] fill-accent" /> in Zürich</p>
+    <p class="mt-56 md:mt-72 text-center font-mono text-xs text-muted">© {year} – {t.footer.builtWith} <Heart label={t.footer.love} class="inline-block size-14 align-[-2px] fill-accent" /> {t.footer.in}</p>
   </div>
 </footer>

@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import type { Lang } from '../data/i18n';
 
 export type Project = CollectionEntry<'projects'>;
 
@@ -14,6 +15,11 @@ export function shortName(name: string): string {
 /** The name shown on the site: the project name, or else the client without its location. */
 export function displayName(project: Project): string {
   return project.data.name ?? project.data.client.split(',')[0].trim();
+}
+
+/** The description in the given language, falling back to German. */
+export function description(project: Project, lang: Lang): string {
+  return (lang === 'en' && project.data.descriptionEn) || project.data.description;
 }
 
 export function domain(url: string): string {

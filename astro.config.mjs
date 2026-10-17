@@ -5,7 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://marceli.to',
-  integrations: [sitemap()],
+  // German at /, English at /en/
+  i18n: {
+    locales: ['de', 'en'],
+    defaultLocale: 'de',
+    routing: { prefixDefaultLocale: false },
+  },
+  integrations: [sitemap({ i18n: { defaultLocale: 'de', locales: { de: 'de-CH', en: 'en' } } })],
   // Fixed IPv4 address and port, so Herd can proxy https://marceli.to.test to it
   server: { host: '127.0.0.1', port: 4321 },
   vite: {

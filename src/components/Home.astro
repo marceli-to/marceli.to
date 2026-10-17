@@ -1,0 +1,61 @@
+---
+// The one-page site, in the language of the current route (src/pages/index.astro, src/pages/en/index.astro)
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Projects from './Projects.astro';
+import About from './About.astro';
+import Footer from './Footer.astro';
+import { contact, site } from '../data/site';
+import { getLang, useStrings } from '../data/i18n';
+import { description, displayName, getAgencies, getProjects, shortName } from '../lib/projects';
+
+const lang = getLang(Astro.currentLocale);
+const t = useStrings(lang);
+const projects = await getProjects();
+
+// Machine-readable project list for agents (WebMCP tools, see src/scripts/webmcp.ts)
+const siteData = {
+  contact,
+  projects: projects.map((project) => ({
+    name: displayName(project),
+    client: project.data.client,
+    studio: project.data.agency ? shortName(project.data.agency) : null,
+    year: project.data.year,
+    url: project.data.offline ? null : project.data.link,
+    offline: project.data.offline,
+    description: description(project, lang),
+  })),
+};
+
+const projectList = {
+  '@type': 'ItemList',
+  '@id': `${new URL(t.home, site.url).href}#projects`,
+  name: t.projects.title,
+  numberOfItems: projects.length,
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: displayName(project),
+      description: description(project, lang),
+      dateCreated: String(project.data.year),
+      ...(project.data.offline ? {} : { url: project.data.link }),
+      creator: { '@id': `${site.url}/#person` },
+      ...(project.data.agency ? { contributor: { '@type': 'Organization', name: shortName(project.data.agency) } } : {}),
+    },
+  })),
+};
+---
+
+<Base graph={[projectList]}>
+  <Header />
+  <main class="flex-1 w-full">
+    <Hero />
+    <Projects projects={projects} />
+    <About agencies={getAgencies(projects)} />
+  </main>
+  <Footer />
+  <script type="application/json" id="site-data" set:html={JSON.stringify(siteData)} />
+</Base>

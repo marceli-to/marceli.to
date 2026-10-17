@@ -4,6 +4,7 @@ agency: Bivgrafik GmbH, Zürich
 year: 2024
 link: https://frankbraun.ch
 description: Portfolio Webseite für den Zürcher Künstler Frank Braun
+descriptionEn: "Portfolio website for the Zürich artist Frank Braun."
 order: 63
 image: ../../assets/projects/frankbraun-ch.jpg
 ---

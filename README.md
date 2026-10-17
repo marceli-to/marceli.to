@@ -31,6 +31,7 @@ year: 2026
 link: https://shift-altstetten.ch
 offline: true                       # optional; listed without a link
 description: One or two sentences in German.
+descriptionEn: The same in English.  # optional; without it the English site shows the German text
 order: 1                            # position within the year, lower first
 image: ../../assets/projects/shift-altstetten-ch.jpg
 draft: true                         # optional; hidden from the site
@@ -41,19 +42,21 @@ Screenshots: JPG, 3:2, ideally 2400 px wide. Astro crops them to 16:10 from the 
 
 ## Structure
 
-- `src/pages/index.astro` – the page; `llms.txt.ts` and `robots.txt.ts` generate those files
+- `src/pages/index.astro` (German, `/`) and `src/pages/en/index.astro` (English, `/en/`) – both render `src/components/Home.astro`; `llms.txt.ts` (per language) and `robots.txt.ts` generate those files
+- `src/data/i18n.ts` – every text on the site in German and English
 - `src/components/` – Hero, Projects (list and grid), About, Footer, Header
 - `src/lib/projects.ts` – sorting, display names, the studio list
 - `src/scripts/app.ts` – night mode, cursor preview, list/grid switch, header, navigation
 - `src/scripts/webmcp.ts` – [WebMCP](https://github.com/webmachinelearning/webmcp) tools for AI agents in the browser
-- `src/data/site.ts` – title, description and contact details
+- `src/data/site.ts` – site URL and contact details
 - `scripts/generate-icons.mjs` – favicons and app icons (`npm run icons`)
 
 ## Search engines and agents
 
 - Title, description, canonical URL, Open Graph image (`public/og.png`), sitemap and `robots.txt`
 - JSON-LD: `WebSite`, `Person`, `ProfilePage` and an `ItemList` of all projects
-- `/llms.txt`: a Markdown summary of the site for language models
+- `hreflang` links between `/` and `/en/`, also in the sitemap
+- `/llms.txt` and `/en/llms.txt`: a Markdown summary of the site for language models
 - WebMCP tools (`list_projects`, `get_contact`, `show_projects`, `set_lights`), registered where the browser supports it (Chrome: `--enable-features=WebMCP`)
 
 ## Deployment

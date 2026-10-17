@@ -3,18 +3,20 @@
 // Keep the container square so the glow positions line up with the drawing.
 import { Image } from 'astro:assets';
 import marcel from '../assets/marcel.jpg';
+import { getLang, useStrings } from '../data/i18n';
 
 interface Props {
   class?: string;
 }
 
 const { class: className } = Astro.props;
+const t = useStrings(getLang(Astro.currentLocale));
 ---
 
 <div class:list={['relative aspect-square overflow-hidden', className]}>
   <Image
     src={marcel}
-    alt="Illustration: Marcel mit Oerlikon-Mütze vor einem Café"
+    alt={t.about.portraitAlt}
     widths={[400, 600, 900]}
     sizes="(min-width: 1024px) 360px, (min-width: 768px) 40vw, 360px"
     class="block size-full object-cover"

@@ -24,7 +24,7 @@ const data = JSON.parse(document.getElementById('site-data')?.textContent ?? '{}
 const tools: ModelContextTool[] = [
   {
     name: 'list_projects',
-    description: 'List the websites Marcel Stadelmann has built: name, client, design studio, year, URL, offline state and a short description (German). Optionally filter by year or studio.',
+    description: 'List the websites Marcel Stadelmann has built: name, client, design studio, year, URL, offline state and a short description (in the language of the page). Optionally filter by year or studio.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -57,7 +57,7 @@ const tools: ModelContextTool[] = [
     },
     execute: ({ view }) => {
       setView(view as View);
-      document.getElementById('arbeiten')?.scrollIntoView();
+      document.querySelector('[data-view-button]')?.closest('section')?.scrollIntoView();
       return { view };
     },
   },
