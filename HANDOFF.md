@@ -26,8 +26,9 @@ State as of 2026-10-17. Read this together with `README.md` (setup, adding proje
 - About: the headline "Zwischen Idee und Umsetzung sorge ich dafür, dass nichts verloren geht." (yellow underline on "nichts verloren geht", the promise). Text by Marcel, then Rolle, Werkzeuge and Daneben (founder of Kimiyu, Marcel's app studio, linked with an always-visible yellow underline; also in llms.txt and the JSON-LD) below it, the portrait as a tilted postcard with a "das bin ich ↘" sticker, and "Zusammengearbeitet mit" (studios from the project credits, no counts, "und viele mehr.").
 - Footer: "Ein Projekt oder ein Ablauf, der zu viel Zeit frisst? Schreib mir." (EN: "Got a project or a workflow that takes too much time? Drop me a line.") ("Schreib mir" is a green-underlined mailto link). Contact block on the left, menu as a stack with DE / EN on the right, then "© 2026 – Gebaut mit [heart] in Zürich" centered. The heart is red by day and yellow at night.
 - Favicon and app icons: the avatar, zoomed in on the face. Favicons are round with the lamp-yellow ring like in the hero; apple-touch and manifest icons are full-bleed squares. Regenerate with `npm run icons` (`scripts/generate-icons.mjs`).
-- Night mode: a lamp toggle in the header. The whole page crossfades with a View Transition, and the café lamps in the portrait light up.
-- The header fades out when scrolling down and back in when scrolling up.
+- Header: logo and a burger only. The burger (three lines, 1.6 stroke like the lamp) turns into an X and opens a full-screen menu overlay that simply fades in (a gooey drip/blob effect was tried and rejected). The overlay holds the three links large with their colour-coded underlines, the email, DE / EN and the lamp. It's navy by day and the page colour at night; logo and burger turn cream halfway through the fade. Esc and the links close it.
+- Night mode: the lamp toggle in the menu overlay. The whole page crossfades with a View Transition, and the café lamps in the portrait light up.
+- Only the logo fades out when scrolling down (and back in when scrolling up); the burger stays.
 - Marcel rejected these (don't propose them again): a CSS anchor-positioned preview, a yellow or green section background, rounded corners or a glow on the footer, a header background.
 
 ## Working with Marcel

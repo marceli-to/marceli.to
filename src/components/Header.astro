@@ -1,23 +1,19 @@
 ---
 import Logo from './icons/Logo.astro';
-import Lights from './Lights.astro';
-import LangSwitch from './LangSwitch.astro';
+import Menu from './Menu.astro';
+import Burger from './Burger.astro';
 import { getLang, useStrings } from '../data/i18n';
 
 const t = useStrings(getLang(Astro.currentLocale));
 ---
 
-<header data-header class="sticky top-0 z-40 w-full transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-hidden:opacity-0 data-hidden:-translate-y-8 data-hidden:pointer-events-none">
-  <div class="max-w-[1200px] mx-auto px-20 md:px-32 h-64 md:h-80 flex items-center justify-between gap-x-24">
-    <a href={t.home} class="text-ink hover:text-accent transition-colors" title={t.nav.home}>
+<header data-header class="group/header sticky top-0 z-40 w-full text-ink">
+  <Menu />
+  <div class="relative max-w-[1200px] mx-auto px-20 md:px-32 h-64 md:h-80 flex items-center justify-between gap-x-24">
+    <!-- Only the logo fades out when scrolling down, the burger stays -->
+    <a href={t.home} class="text-ink hover:text-accent transition-[color,opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-hidden/header:opacity-0 group-data-hidden/header:-translate-y-8 group-data-hidden/header:pointer-events-none" title={t.nav.home}>
       <Logo class="block w-[132px] md:w-[168px] h-auto" />
     </a>
-    <nav aria-label={t.nav.label} class="flex items-center gap-x-20 md:gap-x-28 text-sm md:text-md font-medium">
-      <a href={`${t.home}#${t.ids.projects}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-brick aria-[current=true]:decoration-brick transition-[text-decoration-color]">{t.nav.projects}</a>
-      <a href={`${t.home}#${t.ids.about}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-lamp aria-[current=true]:decoration-lamp transition-[text-decoration-color]">{t.nav.about}</a>
-      <a href={`${t.home}#${t.ids.contact}`} data-nav class="hidden sm:block underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-leaf aria-[current=true]:decoration-leaf night:hover:decoration-[#7fae6a] night:aria-[current=true]:decoration-[#7fae6a] transition-[text-decoration-color]">{t.nav.contact}</a>
-      <LangSwitch />
-      <Lights />
-    </nav>
+    <Burger controls="menu" />
   </div>
 </header>

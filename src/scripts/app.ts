@@ -110,7 +110,7 @@ document.querySelector<HTMLButtonElement>('[data-show-older]')?.addEventListener
   (first?.matches('a') ? first : first?.querySelector<HTMLElement>('a'))?.focus({ preventScroll: true });
 });
 
-// Header: fade out when scrolling down, back in when scrolling up
+// Header: the logo fades out when scrolling down, back in when scrolling up
 const header = document.querySelector<HTMLElement>('[data-header]');
 
 if (header) {
@@ -118,12 +118,13 @@ if (header) {
   let headerFrame: number | null = null;
 
   const updateHeader = () => {
+    headerFrame = null;
+    if ('menu' in root.dataset) return;
     const delta = scrollY - lastY;
     if (scrollY < 80) delete header.dataset.hidden;
     else if (delta > 4) header.dataset.hidden = '';
     else if (delta < -4) delete header.dataset.hidden;
     if (Math.abs(delta) > 4 || scrollY < 80) lastY = scrollY;
-    headerFrame = null;
   };
 
   addEventListener('scroll', () => (headerFrame ??= requestAnimationFrame(updateHeader)), { passive: true });
@@ -139,9 +140,10 @@ if (scrollHint) {
   updateHint();
 }
 
-// Navigation: underline the link of the section in view
+// Navigation: underline the link of the section in view (header, menu overlay and footer share the hashes)
 const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav]')].filter((link) => link.pathname === location.pathname);
-const navSections = navLinks.map((link) => document.querySelector(link.hash));
+const navHashes = [...new Set(navLinks.map((link) => link.hash))];
+const navSections = navHashes.map((hash) => document.querySelector(hash));
 let navFrame: number | null = null;
 
 const updateNav = () => {
@@ -151,8 +153,8 @@ const updateNav = () => {
     ? navSections.length - 1
     : navSections.findLastIndex((section) => section !== null && section.getBoundingClientRect().top <= line);
 
-  navLinks.forEach((link, index) => {
-    if (index === active) link.setAttribute('aria-current', 'true');
+  navLinks.forEach((link) => {
+    if (link.hash === navHashes[active]) link.setAttribute('aria-current', 'true');
     else link.removeAttribute('aria-current');
   });
   navFrame = null;
@@ -160,3 +162,42 @@ const updateNav = () => {
 
 addEventListener('scroll', () => (navFrame ??= requestAnimationFrame(updateNav)), { passive: true });
 updateNav();
+
+// Menu: the burger opens a full-screen overlay (src/components/Menu.astro). The header swaps colours
+// halfway through the fade.
+const INK_SWAP = 150;
+const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+const menu = document.getElementById(menuButton?.getAttribute('aria-controls') ?? '');
+
+if (menuButton && menu) {
+  const button = menuButton;
+  const timers: number[] = [];
+  const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, reducedMotion() ? 0 : ms));
+  const isOpen = () => button.getAttribute('aria-expanded') === 'true';
+
+  const setOpen = (open: boolean, returnFocus = true) => {
+    timers.splice(0).forEach(clearTimeout);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', (open ? button.dataset.labelClose : button.dataset.labelOpen) ?? '');
+    document.querySelectorAll<HTMLElement>('body > :not([data-header], script)').forEach((element) => (element.inert = open));
+    root.style.overflow = open ? 'hidden' : '';
+
+    if (open) {
+      root.dataset.menu = '';
+      header?.removeAttribute('data-hidden');
+      menu.dataset.open = '';
+      later(INK_SWAP, () => (root.dataset.menuInk = ''));
+    } else {
+      delete root.dataset.menu;
+      delete menu.dataset.open;
+      later(INK_SWAP, () => delete root.dataset.menuInk);
+      if (returnFocus) button.focus();
+    }
+  };
+
+  button.addEventListener('click', () => setOpen(!isOpen()));
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false, false)));
+  addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && isOpen()) setOpen(false);
+  });
+}

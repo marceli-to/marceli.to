@@ -39,6 +39,7 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-leaf-line: var(--leaf-line);
 }
 
 :root {
@@ -48,6 +49,7 @@
   --muted: #646a7c;
   --line: #e3d9c4;
   --accent: #d9563f;
+  --leaf-line: #4f7a3f;
 }
 
 .night {
@@ -57,6 +59,25 @@
   --muted: #9aa1b5;
   --line: #2c3654;
   --accent: #f4b942;
+  --leaf-line: #7fae6a;
+}
+
+/* Menu overlay: navy by day, the page colour at night; the header follows while it's covered */
+.scheme-menu,
+[data-menu-ink] [data-header] {
+  --bg: #1f2b47;
+  --paper: #1c2540;
+  --ink: #f5eedf;
+  --muted: #a3a9ba;
+  --line: #2c3654;
+  --accent: #f4b942;
+  --leaf-line: #7fae6a;
+}
+.night .scheme-menu,
+.night[data-menu-ink] [data-header] {
+  --bg: #141b2e;
+  --ink: #f3ead6;
+  --muted: #9aa1b5;
 }
 
 /* Day/night switch: the whole page crossfades in one go (see src/scripts/app.ts) */

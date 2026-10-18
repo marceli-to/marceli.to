@@ -41,6 +41,8 @@ const de = {
     about: 'Über mich',
     contact: 'Kontakt',
     language: 'Sprache',
+    open: 'Menü öffnen',
+    close: 'Menü schliessen',
   },
   lights: { label: 'Licht an- und ausschalten', title: 'Licht an/aus' },
   hero: {
@@ -131,6 +133,8 @@ const en: Strings = {
     about: 'About',
     contact: 'Contact',
     language: 'Language',
+    open: 'Open menu',
+    close: 'Close menu',
   },
   lights: { label: 'Turn the lights on and off', title: 'Lights on/off' },
   hero: {

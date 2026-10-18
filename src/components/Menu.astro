@@ -1,0 +1,46 @@
+---
+// Burger menu overlay: fades in, then the links follow. It sits inside the header, behind the bar,
+// so logo and burger stay on top.
+// Opening, closing and the header colour swap are in src/scripts/app.ts.
+import LangSwitch from './LangSwitch.astro';
+import Lights from './Lights.astro';
+import { contact } from '../data/site';
+import { getLang, useStrings } from '../data/i18n';
+
+const t = useStrings(getLang(Astro.currentLocale));
+
+const links = [
+  { href: `${t.home}#${t.ids.projects}`, label: t.nav.projects, line: 'hover:decoration-brick aria-[current=true]:decoration-brick' },
+  { href: `${t.home}#${t.ids.about}`, label: t.nav.about, line: 'hover:decoration-lamp aria-[current=true]:decoration-lamp' },
+  { href: `${t.home}#${t.ids.contact}`, label: t.nav.contact, line: 'hover:decoration-leaf-line aria-[current=true]:decoration-leaf-line' },
+];
+
+---
+
+<div id="menu" class="group/menu scheme-menu fixed inset-0 bg-bg invisible opacity-0 data-open:visible data-open:opacity-100 transition-[opacity,visibility] duration-300">
+  <nav aria-label={t.nav.label} class="relative h-full max-w-[1200px] mx-auto px-20 md:px-32 pt-120 md:pt-160 pb-32 md:pb-48 flex flex-col justify-between gap-y-40 text-ink">
+    <ul class="space-y-8 md:space-y-12">
+      {links.map((link, index) => (
+        <li
+          class="opacity-0 translate-y-24 group-data-open/menu:opacity-100 group-data-open/menu:translate-y-0 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
+          style={`--i:${index}`}>
+          <a
+            href={link.href}
+            data-nav
+            class:list={['text-5xl md:text-6xl font-medium tracking-tight leading-[1.15] underline [text-decoration-skip-ink:none] decoration-transparent decoration-3 md:decoration-4 underline-offset-[10px] md:underline-offset-[14px]', link.line]}>
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div
+      class="flex items-center justify-between gap-x-24 opacity-0 group-data-open/menu:opacity-100 transition-opacity duration-500 delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
+      style="--i:3">
+      <a href={`mailto:${contact.email}`} class="text-md md:text-lg underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-leaf-line">{contact.email}</a>
+      <div class="flex items-center gap-x-20">
+        <LangSwitch />
+        <Lights />
+      </div>
+    </div>
+  </nav>
+</div>

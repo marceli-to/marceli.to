@@ -1,0 +1,30 @@
+---
+// Three lines (same weight as the lamp) that turn into an X
+import { getLang, useStrings } from '../data/i18n';
+
+interface Props {
+  controls: string;
+}
+
+const { controls } = Astro.props;
+const t = useStrings(getLang(Astro.currentLocale));
+const line = 'origin-center [transform-box:fill-box] transition-[translate,rotate,scale] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]';
+---
+
+<button
+  type="button"
+  data-menu-toggle
+  aria-expanded="false"
+  aria-controls={controls}
+  aria-label={t.nav.open}
+  data-label-open={t.nav.open}
+  data-label-close={t.nav.close}
+  class="group relative -mr-8 size-40 grid place-items-center cursor-pointer text-ink">
+  <svg viewBox="0 0 24 24" class="size-24 overflow-visible" aria-hidden="true">
+    <g fill="currentColor">
+      <rect x="3" y="6.2" width="18" height="1.6" rx="0.8" class:list={[line, 'group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45']} />
+      <rect x="8" y="11.2" width="13" height="1.6" rx="0.8" class:list={[line, 'group-hover:-translate-x-[5px] group-aria-expanded:scale-x-0']} />
+      <rect x="3" y="16.2" width="18" height="1.6" rx="0.8" class:list={[line, 'group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45']} />
+    </g>
+  </svg>
+</button>
