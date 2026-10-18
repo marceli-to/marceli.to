@@ -1,6 +1,6 @@
 ---
 import { Image, Picture, getImage } from 'astro:assets';
-import LinkBreak from './icons/LinkBreak.astro';
+import OfflineBadge from './OfflineBadge.astro';
 import { description, displayName, domain, shortName, type Project } from '../lib/projects';
 import { getLang, useStrings } from '../data/i18n';
 
@@ -62,7 +62,7 @@ const linkAttributes = (project: Project) =>
               <span class="hidden md:block md:col-span-4 text-sm text-muted truncate">{text}</span>
               <span class="hidden md:block md:col-span-2 font-mono text-xs text-muted truncate">{agency}</span>
               {project.data.offline ? (
-                <span class="md:col-span-1 justify-self-end"><LinkBreak class="block size-16 fill-muted" /></span>
+                <span class="md:col-span-1 justify-self-end"><OfflineBadge /></span>
               ) : (
                 <span class="md:col-span-1 justify-self-end text-muted group-hover:text-accent group-hover:translate-x-2 group-hover:-translate-y-2 transition" aria-hidden="true">↗</span>
               )}
@@ -99,16 +99,17 @@ const linkAttributes = (project: Project) =>
               />
             </div>
             <div class="md:col-span-5 mt-20 md:mt-0 xl:mt-20 px-4 md:px-0 xl:px-4">
-              <h3 class="font-semibold text-lg md:text-xl leading-tight group-hover:text-accent transition-colors">{name}</h3>
+              <h3 class="font-semibold text-lg md:text-xl leading-tight group-hover:text-accent transition-colors">
+                {name}
+                {project.data.offline && <span class="ml-8 align-[3px]"><OfflineBadge /></span>}
+              </h3>
               <p class="mt-4 text-sm md:text-md text-muted leading-[1.45] text-pretty">{text}</p>
               <p class="mt-8 font-mono text-xs text-muted">
                 {agency && <>Design: {agency} · </>}
-                {project.data.offline ? (
-                  <LinkBreak class="inline-block size-14 align-[-2px] fill-muted" />
-                ) : (
-                  <span class="text-ink whitespace-nowrap"><span class="underline decoration-line underline-offset-4 group-hover:decoration-accent">{domain(project.data.link)}</span></span>
+                {!project.data.offline && (
+                  <><span class="text-ink whitespace-nowrap"><span class="underline decoration-line underline-offset-4 group-hover:decoration-accent">{domain(project.data.link)}</span></span>&nbsp;· </>
                 )}
-                <span class="whitespace-nowrap">&nbsp;· {project.data.year}</span>
+                <span class="whitespace-nowrap">{project.data.year}</span>
               </p>
             </div>
           </Card>

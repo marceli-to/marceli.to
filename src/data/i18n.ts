@@ -21,7 +21,7 @@ const de = {
   lang: 'de-CH',
   locale: 'de_CH',
   home: '/',
-  title: 'marceli.to – Marcel Stadelmann, Webentwicklung in Zürich',
+  title: 'Marcel Stadelmann – Websites und digitale Abläufe, Zürich',
   description:
     'Marcel Stadelmann entwickelt Websites und digitale Abläufe für Designstudios, Agenturen, Kulturinstitutionen, KMU und Verwaltungen. Selbständig in Zürich seit 2016.',
   ogImageAlt: 'Hoi, ich bin Marcel. Ich entwickle Websites und digitale Abläufe, die halten, was sie versprechen.',
@@ -114,7 +114,7 @@ const en: Strings = {
   lang: 'en',
   locale: 'en_GB',
   home: '/en/',
-  title: 'marceli.to – Marcel Stadelmann, web development in Zürich',
+  title: 'Marcel Stadelmann – websites and digital workflows, Zürich',
   description:
     'Marcel Stadelmann builds websites and digital workflows for design studios, agencies, cultural institutions, small businesses and public administrations. Self-employed in Zürich since 2016.',
   ogImageAlt: 'Hi, I’m Marcel. I build websites and digital workflows that deliver what they promise.',
