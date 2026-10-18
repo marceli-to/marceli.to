@@ -86,7 +86,7 @@ const de = {
   },
   legal: { imprint: 'Impressum', privacy: 'Datenschutz', label: 'Rechtliches' },
   footer: {
-    question: 'Ein Projekt im Kopf?',
+    question: 'Ein Projekt oder ein Ablauf, der zu viel Zeit frisst?',
     cta: 'Schreib mir',
     builtWith: 'Gebaut mit',
     love: 'Liebe',
@@ -173,7 +173,7 @@ const en: Strings = {
   },
   legal: { imprint: 'Imprint', privacy: 'Privacy policy', label: 'Legal' },
   footer: {
-    question: 'Got a project in mind?',
+    question: 'Got a project or a workflow that takes too much time?',
     cta: 'Drop me a line',
     builtWith: 'Built with',
     love: 'love',
