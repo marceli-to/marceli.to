@@ -10,16 +10,16 @@ import { getLang, useStrings } from '../data/i18n';
 const t = useStrings(getLang(Astro.currentLocale));
 
 const links = [
-  { href: `${t.home}#${t.ids.projects}`, label: t.nav.projects, line: 'hover:decoration-brick aria-[current=true]:decoration-brick' },
-  { href: `${t.home}#${t.ids.about}`, label: t.nav.about, line: 'hover:decoration-lamp aria-[current=true]:decoration-lamp' },
-  { href: `${t.home}#${t.ids.contact}`, label: t.nav.contact, line: 'hover:decoration-leaf-line aria-[current=true]:decoration-leaf-line' },
+  { href: `${t.home}#${t.ids.projects}`, label: t.nav.projects, line: 'hover:decoration-brick aria-[current=true]:text-brick' },
+  { href: `${t.home}#${t.ids.about}`, label: t.nav.about, line: 'hover:decoration-lamp aria-[current=true]:text-lamp' },
+  { href: `${t.home}#${t.ids.contact}`, label: t.nav.contact, line: 'hover:decoration-leaf-line aria-[current=true]:text-leaf-line' },
 ];
 
 ---
 
 <div id="menu" class="group/menu scheme-menu fixed inset-0 bg-bg invisible opacity-0 data-open:visible data-open:opacity-100 transition-[opacity,visibility] duration-300">
   <nav aria-label={t.nav.label} class="relative h-full max-w-[1200px] mx-auto px-20 md:px-32 pt-120 md:pt-160 pb-32 md:pb-48 flex flex-col justify-between gap-y-40 text-ink">
-    <ul class="space-y-8 md:space-y-12">
+    <ul class="space-y-20 md:space-y-28">
       {links.map((link, index) => (
         <li
           class="opacity-0 translate-y-24 group-data-open/menu:opacity-100 group-data-open/menu:translate-y-0 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
