@@ -13,10 +13,10 @@ const link = 'underline [text-decoration-skip-ink:none] decoration-transparent d
 
 <footer id={t.ids.contact} class="w-full border-t border-line mt-96 md:mt-160">
   <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96 pb-40">
-    <h2 class="text-4xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.2] md:leading-[1.04] text-balance max-w-[16ch]">
+    <h2 data-reveal class="text-4xl md:text-6xl font-bold tracking-[-0.03em] leading-[1.2] md:leading-[1.04] text-balance max-w-[16ch]">
       {t.footer.question} <a href={`mailto:${contact.email}`} class="whitespace-nowrap underline [text-decoration-skip-ink:none] decoration-leaf night:decoration-[#7fae6a] decoration-[0.1em] underline-offset-[0.14em] hover:text-leaf night:hover:text-[#7fae6a] transition-colors">{t.footer.cta}</a>.
     </h2>
-    <div class="mt-80 md:mt-120 pt-32 border-t border-line flex flex-col sm:flex-row sm:items-start justify-between gap-32 text-sm leading-[1.6]">
+    <div data-reveal class="mt-80 md:mt-120 pt-32 border-t border-line flex flex-col sm:flex-row sm:items-start justify-between gap-32 text-sm leading-[1.6]">
       <address class="not-italic text-muted flex flex-col items-start gap-y-2">
         <span>{contact.name}</span>
         <span>{contact.street}</span>

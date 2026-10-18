@@ -17,7 +17,7 @@ const t = useStrings(getLang(Astro.currentLocale));
   <Menu />
   <div class="relative max-w-[1200px] mx-auto px-20 md:px-32 h-64 md:h-80 flex items-center justify-between gap-x-24">
     <!-- Only the logo fades out when scrolling down, the burger stays -->
-    <a href={t.home} class="text-ink hover:text-accent transition-[color,opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-hidden/header:opacity-0 group-data-hidden/header:-translate-y-8 group-data-hidden/header:pointer-events-none" title={t.nav.home}>
+    <a href={t.home} class="text-ink hover:text-accent transition-[color,opacity,translate] duration-500 ease-out group-data-hidden/header:opacity-0 group-data-hidden/header:-translate-y-8 group-data-hidden/header:pointer-events-none" title={t.nav.home}>
       <Logo class="block w-[132px] md:w-[168px] h-auto" />
     </a>
     <Burger controls="menu" />

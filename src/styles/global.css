@@ -26,6 +26,10 @@
   --text-4xl: 2.75rem;
   --text-5xl: 3.75rem;
   --text-6xl: 5rem;
+
+  /* One motion curve for the whole site: quick start, long soft landing */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --default-transition-timing-function: var(--ease-out);
 }
 
 /* Fonts come from Astro's font API (astro.config.mjs); surface colours switch with the lights */
@@ -84,13 +88,13 @@
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.6s;
-  animation-timing-function: ease;
+  animation-timing-function: var(--ease-out);
 }
 
 /* Portrait: dim the scene and switch on its lamps at night */
 .portrait-night {
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s var(--ease-out);
 }
 .night .portrait-night {
   opacity: 1;
@@ -123,13 +127,13 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-fade {
-    animation: hero-fade 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: hero-fade 0.8s var(--ease-out) both;
   }
   .hero-pop {
     animation: hero-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
   }
   .hero-tint {
-    animation: hero-tint 0.6s ease var(--d) both;
+    animation: hero-tint 0.6s var(--ease-out) var(--d) both;
   }
   .hero-draw {
     animation: hero-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) 1.6s both;
@@ -137,7 +141,19 @@
   /* backwards only: once faded in, the scroll fades (opacity classes) take over again */
   .hero-chrome,
   [data-intro] > div:last-child > * {
-    animation: hero-chrome 0.6s ease 2.3s backwards;
+    animation: hero-chrome 0.6s var(--ease-out) 2.3s backwards;
+  }
+}
+
+/* Scroll reveal: [data-reveal] blocks rise in once as they enter the viewport (see src/scripts/app.ts).
+   Only with JS, so the page never stays blank, and never with reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    transition: opacity 0.9s var(--ease-out), translate 0.9s var(--ease-out);
+  }
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 0;
+    translate: 0 24px;
   }
 }
 

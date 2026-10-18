@@ -34,7 +34,7 @@ const linkAttributes = (project: Project) =>
 ---
 
 <section id={t.ids.projects} class="scroll-mt-96 max-w-[1200px] mx-auto px-20 md:px-32">
-  <div class="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_1fr] items-baseline gap-x-24 border-b border-line pb-16">
+  <div data-reveal class="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_1fr] items-baseline gap-x-24 border-b border-line pb-16">
     <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">{t.projects.title}</h2>
     <span class="hidden sm:inline font-mono text-xs text-muted">{t.projects.count(projects.length)} · {Math.min(...years)}–{Math.max(...years)}</span>
     <div role="group" aria-label={t.projects.view} class="justify-self-end flex items-baseline gap-x-16 text-sm md:text-md font-medium">
@@ -49,7 +49,7 @@ const linkAttributes = (project: Project) =>
       {items.map(({ project, name, text, agency, preview }) => {
         const Row = project.data.offline ? 'div' : 'a';
         return (
-          <li data-project data-older={isOlder(project) || undefined} hidden={isOlder(project)} class="border-b border-line">
+          <li data-project data-reveal data-older={isOlder(project) || undefined} hidden={isOlder(project)} class="border-b border-line">
             <Row
               {...linkAttributes(project)}
               data-preview-src={preview}
@@ -73,7 +73,7 @@ const linkAttributes = (project: Project) =>
     </ul>
     <div data-preview class="fixed top-0 left-0 z-50 w-[380px] pointer-events-none opacity-0 scale-90 -rotate-3 transition-[opacity,scale,rotate] duration-200 data-visible:opacity-100 data-visible:scale-100 data-visible:rotate-2" aria-hidden="true">
       <div class="bg-paper p-6 rounded-[14px] ring-1 ring-line shadow-[0_24px_48px_-16px_rgb(31_43_71/0.4)]">
-        <img alt="" class="block w-full aspect-[16/10] object-cover object-top rounded-[9px]" />
+        <img alt="" class="block w-full aspect-[16/10] object-cover object-top rounded-[8px]" />
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@ const linkAttributes = (project: Project) =>
       {items.map(({ project, name, text, agency }, index) => {
         const Card = project.data.offline ? 'div' : 'a';
         return (
-          <Card {...linkAttributes(project)} data-older={isOlder(project) || undefined} hidden={isOlder(project)} class:list={[!project.data.offline && 'group', 'block md:grid md:grid-cols-12 md:gap-x-40 md:items-center xl:block']}>
+          <Card {...linkAttributes(project)} data-reveal data-older={isOlder(project) || undefined} hidden={isOlder(project)} class:list={[!project.data.offline && 'group', 'block md:grid md:grid-cols-12 md:gap-x-40 md:items-center xl:block']}>
             <div class:list={['md:col-span-7 bg-paper p-8 rounded-[16px] ring-1 ring-line shadow-[0_16px_32px_-20px_rgb(31_43_71/0.3)] transition-[rotate,translate] duration-500 group-hover:rotate-0 group-hover:-translate-y-6', index % 2 ? 'rotate-1' : '-rotate-1']}>
               <Picture
                 src={project.data.image}
@@ -95,7 +95,7 @@ const linkAttributes = (project: Project) =>
                 widths={[480, 760, 1080, 1440]}
                 sizes="(min-width: 1280px) 560px, (min-width: 768px) 56vw, 100vw"
                 {...crop}
-                class="block w-full h-auto aspect-[16/10] object-cover object-top rounded-[10px] brightness-[0.9] night:brightness-[0.8] group-hover:brightness-100 group-focus-visible:brightness-100 transition-[filter] duration-500"
+                class="block w-full h-auto aspect-[16/10] object-cover object-top rounded-[8px] brightness-[0.9] night:brightness-[0.8] group-hover:brightness-100 group-focus-visible:brightness-100 transition-[filter] duration-500"
               />
             </div>
             <div class="md:col-span-5 mt-20 md:mt-0 xl:mt-20 px-4 md:px-0 xl:px-4">
@@ -119,7 +119,7 @@ const linkAttributes = (project: Project) =>
   </div>
 
   {projects.some(isOlder) && (
-    <div class="mt-40 md:mt-56 text-center">
+    <div data-reveal class="mt-40 md:mt-56 text-center">
       <button type="button" data-show-older class="text-sm md:text-md font-medium underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-line hover:decoration-brick cursor-pointer">
         {t.projects.showAll(projects.length)} <span aria-hidden="true">↓</span>
       </button>

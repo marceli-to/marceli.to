@@ -22,7 +22,7 @@ const links = [
     <ul class="space-y-16 md:space-y-28">
       {links.map((link, index) => (
         <li
-          class="opacity-0 translate-y-24 group-data-open/menu:opacity-100 group-data-open/menu:translate-y-0 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
+          class="opacity-0 translate-y-24 group-data-open/menu:opacity-100 group-data-open/menu:translate-y-0 transition-[opacity,translate] duration-500 ease-out delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
           style={`--i:${index}`}>
           <a
             href={link.href}

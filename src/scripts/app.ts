@@ -19,6 +19,20 @@ document.querySelectorAll<HTMLButtonElement>('[data-lights-toggle]').forEach((bu
   button.addEventListener('click', () => setLights(!root.classList.contains('night')));
 });
 
+// Scroll reveal: blocks rise in once as they enter; ones arriving together follow each other
+const reveal = new IntersectionObserver((entries) => {
+  entries
+    .filter((entry) => entry.isIntersecting)
+    .forEach((entry, index) => {
+      const element = entry.target as HTMLElement;
+      element.style.transitionDelay = `${Math.min(index, 6) * 70}ms`;
+      element.dataset.revealed = '';
+      reveal.unobserve(element);
+    });
+}, { rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('[data-reveal]').forEach((element) => reveal.observe(element));
+
 // Project index: screenshot preview follows the cursor
 const preview = document.querySelector<HTMLElement>('[data-preview]');
 const previewImage = preview?.querySelector('img');
