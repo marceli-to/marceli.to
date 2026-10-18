@@ -19,7 +19,7 @@ const links = [
 
 <div id="menu" class="group/menu scheme-menu fixed inset-0 bg-bg invisible opacity-0 data-open:visible data-open:opacity-100 transition-[opacity,visibility] duration-300">
   <nav aria-label={t.nav.label} class="relative h-full max-w-[1200px] mx-auto px-20 md:px-32 pt-120 md:pt-160 pb-32 md:pb-48 flex flex-col justify-between gap-y-40 text-ink">
-    <ul class="space-y-20 md:space-y-28">
+    <ul class="space-y-16 md:space-y-28">
       {links.map((link, index) => (
         <li
           class="opacity-0 translate-y-24 group-data-open/menu:opacity-100 group-data-open/menu:translate-y-0 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
@@ -27,7 +27,7 @@ const links = [
           <a
             href={link.href}
             data-nav
-            class:list={['text-5xl md:text-6xl font-medium tracking-tight leading-[1.15] underline [text-decoration-skip-ink:none] decoration-transparent decoration-3 md:decoration-4 underline-offset-[10px] md:underline-offset-[14px]', link.line]}>
+            class:list={['text-4xl md:text-6xl font-medium tracking-tight leading-[1.15] underline [text-decoration-skip-ink:none] decoration-transparent decoration-3 md:decoration-4 underline-offset-[10px] md:underline-offset-[14px]', link.line]}>
             {link.label}
           </a>
         </li>

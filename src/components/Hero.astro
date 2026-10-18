@@ -7,7 +7,7 @@ const t = useStrings(getLang(Astro.currentLocale));
 ---
 
 <section class="relative max-w-[1200px] mx-auto px-20 md:px-32 min-h-[calc(100svh-64px)] md:min-h-[calc(100svh-80px)] flex flex-col justify-center pt-40 pb-120">
-  <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] leading-[1.14] md:leading-[1.08] max-w-[18ch] md:max-w-[22ch] text-balance">
+  <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] leading-[1.22] md:leading-[1.08] max-w-[18ch] md:max-w-[22ch] text-balance">
     {t.hero.hi} <span class="whitespace-nowrap"><a href={`#${t.ids.about}`} title={t.nav.about} class="inline-block align-[-0.08em] md:align-[-0.12em] size-[0.86em] md:size-[1em] rounded-full overflow-hidden ring-4 ring-lamp hover:animate-[wobble_0.6s_ease-in-out] mr-12"><Image src={marcel} alt="Marcel" width={192} height={192} loading="eager" fetchpriority="high" class="size-full object-cover scale-[1.25] origin-[56%_42%]" /></a>Marcel.</span><br />
     {t.hero.build} <span class="text-accent">{t.hero.websites}</span> {t.hero.and} <span class="text-leaf night:text-lamp">{t.hero.workflows}</span>{t.hero.that} <span class="underline [text-decoration-skip-ink:none] decoration-lamp decoration-[0.12em] underline-offset-[0.12em]">{t.hero.keep}</span>{t.hero.pause} <span class="md:whitespace-nowrap">{t.hero.promise}.</span>
   </h1>
