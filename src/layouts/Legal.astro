@@ -16,7 +16,7 @@ const { title, description } = Astro.props;
   <Header />
   <main class="flex-1 w-full max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96">
     <h1 class="text-4xl md:text-5xl font-bold tracking-[-0.03em] leading-[1.12] md:leading-[1.08] text-balance">{title}</h1>
-    <article class="mt-40 md:mt-56 max-w-[68ch] text-muted text-pretty [&_h2]:mt-48 [&_h2]:mb-12 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_p+p]:mt-12 [&_a]:text-ink [&_a]:underline [&_a]:[text-decoration-skip-ink:none] [&_a]:decoration-lamp [&_a]:decoration-2 [&_a]:underline-offset-4">
+    <article class="mt-40 md:mt-56 max-w-[68ch] text-muted text-pretty [&_h2]:mt-48 [&_h2]:mb-12 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_p+p]:mt-12 [&_a]:text-ink [&_a]:underline [&_a]:[text-decoration-skip-ink:none] [&_a]:decoration-lamp [&_a]:decoration-2 [&_a]:underline-offset-4 [&_a]:transition-colors [&_a:hover]:text-lamp">
       <slot />
     </article>
   </main>
