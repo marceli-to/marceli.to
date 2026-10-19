@@ -194,6 +194,10 @@ if (menuButton && menu) {
     button.setAttribute('aria-expanded', String(open));
     button.setAttribute('aria-label', (open ? button.dataset.labelClose : button.dataset.labelOpen) ?? '');
     document.querySelectorAll<HTMLElement>('body > :not([data-header], script)').forEach((element) => (element.inert = open));
+    // Locking the scroll removes the scrollbar; keep its width as padding so the page doesn't jump
+    const scrollbar = open ? `${window.innerWidth - root.clientWidth}px` : '';
+    root.style.setProperty('--scrollbar', scrollbar);
+    root.style.paddingRight = scrollbar;
     root.style.overflow = open ? 'hidden' : '';
 
     if (open) {
