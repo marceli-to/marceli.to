@@ -36,8 +36,9 @@ ln -s "$PWD/node_modules" "$STAGE/node_modules"
 chmod -R u=rwX,go=rX "$STAGE/dist"
 
 echo "Uploading…"
-ssh "$HOST" "mkdir -p '$DEST'"
+# One connection (one password prompt): the remote side creates the web root before rsync starts
 rsync -rlptz --delete "${DRY_RUN[@]}" \
+  --rsync-path "mkdir -p '$DEST' && rsync" \
   --filter 'protect /.well-known/' \
   "$STAGE/dist/" "$HOST:$DEST/"
 
