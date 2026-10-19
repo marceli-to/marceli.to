@@ -15,8 +15,8 @@
 
   /* Font sizes without a paired line-height, as in the v3 config */
   --text-*: initial;
-  --text-xxs: 0.625rem;
-  --text-xs: 0.75rem;
+  --text-xxs: 0.6875rem;
+  --text-xs: 0.8125rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
   --text-lg: 1.125rem;
@@ -50,7 +50,7 @@
   --bg: #f5eedf;
   --paper: #fbf8f1;
   --ink: #1f2b47;
-  --muted: #646a7c;
+  --muted: #4b5266;
   --line: #e3d9c4;
   --accent: #d9563f;
   --leaf-line: #4f7a3f;
