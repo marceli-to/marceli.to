@@ -15,3 +15,7 @@ npm-debug.log*
 /.idea
 /.vscode
 /.fleet
+
+# local agent tooling
+/.claude
+/.skills
