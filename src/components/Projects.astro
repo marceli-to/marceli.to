@@ -35,7 +35,7 @@ const linkAttributes = (project: Project) =>
 
 <section id={t.ids.projects} class="scroll-mt-96 max-w-[1200px] mx-auto px-20 md:px-32">
   <div data-reveal class="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_1fr] items-baseline gap-x-24 border-b border-line pb-16">
-    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">{t.projects.title}</h2>
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.01em]">{t.projects.title}</h2>
     <span class="hidden sm:inline font-mono text-xs text-muted">{t.projects.count(projects.length)} · {Math.min(...years)}–{Math.max(...years)}</span>
     <div role="group" aria-label={t.projects.view} class="justify-self-end flex items-baseline gap-x-16 text-sm md:text-md font-medium">
       <button type="button" data-view-button="list" aria-pressed="true" class="text-muted aria-pressed:text-ink underline [text-decoration-skip-ink:none] decoration-2 underline-offset-[6px] decoration-transparent hover:decoration-brick aria-pressed:decoration-brick cursor-pointer">{t.projects.list}</button>

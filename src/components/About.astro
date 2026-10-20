@@ -15,7 +15,7 @@ const [before, after] = [t.about.headline.before, t.about.headline.after].map((t
 
 <section id={t.ids.about} class="scroll-mt-64 md:scroll-mt-80 w-full border-t border-line mt-96 md:mt-160">
   <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96">
-    <h2 data-reveal class="text-3xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.2] md:leading-[1.12] max-w-[22ch] text-balance">
+    <h2 data-reveal class="text-3xl md:text-5xl font-semibold tracking-[-0.01em] leading-[1.2] md:leading-[1.12] max-w-[22ch] text-balance">
       {before.map((part, index) => <>{index > 0 && <br class="hidden md:inline" />}{part}</>)}<span class="whitespace-nowrap underline [text-decoration-skip-ink:none] decoration-lamp decoration-[0.1em] underline-offset-[0.14em]">{t.about.headline.underlined}</span>{after.map((part, index) => <>{index > 0 && <br class="hidden md:inline" />}{part}</>)}
     </h2>
 
@@ -44,10 +44,10 @@ const [before, after] = [t.about.headline.before, t.about.headline.after].map((t
 
     <div data-reveal class="mt-72 md:mt-120">
       <p class="font-mono text-xs text-muted">{t.about.workedWith}</p>
-      <p class="mt-16 text-xl md:text-3xl font-medium tracking-[-0.01em] leading-[1.45] text-balance">
+      <p class="mt-16 text-xl md:text-3xl font-medium leading-[1.45] text-balance">
         {agencies.map((name, index) => (
           <>
-            <span class="whitespace-nowrap">{name}{index < agencies.length - 1 && <>&nbsp;<span class="text-muted font-normal" aria-hidden="true">·</span></>}</span>{' '}
+            <span class="whitespace-nowrap">{name}{index < agencies.length - 1 && <>&nbsp;<span class="text-muted font-light" aria-hidden="true">·</span></>}</span>{' '}
           </>
         ))}
         <span class="text-muted">{t.about.andMore}</span>

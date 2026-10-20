@@ -34,7 +34,7 @@
 
 /* Fonts come from Astro's font API (astro.config.mjs); surface colours switch with the lights */
 @theme inline {
-  --font-sans: var(--font-figtree);
+  --font-sans: var(--font-pangram);
   --font-mono: var(--font-dm-mono);
 
   --color-bg: var(--bg);

@@ -28,17 +28,21 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: { allowedHosts: ['marceli.to.test'] },
   },
-  // Self-hosted from the installed Fontsource files, with metric-matched fallbacks.
+  // Self-hosted (Pangram from src/assets/fonts, DM Mono from Fontsource), with metric-matched fallbacks.
   // Latin only: German and every name on the site (ä, ü, à, –) fall within it.
   fonts: [
     {
+      // The logo's typeface. There is no Regular, so Light carries the body text.
       provider: fontProviders.local(),
-      name: 'Figtree',
-      cssVariable: '--font-figtree',
+      name: 'PP Pangram Sans Rounded',
+      cssVariable: '--font-pangram',
       fallbacks: ['ui-sans-serif', 'system-ui', 'sans-serif'],
       options: {
         variants: [
-          { src: ['@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2'], weight: '300 900', style: 'normal' },
+          { src: ['./src/assets/fonts/PPPangramSansRounded-Light.woff2'], weight: 300, style: 'normal' },
+          { src: ['./src/assets/fonts/PPPangramSansRounded-Medium.woff2'], weight: 500, style: 'normal' },
+          { src: ['./src/assets/fonts/PPPangramSansRounded-Semibold.woff2'], weight: 600, style: 'normal' },
+          { src: ['./src/assets/fonts/PPPangramSansRounded-Bold.woff2'], weight: 700, style: 'normal' },
         ],
       },
     },
