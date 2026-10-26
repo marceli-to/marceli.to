@@ -25,25 +25,25 @@ const [before, after] = [t.about.headline.before, t.about.headline.after].map((t
           {t.about.text.map((paragraph) => <p>{paragraph}</p>)}
         </div>
         <dl class="mt-40 grid grid-cols-[auto_1fr] gap-x-32 gap-y-12 text-md">
-          <dt class="font-mono text-xs text-muted pt-4">{t.about.role}</dt>
+          <dt class="font-mono font-normal text-xs text-muted pt-4">{t.about.role}</dt>
           <dd>{t.about.roleText}</dd>
-          <dt class="font-mono text-xs text-muted pt-4">{t.about.tools}</dt>
+          <dt class="font-mono font-normal text-xs text-muted pt-4">{t.about.tools}</dt>
           <dd>Laravel, Statamic, Vue.js, Tailwind CSS, Claude, MCP</dd>
-          <dt class="font-mono text-xs text-muted pt-4">{t.about.also}</dt>
+          <dt class="font-mono font-normal text-xs text-muted pt-4">{t.about.also}</dt>
           <dd>{t.about.founder.before}<a href={kimiyu.url} class="underline [text-decoration-skip-ink:none] decoration-lamp decoration-2 underline-offset-[5px] hover:text-lamp transition-colors">{kimiyu.name}</a>{t.about.founder.after}</dd>
         </dl>
       </div>
       <div data-reveal class="md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9 relative max-w-[360px] md:max-w-none w-full mx-auto">
         <figure class="group/portrait bg-paper p-12 pb-0 rounded-[20px] shadow-[0_24px_48px_-24px_rgb(31_43_71/0.35)] ring-1 ring-line rotate-2 hover:rotate-0 transition-transform duration-500">
           <Portrait class="rounded-[8px]" />
-          <figcaption class="font-mono text-xs text-muted py-12 px-4">Marcel Stadelmann</figcaption>
+          <figcaption class="font-mono font-normal text-xs text-muted py-12 px-4">Marcel Stadelmann</figcaption>
         </figure>
-        <span class="absolute -left-8 md:-left-32 top-24 -rotate-6 rounded-full bg-lamp text-navy font-mono text-xs px-12 py-6 shadow-sm">{t.about.sticker}</span>
+        <span class="absolute -left-8 md:-left-32 top-24 -rotate-6 rounded-full bg-lamp text-navy font-mono font-normal text-xs px-12 py-6 shadow-sm">{t.about.sticker}</span>
       </div>
     </div>
 
     <div data-reveal class="mt-72 md:mt-120">
-      <p class="font-mono text-xs text-muted">{t.about.workedWith}</p>
+      <p class="font-mono font-normal text-xs text-muted">{t.about.workedWith}</p>
       <p class="mt-16 text-xl md:text-3xl font-medium leading-[1.45] text-balance">
         {agencies.map((name, index) => (
           <>

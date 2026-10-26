@@ -118,7 +118,7 @@ const jsonLd = {
     <script is:inline>document.documentElement.classList.add('js'); if (localStorage.getItem('lights') === 'night') document.documentElement.classList.add('night')</script>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-bg text-ink antialiased flex flex-col min-h-screen font-sans font-light text-md lg:text-lg leading-[1.55] selection:bg-lamp selection:text-navy">
+  <body class="bg-bg text-ink antialiased flex flex-col min-h-screen font-sans font-medium text-md lg:text-lg leading-[1.55] selection:bg-lamp selection:text-navy">
     <slot />
     <script>
       import '../scripts/app';

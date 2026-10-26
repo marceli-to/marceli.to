@@ -31,8 +31,8 @@ const link = 'underline [text-decoration-skip-ink:none] decoration-transparent d
         <LangSwitch />
       </nav>
     </div>
-    <p class="mt-56 md:mt-72 text-center font-mono text-xs text-muted">© {year} – {t.footer.builtWith} <Heart label={t.footer.love} class="inline-block size-14 align-[-2px] fill-accent" /> {t.footer.in}</p>
-    <nav aria-label={t.legal.label} class="mt-12 text-center font-mono text-xs text-muted">
+    <p class="mt-56 md:mt-72 text-center font-mono font-normal text-xs text-muted">© {year} – {t.footer.builtWith} <Heart label={t.footer.love} class="inline-block size-14 align-[-2px] fill-accent" /> {t.footer.in}</p>
+    <nav aria-label={t.legal.label} class="mt-12 text-center font-mono font-normal text-xs text-muted">
       <a href={pages.imprint[lang]} class:list={['hover:text-lamp hover:decoration-lamp', link]}>{t.legal.imprint}</a>{' · '}<a href={pages.privacy[lang]} class:list={['hover:text-lamp hover:decoration-lamp', link]}>{t.legal.privacy}</a>
     </nav>
   </div>
