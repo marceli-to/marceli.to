@@ -1,0 +1,53 @@
+---
+// Frequently asked questions: native <details>, so it works without JavaScript and opens with find-in-page.
+// The same questions go into the JSON-LD (FAQPage, src/components/Home.astro) and llms.txt.
+import { answerParts } from '../lib/faq';
+import { getLang, useStrings } from '../data/i18n';
+
+const t = useStrings(getLang(Astro.currentLocale));
+---
+
+<section id={t.ids.faq} class="scroll-mt-64 md:scroll-mt-80 w-full border-t border-line mt-96 md:mt-160">
+  <div class="max-w-[1200px] mx-auto px-20 md:px-32 pt-64 md:pt-96 grid md:grid-cols-12 gap-y-40 gap-x-32 items-start">
+    <h2 data-reveal class="md:col-span-4 text-3xl md:text-5xl font-semibold tracking-[-0.01em] leading-[1.2] md:leading-[1.12] text-balance">{t.faq.title}</h2>
+    <div data-reveal class="md:col-span-8 border-t border-line">
+      {t.faq.items.map((item) => (
+        <details name="faq" class="group/faq border-b border-line">
+          <summary class="flex items-start justify-between gap-x-24 py-20 md:py-24 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-lg md:text-xl font-medium leading-[1.35] text-pretty">
+            <span class="underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] group-hover/faq:decoration-line transition-[text-decoration-color]">{item.q}</span>
+            <svg aria-hidden="true" viewBox="0 0 16 16" class="shrink-0 size-16 mt-[0.3em] stroke-current text-muted group-hover/faq:text-ink group-open/faq:rotate-45 transition-[rotate,color] duration-300" fill="none" stroke-width="1.6" stroke-linecap="round">
+              <path d="M8 2v12M2 8h12" />
+            </svg>
+          </summary>
+          <p class="pb-24 md:pb-28 pr-40 text-muted text-pretty max-w-[60ch]">
+            {answerParts(item.a).map((part) => part.href
+              ? <a href={part.href} class="text-ink underline [text-decoration-skip-ink:none] decoration-leaf-line decoration-2 underline-offset-[5px] hover:text-leaf-line transition-colors">{part.text}</a>
+              : part.text)}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Smooth open/close where the browser supports animating to height: auto */
+  @supports (interpolate-size: allow-keywords) {
+    details {
+      interpolate-size: allow-keywords;
+    }
+    details::details-content {
+      height: 0;
+      overflow: clip;
+      transition: height 300ms var(--ease-out), content-visibility 300ms allow-discrete;
+    }
+    details[open]::details-content {
+      height: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      details::details-content {
+        transition: none;
+      }
+    }
+  }
+</style>

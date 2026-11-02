@@ -12,6 +12,7 @@ const t = useStrings(getLang(Astro.currentLocale));
 const links = [
   { href: `${t.home}#${t.ids.projects}`, label: t.nav.projects, line: 'hover:decoration-brick aria-[current=true]:text-brick' },
   { href: `${t.home}#${t.ids.about}`, label: t.nav.about, line: 'hover:decoration-lamp aria-[current=true]:text-lamp' },
+  { href: `${t.home}#${t.ids.faq}`, label: t.nav.faq, line: 'hover:decoration-current aria-[current=true]:decoration-current' },
   { href: `${t.home}#${t.ids.contact}`, label: t.nav.contact, line: 'hover:decoration-leaf-line aria-[current=true]:text-leaf-line' },
 ];
 
@@ -35,7 +36,7 @@ const links = [
     </ul>
     <div
       class="flex items-center justify-between gap-x-24 opacity-0 group-data-open/menu:opacity-100 transition-opacity duration-500 delay-0 group-data-open/menu:delay-[calc(100ms+var(--i)*60ms)]"
-      style="--i:3">
+      style="--i:4">
       <a href={`mailto:${contact.email}`} class="text-md md:text-lg underline [text-decoration-skip-ink:none] decoration-transparent decoration-2 underline-offset-[6px] hover:decoration-leaf-line">{contact.email}</a>
       <div class="flex items-center gap-x-20">
         <LangSwitch />

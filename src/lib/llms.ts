@@ -1,5 +1,6 @@
 import { contact, site } from '../data/site';
 import { pages, useStrings, type Lang } from '../data/i18n';
+import { answerMarkdown } from './faq';
 import { description, displayName, getAgencies, getProjects, shortName } from './projects';
 
 /** A plain Markdown summary of the site for language models (https://llmstxt.org) */
@@ -35,6 +36,10 @@ ${getAgencies(projects).join(', ')} ${t.about.andMore}
 ## ${t.projects.title} (${projects.length})
 
 ${lines.join('\n')}
+
+## ${t.faq.title}
+
+${t.faq.items.map((item) => `### ${item.q}\n\n${answerMarkdown(item.a)}`).join('\n\n')}
 
 ## ${t.llms.pages}
 

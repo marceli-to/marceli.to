@@ -32,13 +32,14 @@ const de = {
     knowsAbout: ['Webentwicklung', 'Digitalisierung von Abläufen', 'Automatisierung', 'Künstliche Intelligenz'],
   },
   // Section anchors
-  ids: { projects: 'arbeiten', about: 'about', contact: 'kontakt' },
+  ids: { projects: 'arbeiten', about: 'about', faq: 'fragen', contact: 'kontakt' },
   nav: {
     label: 'Hauptnavigation',
     footerLabel: 'Fussnavigation',
     home: 'Startseite',
     projects: 'Arbeiten',
     about: 'Über mich',
+    faq: 'Fragen',
     contact: 'Kontakt',
     language: 'Sprache',
     open: 'Menü öffnen',
@@ -86,6 +87,52 @@ const de = {
     workedWith: 'Zusammengearbeitet mit',
     andMore: 'und viele mehr.',
   },
+  faq: {
+    title: 'Häufige Fragen',
+    // Answers may link: {email} for the contact address, [text](url) for anything else (src/lib/faq.ts)
+    items: [
+      {
+        q: 'Für wen arbeitest du?',
+        a: 'Für Designstudios und Agenturen, die einen technischen Partner brauchen, und direkt für Kulturinstitutionen, KMU und Verwaltungen. Oft gestaltet ein Studio, und ich setze um und halte die Technik zusammen.',
+      },
+      {
+        q: 'Gestaltest du auch?',
+        a: 'Nein, das überlasse ich Leuten, die es besser können. Wenn du noch niemanden für die Gestaltung hast, bringe ich dich mit Studios zusammen, mit denen ich gearbeitet habe und denen ich vertraue: [Jam’on digital](https://jamon.digital), [WBG](https://wbg.ch), [Bivgrafik](https://bivgrafik.ch) und [Marion Kähler](https://www.marionkaehler.com/).',
+      },
+      {
+        q: 'Kannst du meine vibecodete Website reparieren?',
+        a: 'Manchmal. Ich schaue sie mir zuerst an und sage dir ehrlich, ob sich Flicken lohnt. Oft ist es günstiger und besser, sauber neu zu bauen, als ein wackliges Fundament zu stützen.',
+      },
+      {
+        q: 'Ist Programmieren dank KI nicht viel günstiger geworden?',
+        a: 'Doch, Code zu schreiben kostet heute fast nichts mehr. Du bezahlst mich aber nicht fürs Tippen, sondern für das, was davor und danach kommt: zu wissen, was gebaut werden soll, wie es sicher und wartbar wird und wann die KI danebenliegt. Mit dieser Erfahrung und KI als Werkzeug bin ich heute schneller als je zuvor, und davon profitierst du direkt.',
+      },
+      {
+        q: 'Arbeitest du selbst mit KI?',
+        a: 'Jeden Tag, vor allem mit Claude. Die KI schreibt einen grossen Teil des Codes, ich entscheide, prüfe und trage die Verantwortung. Zwei eigene Apps, Joey und Wallaby, sind vollständig mit KI entstanden.',
+      },
+      {
+        q: 'Was heisst «KI einbauen» konkret?',
+        a: 'KI dort, wo sie tatsächlich Arbeit abnimmt: als Assistent, der Fragen beantwortet oder Inhalte vorbereitet, in automatisierten Abläufen, oder damit KI-Agenten eine Website lesen und bedienen können.',
+      },
+      {
+        q: 'Finden ChatGPT und andere KI-Assistenten meine Website?',
+        a: 'Nur wenn sie sie lesen können. Ich sorge für sauber strukturierte Inhalte, ergänze strukturierte Daten und eine llms.txt und mache die Website auf Wunsch über WebMCP für KI-Agenten bedienbar. So wie diese hier.',
+      },
+      {
+        q: 'Was passiert, wenn du länger ausfällst?',
+        a: 'Dann übernimmt Karsten Zingg von [Jam’on digital](https://jamon.digital). Wir arbeiten eng zusammen, er kennt meine Projekte und kann jederzeit einspringen.',
+      },
+      {
+        q: 'Was kostet ein Projekt?',
+        a: 'Mein Stundensatz liegt bei CHF\u00a0150. Bei grösseren Vorhaben schätze ich den Aufwand vorher ab, damit du weisst, woran du bist.',
+      },
+      {
+        q: 'Wie fangen wir an?',
+        a: 'Mit einer E-Mail an {email}: ein paar Sätze zum Vorhaben, zum Zeitrahmen und dazu, wer sonst noch beteiligt ist, reichen.',
+      },
+    ],
+  },
   legal: { imprint: 'Impressum', privacy: 'Datenschutz', label: 'Rechtliches' },
   footer: {
     question: 'Ein Projekt oder ein Ablauf, der zu viel Zeit frisst?',
@@ -103,7 +150,7 @@ const de = {
     address: 'Adresse',
     pages: 'Seiten',
     homeLink: 'Startseite',
-    homeText: 'Arbeiten, Über mich, Kontakt',
+    homeText: 'Arbeiten, Über mich, Häufige Fragen, Kontakt',
     otherLanguage: 'English version',
   },
 };
@@ -124,13 +171,14 @@ const en: Strings = {
     description: 'Self-employed web developer in Zürich: technical lead, consulting, implementation, automation and AI.',
     knowsAbout: ['Web development', 'Workflow digitisation', 'Automation', 'Artificial intelligence'],
   },
-  ids: { projects: 'work', about: 'about', contact: 'contact' },
+  ids: { projects: 'work', about: 'about', faq: 'faq', contact: 'contact' },
   nav: {
     label: 'Main navigation',
     footerLabel: 'Footer navigation',
     home: 'Home',
     projects: 'Work',
     about: 'About',
+    faq: 'FAQ',
     contact: 'Contact',
     language: 'Language',
     open: 'Open menu',
@@ -175,6 +223,51 @@ const en: Strings = {
     workedWith: 'Worked with',
     andMore: 'and many more.',
   },
+  faq: {
+    title: 'Frequently asked questions',
+    items: [
+      {
+        q: 'Who do you work for?',
+        a: 'For design studios and agencies that need a technical partner, and directly for cultural institutions, small businesses and public administrations. Often a studio does the design, and I build it and hold the technical side together.',
+      },
+      {
+        q: 'Do you also do design?',
+        a: 'No, I leave that to people who do it better. If you don’t have anyone for the design yet, I’ll put you in touch with studios I’ve worked with and trust: [Jam’on digital](https://jamon.digital), [WBG](https://wbg.ch), [Bivgrafik](https://bivgrafik.ch) and [Marion Kähler](https://www.marionkaehler.com/).',
+      },
+      {
+        q: 'Can you fix my vibe-coded website?',
+        a: 'Sometimes. I take a look first and tell you honestly whether patching it up is worth it. Often it’s cheaper and better to rebuild it properly than to prop up a shaky foundation.',
+      },
+      {
+        q: 'Hasn’t writing code become much cheaper with AI?',
+        a: 'It has, writing code costs next to nothing today. But you don’t pay me for typing, you pay me for what comes before and after: knowing what to build, how to make it secure and maintainable, and when the AI gets it wrong. With that experience and AI as a tool, I’m faster than ever, and you benefit directly.',
+      },
+      {
+        q: 'Do you use AI yourself?',
+        a: 'Every day, mostly Claude. The AI writes a large part of the code; I decide, review and take responsibility. Two of my own apps, Joey and Wallaby, were built entirely with AI.',
+      },
+      {
+        q: 'What does “building in AI” actually mean?',
+        a: 'AI where it actually takes work off people’s hands: as an assistant that answers questions or prepares content, in automated workflows, or so that AI agents can read and use a website.',
+      },
+      {
+        q: 'Will ChatGPT and other AI assistants find my website?',
+        a: 'Only if they can read it. I make sure the content is cleanly structured, add structured data and an llms.txt, and, if you like, make the website usable for AI agents through WebMCP. Just like this one.',
+      },
+      {
+        q: 'What if you’re unavailable for a longer time?',
+        a: 'Then Karsten Zingg of [Jam’on digital](https://jamon.digital) takes over. We work closely together, he knows my projects and can step in at any time.',
+      },
+      {
+        q: 'What does a project cost?',
+        a: 'My hourly rate is CHF\u00a0150. For larger projects I estimate the effort up front, so you know where you stand.',
+      },
+      {
+        q: 'How do we get started?',
+        a: 'With an email to {email}: a few sentences about the project, the timeline and who else is involved are enough.',
+      },
+    ],
+  },
   legal: { imprint: 'Imprint', privacy: 'Privacy policy', label: 'Legal' },
   footer: {
     question: 'Got a project or a workflow that takes too much time?',
@@ -192,7 +285,7 @@ const en: Strings = {
     address: 'Address',
     pages: 'Pages',
     homeLink: 'Home',
-    homeText: 'Work, About, Contact',
+    homeText: 'Work, About, FAQ, Contact',
     otherLanguage: 'Deutsche Version',
   },
 };

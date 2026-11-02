@@ -5,9 +5,11 @@ import Header from './Header.astro';
 import Hero from './Hero.astro';
 import Projects from './Projects.astro';
 import About from './About.astro';
+import Faq from './Faq.astro';
 import Footer from './Footer.astro';
 import { contact, site } from '../data/site';
 import { getLang, useStrings } from '../data/i18n';
+import { answerText } from '../lib/faq';
 import { description, displayName, getAgencies, getProjects, shortName } from '../lib/projects';
 
 const lang = getLang(Astro.currentLocale);
@@ -47,14 +49,27 @@ const projectList = {
     },
   })),
 };
+
+// The FAQ for search engines and agents (same text as src/components/Faq.astro)
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': `${new URL(t.home, site.url).href}#${t.ids.faq}`,
+  inLanguage: t.lang,
+  mainEntity: t.faq.items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: answerText(item.a) },
+  })),
+};
 ---
 
-<Base graph={[projectList]}>
+<Base graph={[projectList, faqPage]}>
   <Header intro />
   <main class="flex-1 w-full">
     <Hero />
     <Projects projects={projects} />
     <About agencies={getAgencies(projects)} />
+    <Faq />
   </main>
   <Footer />
   <script type="application/json" id="site-data" set:html={JSON.stringify(siteData)} />
