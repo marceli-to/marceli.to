@@ -109,7 +109,7 @@ const de = {
       },
       {
         q: 'Arbeitest du selbst mit KI?',
-        a: 'Jeden Tag, vor allem mit Claude. Die KI schreibt einen grossen Teil des Codes, ich entscheide, prüfe und trage die Verantwortung. Zwei eigene Apps, Joey und Wallaby, sind vollständig mit KI entstanden.',
+        a: 'Jeden Tag, vor allem mit Claude. Die KI schreibt einen grossen Teil des Codes, ich entscheide, prüfe und trage die Verantwortung. Alle Apps meines Studios [Kimiyu](https://kimiyu.ch), darunter Joey, Wallaby und Roxy, sind vollständig mit KI entstanden.',
       },
       {
         q: 'Was heisst «KI einbauen» konkret?',
@@ -244,7 +244,7 @@ const en: Strings = {
       },
       {
         q: 'Do you use AI yourself?',
-        a: 'Every day, mostly Claude. The AI writes a large part of the code; I decide, review and take responsibility. Two of my own apps, Joey and Wallaby, were built entirely with AI.',
+        a: 'Every day, mostly Claude. The AI writes a large part of the code; I decide, review and take responsibility. All the apps from my studio [Kimiyu](https://kimiyu.ch), Joey, Wallaby and Roxy among them, were built entirely with AI.',
       },
       {
         q: 'What does “building in AI” actually mean?',
