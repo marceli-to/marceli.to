@@ -27,13 +27,14 @@ const link = 'underline [text-decoration-skip-ink:none] decoration-transparent d
       <nav aria-label={t.nav.footerLabel} class="flex flex-col items-start sm:items-end gap-y-10 font-medium">
         <a href={`${t.home}#${t.ids.projects}`} class:list={['hover:decoration-brick', link]}>{t.nav.projects}</a>
         <a href={`${t.home}#${t.ids.about}`} class:list={['hover:decoration-lamp', link]}>{t.nav.about}</a>
+        <a href={`${t.home}#${t.ids.faq}`} class:list={['hover:decoration-current', link]}>{t.nav.faq}</a>
         <a href={`${t.home}#${t.ids.contact}`} class:list={['hover:decoration-leaf night:hover:decoration-[#7fae6a]', link]}>{t.nav.contact}</a>
         <LangSwitch />
       </nav>
     </div>
     <p class="mt-56 md:mt-72 text-center font-mono font-normal text-xs text-muted">© {year} – {t.footer.builtWith} <Heart label={t.footer.love} class="inline-block size-14 align-[-2px] fill-accent" /> {t.footer.in}</p>
     <nav aria-label={t.legal.label} class="mt-12 text-center font-mono font-normal text-xs text-muted">
-      <a href={pages.imprint[lang]} class:list={['hover:text-lamp hover:decoration-lamp', link]}>{t.legal.imprint}</a>{' · '}<a href={pages.privacy[lang]} class:list={['hover:text-lamp hover:decoration-lamp', link]}>{t.legal.privacy}</a>
+      <a href={pages.imprint[lang]} class="hover:text-leaf night:hover:text-lamp transition-colors">{t.legal.imprint}</a>{' · '}<a href={pages.privacy[lang]} class="hover:text-leaf night:hover:text-lamp transition-colors">{t.legal.privacy}</a>
     </nav>
   </div>
 </footer>
