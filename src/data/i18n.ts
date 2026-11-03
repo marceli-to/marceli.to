@@ -101,15 +101,15 @@ const de = {
       },
       {
         q: 'Kannst du meine vibecodete Website reparieren?',
-        a: 'Manchmal. Ich schaue sie mir zuerst an und sage dir ehrlich, ob sich Flicken lohnt. Oft ist es günstiger und besser, sauber neu zu bauen, als ein wackliges Fundament zu stützen.',
+        a: 'Manchmal reicht Aufräumen, manchmal ist neu bauen günstiger. Ich schaue sie mir an und sage dir ehrlich, was sich lohnt.',
       },
       {
         q: 'Ist Programmieren dank KI nicht viel günstiger geworden?',
-        a: 'Doch, Code zu schreiben kostet heute fast nichts mehr. Du bezahlst mich aber nicht fürs Tippen, sondern für das, was davor und danach kommt: zu wissen, was gebaut werden soll, wie es sicher und wartbar wird und wann die KI danebenliegt. Mit dieser Erfahrung und KI als Werkzeug bin ich heute schneller als je zuvor, und davon profitierst du direkt.',
+        a: 'Doch, Code zu schreiben kostet heute deutlich weniger. Du bezahlst mich aber nicht fürs Tippen, sondern für das, was davor und danach kommt: zu wissen, was gebaut werden soll, wie es sicher und wartbar wird und wann die KI danebenliegt. Mit dieser Erfahrung und KI als Werkzeug bin ich heute schneller als je zuvor, und davon profitierst du direkt.',
       },
       {
         q: 'Arbeitest du selbst mit KI?',
-        a: 'Jeden Tag, vor allem mit Claude. Die KI schreibt einen grossen Teil des Codes, ich entscheide, prüfe und trage die Verantwortung. Alle Apps meines Studios [Kimiyu](https://kimiyu.ch), darunter Joey, Wallaby und Roxy, sind vollständig mit KI entstanden.',
+        a: 'Jeden Tag, vor allem mit Claude. Die KI schreibt einen grossen Teil des Codes, ich entscheide, prüfe und trage die Verantwortung. So sind auch alle Apps meines Studios [Kimiyu](https://kimiyu.ch) entstanden, darunter Joey, Wallaby und Roxy: der Code von der KI, Konzept, Architektur und Qualität von mir.',
       },
       {
         q: 'Was heisst «KI einbauen» konkret?',
@@ -236,15 +236,15 @@ const en: Strings = {
       },
       {
         q: 'Can you fix my vibe-coded website?',
-        a: 'Sometimes. I take a look first and tell you honestly whether patching it up is worth it. Often it’s cheaper and better to rebuild it properly than to prop up a shaky foundation.',
+        a: 'Sometimes a cleanup is enough, sometimes rebuilding is cheaper. I take a look and tell you honestly what’s worth it.',
       },
       {
         q: 'Hasn’t writing code become much cheaper with AI?',
-        a: 'It has, writing code costs next to nothing today. But you don’t pay me for typing, you pay me for what comes before and after: knowing what to build, how to make it secure and maintainable, and when the AI gets it wrong. With that experience and AI as a tool, I’m faster than ever, and you benefit directly.',
+        a: 'It has, writing code costs a lot less today. But you don’t pay me for typing, you pay me for what comes before and after: knowing what to build, how to make it secure and maintainable, and when the AI gets it wrong. With that experience and AI as a tool, I’m faster than ever, and you benefit directly.',
       },
       {
         q: 'Do you use AI yourself?',
-        a: 'Every day, mostly Claude. The AI writes a large part of the code; I decide, review and take responsibility. All the apps from my studio [Kimiyu](https://kimiyu.ch), Joey, Wallaby and Roxy among them, were built entirely with AI.',
+        a: 'Every day, mostly Claude. The AI writes a large part of the code; I decide, review and take responsibility. That’s also how all the apps from my studio [Kimiyu](https://kimiyu.ch) were made, Joey, Wallaby and Roxy among them: the code by the AI, the concept, architecture and quality by me.',
       },
       {
         q: 'What does “building in AI” actually mean?',
