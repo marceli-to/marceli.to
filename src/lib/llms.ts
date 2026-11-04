@@ -1,7 +1,7 @@
 import { contact, site } from '../data/site';
 import { pages, useStrings, type Lang } from '../data/i18n';
 import { answerMarkdown } from './faq';
-import { description, displayName, getAgencies, getProjects, shortName } from './projects';
+import { description, displayName, getAgencies, getProjects, projectUrl, shortName } from './projects';
 
 /** A plain Markdown summary of the site for language models (https://llmstxt.org) */
 export async function llmsTxt(lang: Lang): Promise<Response> {
@@ -12,7 +12,8 @@ export async function llmsTxt(lang: Lang): Promise<Response> {
   const lines = projects.map((project) => {
     const { data } = project;
     const name = displayName(project);
-    const title = data.offline ? `${name} (offline)` : `[${name}](${data.link})`;
+    const url = projectUrl(project);
+    const title = url ? `[${name}](${url})` : data.offline ? `${name} (offline)` : name;
     const studio = data.agency ? `, Design: ${shortName(data.agency)}` : '';
     return `- ${title} – ${data.year}${studio}. ${description(project, lang).replace(/\s+/g, ' ')}`;
   });

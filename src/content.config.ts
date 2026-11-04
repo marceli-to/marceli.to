@@ -13,7 +13,8 @@ const projects = defineCollection({
       // Concept/design studio
       agency: z.string().optional(),
       year: z.union([z.number().int(), z.string()]),
-      link: z.url(),
+      // Leave it out for a project without a public page (e.g. an app behind a login)
+      link: z.url().optional(),
       // The site is no longer online: listed with its screenshot, but without a link
       offline: z.boolean().default(false),
       description: z.string(),

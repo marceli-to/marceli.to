@@ -10,7 +10,7 @@ import Footer from './Footer.astro';
 import { contact, site } from '../data/site';
 import { getLang, useStrings } from '../data/i18n';
 import { answerText } from '../lib/faq';
-import { description, displayName, getAgencies, getProjects, shortName } from '../lib/projects';
+import { description, displayName, getAgencies, getProjects, projectUrl, shortName } from '../lib/projects';
 
 const lang = getLang(Astro.currentLocale);
 const t = useStrings(lang);
@@ -24,7 +24,7 @@ const siteData = {
     client: project.data.client,
     studio: project.data.agency ? shortName(project.data.agency) : null,
     year: project.data.year,
-    url: project.data.offline ? null : project.data.link,
+    url: projectUrl(project) ?? null,
     offline: project.data.offline,
     description: description(project, lang),
   })),
@@ -43,7 +43,7 @@ const projectList = {
       name: displayName(project),
       description: description(project, lang),
       dateCreated: String(project.data.year),
-      ...(project.data.offline ? {} : { url: project.data.link }),
+      ...(projectUrl(project) ? { url: projectUrl(project) } : {}),
       creator: { '@id': `${site.url}/#person` },
       ...(project.data.agency ? { contributor: { '@type': 'Organization', name: shortName(project.data.agency) } } : {}),
     },

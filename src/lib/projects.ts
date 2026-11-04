@@ -22,6 +22,11 @@ export function description(project: Project, lang: Lang): string {
   return (lang === 'en' && project.data.descriptionEn) || project.data.description;
 }
 
+/** The link to the project, or undefined when it is offline or has none. */
+export function projectUrl(project: Project): string | undefined {
+  return project.data.offline ? undefined : project.data.link;
+}
+
 export function domain(url: string): string {
   return url.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
 }
